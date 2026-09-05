@@ -1,1 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réservez Casa Lobelie — Réservation Directe</title>
+<meta name="description" content="Vérifiez la disponibilité et réservez Casa Lobelie directement en ligne, avec paiement sécurisé et confirmation immédiate.">
+<link rel="canonical" href="https://casalobelie.it/reserver/">
+<meta name="theme-color" content="#0d4a78">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Casa Lobelie">
+<meta property="og:title" content="Réservez Casa Lobelie — Réservation Directe">
+<meta property="og:description" content="Vérifiez la disponibilité et réservez Casa Lobelie directement en ligne, avec paiement sécurisé et confirmation immédiate.">
+<meta property="og:url" content="https://casalobelie.it/reserver/">
+<meta property="og:image" content="https://casalobelie.it/images/portico-ottavia.jpg">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Alex+Brush&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3a2a20;
+    --ink-soft:#6b5c4d;
+    --cream:#fbf3e6;
+    --cream-deep:#f3e6d2;
+    --line:#ecdcc4;
+    --terracotta:#0d4a78;
+    --terracotta-deep:#08395d;
+    --green:#3f6b4f;
+    --gold:#a37830;
+    --berry:#a83246;
+    --radius:18px;
+    --radius-sm:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',Georgia,serif;
+    font-optical-sizing:auto;
+    font-weight:500;
+    margin:0 0 .5em 0;
+    line-height:1.15;
+    letter-spacing:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+  section{padding:80px 0;}
 
+  svg.icon{width:22px;height:22px;stroke:var(--terracotta-deep);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:1160px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .logo-mark{display:flex;flex-direction:column;line-height:1;flex-shrink:0;text-decoration:none;}
+  .logo-mark .casa{font-family:'Nunito Sans',sans-serif;font-weight:800;color:var(--terracotta-deep);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;display:block;}
+  .logo-mark .script{font-family:'Alex Brush',cursive;font-size:2.15rem;color:var(--terracotta-deep);line-height:1;display:block;margin-top:-2px;}
+  .logo-mark .tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-top:2px;font-weight:700;}
+  .logo-mark .tag::before{content:"\2022\00a0";}
+  .logo-mark .tag::after{content:"\00a0\2022";}
+  nav.links{display:flex;gap:30px;font-size:.9rem;font-weight:700;}
+  nav.links a{text-decoration:none;color:var(--ink-soft);transition:color .2s;}
+  nav.links a:hover{color:var(--terracotta-deep);}
+  nav.links a.active{color:var(--terracotta-deep);}
+  .nav-cta{background:var(--terracotta);color:#fff;padding:12px 26px;border-radius:30px;font-size:.85rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:all .25s;box-shadow:0 6px 16px -4px rgba(13,74,120,.45);}
+  .nav-cta:hover{background:var(--terracotta-deep);transform:translateY(-1px);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .lang-switch{display:flex;border:1.5px solid var(--line);border-radius:20px;overflow:hidden;font-size:.78rem;font-weight:800;}
+  .lang-switch a{padding:8px 14px;text-decoration:none;color:var(--ink-soft);}
+  .lang-switch a.active{background:var(--terracotta);color:#fff;}
+  .lang-switch a:hover:not(.active){background:var(--cream-deep);}
+  #menuToggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:14px;}
+  #menuToggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:all .25s;}
+  .mobile-links{display:none;flex-direction:column;padding:8px 32px 26px;border-top:1px solid var(--line);background:var(--cream);}
+  .mobile-links.open{display:flex;}
+  .mobile-links a{padding:15px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);font-size:.95rem;font-weight:700;}
+  .mobile-links a.mobile-cta{color:var(--terracotta-deep);}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;text-decoration:none;font-size:.9rem;font-weight:700;border-radius:30px;transition:all .25s ease;border:1.5px solid transparent;}
+  .btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -6px rgba(13,74,120,.5);}
+  .btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
+  .btn-outline-dark{border-color:var(--ink);color:var(--ink);}
+  .btn-outline-dark:hover{background:var(--ink);color:var(--cream);}
+
+  footer{background:var(--ink);color:#c9bcae;padding:60px 0 30px;font-size:.9rem;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:36px;}
+  footer .col-title{margin-bottom:12px;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#ffd9a8;font-weight:700;}
+  footer a{text-decoration:none;color:#c9bcae;}
+  footer a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:.8rem;opacity:.7;}
+  .footer-bottom a{text-decoration:underline;color:#c9bcae;}
+  .footer-bottom a:hover{color:#fff;}
+
+  /* BOOKING PAGE */
+  .book-hero{background:var(--terracotta);color:#fff;padding:60px 0 52px;text-align:center;}
+  .book-hero h1{color:#fff;font-size:2.3rem;margin-bottom:.35em;}
+  .book-hero .subtitle{color:#fbeee0;max-width:640px;margin:0 auto;font-size:1.05rem;}
+
+  .book-widget{background:#fff;padding:48px 0 80px;}
+  .trust-line{text-align:center;color:var(--ink-soft);font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin:0 0 32px;}
+  .smoobu-wrap{width:100%;}
+  .smoobu-wrap #apartmentIframeAll{width:100%;}
+  .smoobu-wrap #apartmentIframeAll iframe{width:100% !important;max-width:100%;border:0;display:block;}
+
+  @media (max-width: 900px){
+    nav.links{display:none;}
+    .nav-cta{display:none;}
+    #menuToggle{display:block;}
+    .logo-mark .script{font-size:1.7rem;}
+    .logo-mark .casa{font-size:.85rem;}
+    .logo-mark .tag{display:none;}
+    .book-hero h1{font-size:1.85rem;}
+    .book-hero{padding:48px 0 40px;}
+    .book-widget{padding:36px 0 60px;}
+    section{padding:56px 0;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 22px;}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/fr.html" class="logo-mark">
+      <span class="casa">Casa</span>
+      <span class="script">Lobelie</span>
+      <span class="tag">Location de Courte Durée</span>
+    </a>
+    <nav class="links">
+      <a href="/fr.html#benvenuti">Bienvenue</a>
+      <a href="/fr.html#spazi">L'Espace</a>
+      <a href="/fr.html#servizi">Services</a>
+      <a href="/fr.html#zona">Le Quartier</a>
+      <a href="/fr.html#recensioni">Avis</a>
+      <a href="/guida-fr.html">Notre Guide</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <a href="/prenota/">IT</a> <a href="/book/">EN</a> <a href="/reservar/">ES</a> <a href="/reserver/" class="active">FR</a>
+      </div>
+      <a class="nav-cta" href="/reserver/">Réserver</a>
+      <button id="menuToggle" aria-label="Ouvrir le menu" onclick="document.getElementById('mobileLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-links" id="mobileLinks">
+    <a href="/fr.html#benvenuti">Bienvenue</a>
+    <a href="/fr.html#spazi">L'Espace</a>
+    <a href="/fr.html#servizi">Services</a>
+    <a href="/fr.html#zona">Le Quartier</a>
+    <a href="/fr.html#recensioni">Avis</a>
+    <a href="/guida-fr.html">Notre Guide</a>
+    <a href="/reserver/" class="mobile-cta">Réserver</a>
+    <div style="display:flex;gap:8px;padding-top:14px;align-items:center;">
+      <a href="/prenota/" style="font-weight:700;color:var(--ink-soft);">IT</a> <a href="/book/" style="font-weight:700;color:var(--ink-soft);">EN</a> <a href="/reservar/" style="font-weight:700;color:var(--ink-soft);">ES</a> <a href="/reserver/" style="font-weight:800;color:var(--terracotta-deep);">FR</a>
+    </div>
+  </div>
+</header>
+
+<section class="book-hero">
+  <div class="wrap">
+    <h1>Réservez Casa Lobelie directement</h1>
+    <p class="subtitle">Vérifiez les disponibilités et les tarifs en temps réel. Réservation en ligne avec paiement sécurisé.</p>
+  </div>
+</section>
+
+<section class="book-widget">
+  <div class="wrap">
+    <p class="trust-line">Paiement en ligne sécurisé via Stripe • Confirmation immédiate • Réservation directe</p>
+    <div class="smoobu-wrap">
+<div id="apartmentIframeAll">
+<script type="text/javascript" src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
+<script>BookingToolIframe.initialize({"url": "https://login.smoobu.com/en/booking-tool/iframe/1881911", "baseUrl": "https://login.smoobu.com", "target": "#apartmentIframeAll"})</script>
+</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div style="font-family:'Nunito Sans',sans-serif;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;color:#fff;">Casa</div><div style="font-family:'Alex Brush',cursive;font-size:2rem;line-height:1;color:#ffd9a8;margin-top:-2px;margin-bottom:12px;">Lobelie</div>
+        <div>Via delle Lobelie, 20 — Rome, Italie</div>
+        <div style="margin-top:4px;font-size:.78rem;opacity:.75;">CIN: IT058091C2ODNCG79B</div>
+      </div>
+      <div>
+        <div class="col-title">Nous Sommes Aussi Sur</div>
+        <div><a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb</a></div>
+        <div><a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com</a></div>
+        <div><a href="https://wa.me/393335638730?text=Bonjour%2C%20je%20souhaiterais%20conna%C3%AEtre%20la%20disponibilit%C3%A9%20et%20le%20tarif%20direct%20pour%20Casa%20Lobelie." target="_blank" rel="noopener">WhatsApp</a></div>
+      </div>
+      <div>
+        <div class="col-title">Votre Hôte</div>
+        <div>Mario — vous accueille à Casa Lobelie depuis 2023</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span class="yr"></span> Casa Lobelie. Site indépendant, non affilié à Airbnb ou Booking.com. — <a href="/termini-fr.html">Conditions Générales</a> · <a href="/privacy-fr.html">Politique de Confidentialité</a>
+    </div>
+  </div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var yearEls = document.querySelectorAll('.yr');
+    for (var k=0;k<yearEls.length;k++){ yearEls[k].textContent = new Date().getFullYear(); }
+  });
+</script>
+</body>
+</html>
