@@ -105,6 +105,10 @@
   .book-hero{background:var(--terracotta);color:#fff;padding:60px 0 52px;text-align:center;}
   .book-hero h1{color:#fff;font-size:2.3rem;margin-bottom:.35em;}
   .book-hero .subtitle{color:#fbeee0;max-width:640px;margin:0 auto;font-size:1.05rem;}
+  .hero-included{margin:16px 0 0;font-size:.82rem;font-weight:700;letter-spacing:.02em;color:#ffe8cc;}
+  .hero-included .dot{color:var(--gold);margin:0 10px;font-weight:400;}
+  .hero-cancel-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:.82rem;padding:9px 20px;border-radius:30px;margin:18px 0 0;}
+  .hero-cancel-badge svg{width:16px;height:16px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 
   .book-widget{background:#fff;padding:48px 0 80px;}
   .smoobu-wrap{width:100%;}
@@ -141,6 +145,9 @@
     .book-hero{padding:48px 0 40px;}
     .book-widget{padding:36px 0 60px;}
     section{padding:56px 0;}
+    .hero-included{display:flex;flex-direction:column;gap:6px;}
+    .hero-included .dot{display:none;}
+    .hero-cancel-badge{font-size:.78rem;padding:8px 16px;text-align:left;}
     .trust-highlight{padding:30px 22px;margin:0 0 32px;}
     .trust-highlight h2{font-size:1.25rem;margin-bottom:22px;}
     .trust-grid{grid-template-columns:1fr;gap:14px;}
@@ -199,6 +206,8 @@
   <div class="wrap">
     <h1>Book Casa Lobelie directly</h1>
     <p class="subtitle">Check availability and real-time pricing. Secure online booking and payment.</p>
+    <p class="hero-included"><span class="ti">Entire apartment</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Private veranda</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Private wellness area</span></p>
+    <span class="hero-cancel-badge"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Free cancellation up to 5 days before arrival</span>
   </div>
 </section>
 
