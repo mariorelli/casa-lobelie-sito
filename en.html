@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Lobelie — Apartment in Rome, Alessandrino District</title>
-<meta name="description" content="Casa Lobelie: a peaceful oasis in Rome's Alessandrino district, with a private veranda and fully equipped kitchen — the ideal retreat to enjoy Rome away from the chaos of the centre. Book on Airbnb or Booking.">
+<title>Casa Lobelie — Rome Apartment with Private Veranda</title>
+<meta name="description" content="Casa Lobelie: vacation rental in Rome's Alessandrino district, with a private veranda and hot tub. Book directly with us, with no commission fees.">
 <link rel="canonical" href="https://casalobelie.it/en.html">
 <link rel="alternate" hreflang="it" href="https://casalobelie.it/">
 <link rel="alternate" hreflang="en" href="https://casalobelie.it/en.html">
@@ -16,14 +16,14 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Casa Lobelie">
-<meta property="og:title" content="Casa Lobelie — Apartment in Rome, Alessandrino District">
-<meta property="og:description" content="Casa Lobelie: a peaceful oasis in Rome's Alessandrino district, with a private veranda and fully equipped kitchen — the ideal retreat to enjoy Rome away from the chaos of the centre. Book on Airbnb or Booking.">
+<meta property="og:title" content="Casa Lobelie — Rome Apartment with Private Veranda">
+<meta property="og:description" content="Casa Lobelie: vacation rental in Rome's Alessandrino district, with a private veranda and hot tub. Book directly with us, with no commission fees.">
 <meta property="og:url" content="https://casalobelie.it/en.html">
 <meta property="og:image" content="https://casalobelie.it/images/veranda-hero.jpg">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Casa Lobelie — Apartment in Rome, Alessandrino District">
-<meta name="twitter:description" content="Casa Lobelie: a peaceful oasis in Rome's Alessandrino district, with a private veranda and fully equipped kitchen — the ideal retreat to enjoy Rome away from the chaos of the centre. Book on Airbnb or Booking.">
+<meta name="twitter:title" content="Casa Lobelie — Rome Apartment with Private Veranda">
+<meta name="twitter:description" content="Casa Lobelie: vacation rental in Rome's Alessandrino district, with a private veranda and hot tub. Book directly with us, with no commission fees.">
 <meta name="twitter:image" content="https://casalobelie.it/images/veranda-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,6 +152,32 @@
   .btn-dark:hover{background:var(--terracotta-deep);}
   .btn-outline-dark{border-color:var(--ink);color:var(--ink);}
   .btn-outline-dark:hover{background:var(--ink);color:var(--cream);}
+  .cta-row.cta-row-single{flex-direction:column;align-items:flex-start;gap:14px;}
+  .hero-note{font-size:.88rem;color:#fff8f0;font-weight:600;margin:0;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+
+  /* TRUST BAR */
+  .trust-bar{background:var(--cream-deep);border-bottom:1px solid var(--line);padding:22px 0;}
+  .trust-inner{text-align:center;}
+  .trust-inner h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--terracotta-deep);margin:0 0 6px;}
+  .trust-list{margin:0;font-size:.82rem;font-weight:700;line-height:1.8;color:var(--ink-soft);}
+  .trust-list .dot{color:var(--gold);margin:0 10px;font-weight:400;}
+  @media (max-width:700px){
+    .trust-list{display:flex;flex-direction:column;gap:4px;}
+    .trust-list .dot{display:none;}
+    .trust-list .ti{display:block;}
+  }
+
+  /* OTA RECALL BAND */
+  .ota-recall{background:var(--terracotta-deep);color:#fff;padding:64px 0;text-align:center;}
+  .ota-recall h3{font-family:'Fraunces',serif;font-size:1.7rem;color:#fff;margin-bottom:10px;font-weight:600;}
+  .ota-recall p{color:#f3ddc2;margin-bottom:26px;font-size:1rem;}
+  .ota-recall .btn-primary{background:#fff;color:var(--terracotta-deep);box-shadow:0 10px 24px -6px rgba(0,0,0,.35);}
+  .ota-recall .btn-primary:hover{background:var(--cream);color:var(--terracotta-deep);transform:translateY(-2px);}
+
+  /* OTA NOTE (secondary, low-emphasis) */
+  .prenota .cta-row{justify-content:center;margin-bottom:16px;}
+  .ota-note{font-size:.85rem;color:var(--ink-soft);margin:0 0 8px;}
+  .ota-note a{color:var(--terracotta-deep);font-weight:700;text-decoration:underline;}
 
   /* WELCOME */
   .welcome{background:#fff;}
@@ -221,6 +247,7 @@
   .cat .val{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--terracotta-deep);font-weight:600;}
   .cat .lab{font-size:.72rem;color:var(--ink-soft);margin-top:6px;font-weight:600;}
   .rev-note{margin-top:36px;font-size:.92rem;color:var(--ink-soft);font-style:italic;max-width:680px;}
+  .rev-note a{color:var(--terracotta-deep);font-weight:700;text-decoration:underline;}
 
   /* PRENOTA */
   .prenota{background:#fff;text-align:center;}
@@ -355,11 +382,17 @@
     <span class="eyebrow">Alessandrino District — Rome</span>
     <h1>A peaceful oasis in the heart of East Rome</h1>
     <p>As Rome drifts off to sleep, your veranda comes alive: soft lights, the hot tub all to yourselves, and the luxury of taking your time.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Book on Airbnb</a>
-      <a class="btn btn-primary" href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Book on Booking.com</a>
-      <a class="btn btn-primary" href="#richiedi">Check Availability</a>
+    <div class="cta-row cta-row-single">
+      <a class="btn btn-primary" href="#richiedi">Check Availability &amp; Direct Rate</a>
+      <p class="hero-note">Booking directly means no third-party commission fees.</p>
     </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="wrap trust-inner">
+    <h3>Book Directly with Casa Lobelie</h3>
+    <p class="trust-list"><span class="ti">Direct rate available</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Direct contact with the host</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Verified reviews</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Officially registered property</span></p>
   </div>
 </section>
 
@@ -544,7 +577,7 @@
       <div class="cat"><div class="val">4.7</div><div class="lab">Value</div></div>
       <div class="cat"><div class="val">4.0</div><div class="lab">Location</div></div>
     </div>
-    <p class="rev-note">Guests most often mention the hospitality, spotless cleanliness and convenient transport links as the highlights of Casa Lobelie. The original reviews can be read on the Airbnb listing.</p>
+    <p class="rev-note">Guests most often mention the hospitality, spotless cleanliness and convenient transport links as the highlights of Casa Lobelie. The original reviews can be read on the <a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb listing</a>.</p>
 
     <div class="section-head" style="margin-top:56px;padding-top:48px;border-top:2px solid var(--cream-deep);">
       <span class="eyebrow">What Guests Say</span>
@@ -566,7 +599,15 @@
       <div class="cat"><div class="val">8,3</div><div class="lab">Staff</div></div>
       <div class="cat"><div class="val">7,0</div><div class="lab">Location</div></div>
     </div>
-    <p class="rev-note">This score is calculated by Booking.com based on verified reviews from guests who stayed at Casa Lobelie. The original reviews can be read on the Booking.com listing.</p>
+    <p class="rev-note">This score is calculated by Booking.com based on verified reviews from guests who stayed at Casa Lobelie. The original reviews can be read on the <a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com listing</a>.</p>
+  </div>
+</section>
+
+<section class="ota-recall">
+  <div class="wrap">
+    <h3>Already found Casa Lobelie on Booking or Airbnb?</h3>
+    <p>Before you book, check our direct rate.</p>
+    <a class="btn btn-primary" href="#richiedi">Ask for the Direct Rate</a>
   </div>
 </section>
 
@@ -575,36 +616,29 @@
     <div class="section-head center">
       <span class="eyebrow">Book Your Stay</span>
       <div class="rule"></div>
-      <h2>Ready to experience Rome like home?</h2>
-      <p class="lead" style="margin:0 auto;">Check availability and book on whichever platform you prefer.</p>
+      <h2>Book Casa Lobelie Directly</h2>
+      <p class="lead" style="margin:0 auto;">Check availability and request our direct rate.</p>
+      <p class="lead" style="margin:12px auto 0;">By booking directly you speak with us with no intermediaries, and can check availability, terms and price before confirming.</p>
     </div>
-    <div class="book-cards">
-      <div class="book-card">
-        <h3>Airbnb</h3>
-        <p>Direct messaging, an up-to-date calendar and verified reviews.</p>
-        <a class="btn btn-primary" href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">View listing</a>
-      </div>
-      <div class="book-card">
-        <h3>Booking.com</h3>
-        <p>Flexible cancellation on many rates and pay-at-property options.</p>
-        <a class="btn btn-primary" href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">View listing</a>
-      </div>
-      <div class="book-card">
-        <h3>WhatsApp</h3>
-        <p>Message me directly for availability and commission-free direct bookings.</p>
-        <a class="btn btn-primary" href="https://wa.me/393335638730?text=Hi%20Mario%2C%20I%20would%20like%20some%20information%20about%20Casa%20Lobelie" target="_blank" rel="noopener">Message on WhatsApp</a>
-      </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#richiedi">Request Availability</a>
+      <a class="btn btn-outline-dark" href="https://wa.me/393335638730?text=Hello%2C%20I%27d%20like%20to%20know%20availability%20and%20the%20direct%20rate%20for%20Casa%20Lobelie." target="_blank" rel="noopener">Message on WhatsApp</a>
     </div>
+    <p class="ota-note">Prefer to use a platform? Casa Lobelie is also listed on <a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb</a> and <a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com</a>.</p>
     <div class="direct-request" id="richiedi">
       <div class="dr-intro">
-        <h3>Or request availability directly</h3>
-        <p>Fill in the form and we'll get back to you by email or WhatsApp, with no booking fees.</p>
+        <h3>Fill in the form below</h3>
+        <p>We'll get back to you directly with availability, terms and the rate for your stay.</p>
       </div>
       <form id="requestForm" onsubmit="return false;">
         <div class="form-grid">
           <div class="full-row">
             <label for="reqNome">Full name</label>
             <input type="text" id="reqNome" placeholder="Your name" required>
+          </div>
+          <div class="full-row">
+            <label for="reqEmail">Email</label>
+            <input type="email" id="reqEmail" placeholder="Your email" required>
           </div>
           <div>
             <label for="reqCheckin">Check-in</label>
@@ -617,6 +651,10 @@
           <div class="full-row">
             <label for="reqOspiti">Number of guests</label>
             <input type="number" id="reqOspiti" min="1" max="4" placeholder="E.g. 2" required>
+          </div>
+          <div class="full-row">
+            <label for="reqTelefono">Phone / WhatsApp (optional)</label>
+            <input type="tel" id="reqTelefono" placeholder="Your phone number">
           </div>
         </div>
         <div class="form-actions">
@@ -637,10 +675,10 @@
         <div style="margin-top:4px;font-size:.78rem;opacity:.75;">CIN: IT058091C2ODNCG79B</div>
       </div>
       <div>
-        <div class="col-title">Book</div>
+        <div class="col-title">We're Also On</div>
         <div><a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb</a></div>
         <div><a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com</a></div>
-        <div><a href="https://wa.me/393335638730?text=Hi%20Mario%2C%20I%20would%20like%20some%20information%20about%20Casa%20Lobelie" target="_blank" rel="noopener">WhatsApp</a></div>
+        <div><a href="https://wa.me/393335638730?text=Hello%2C%20I%27d%20like%20to%20know%20availability%20and%20the%20direct%20rate%20for%20Casa%20Lobelie." target="_blank" rel="noopener">WhatsApp</a></div>
       </div>
       <div>
         <div class="col-title">Your Host</div>
@@ -664,7 +702,7 @@
     <div class="modal-icon modal-icon-error">&#33;</div>
     <h3>Oops, something went wrong</h3>
     <p>We couldn't send your request. Please try again, or message us directly on WhatsApp.</p>
-    <a class="btn btn-primary" href="https://wa.me/393335638730" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn btn-primary" href="https://wa.me/393335638730?text=Hello%2C%20I%27d%20like%20to%20know%20availability%20and%20the%20direct%20rate%20for%20Casa%20Lobelie." target="_blank" rel="noopener">Message on WhatsApp</a>
     <button type="button" class="btn btn-outline-dark" onclick="closeErrorModal()">Close</button>
   </div>
 </div>
@@ -681,14 +719,20 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   function inviaRichiesta(metodo){
     var nome = document.getElementById('reqNome').value.trim();
+    var email = document.getElementById('reqEmail').value.trim();
+    var telefono = document.getElementById('reqTelefono').value.trim();
     var checkin = document.getElementById('reqCheckin').value;
     var checkout = document.getElementById('reqCheckout').value;
     var ospiti = document.getElementById('reqOspiti').value;
-    if(!nome || !checkin || !checkout || !ospiti){
-      alert('Please fill in all fields before sending your request.');
+    if(!nome || !email || !checkin || !checkout || !ospiti){
+      alert('Please fill in all required fields before sending your request.');
       return;
     }
-    var testo = 'Availability request - Casa Lobelie\nName: '+nome+'\nCheck-in: '+checkin+'\nCheck-out: '+checkout+'\nGuests: '+ospiti;
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      alert('Please enter a valid email address.');
+      return;
+    }
+    var testo = 'Availability request - Casa Lobelie\nName: '+nome+'\nEmail: '+email+(telefono ? '\nPhone: '+telefono : '')+'\nCheck-in: '+checkin+'\nCheck-out: '+checkout+'\nGuests: '+ospiti;
     if(metodo === 'whatsapp'){
       var msg = encodeURIComponent(testo);
       window.open('https://wa.me/393335638730?text='+msg, '_blank');
@@ -706,6 +750,8 @@
         subject: 'Availability request - Casa Lobelie',
         from_name: nome,
         nome: nome,
+        email: email,
+        telefono: telefono,
         checkin: checkin,
         checkout: checkout,
         ospiti: ospiti,

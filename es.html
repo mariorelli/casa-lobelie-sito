@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Lobelie — Apartamento en Roma, barrio Alessandrino</title>
-<meta name="description" content="Casa Lobelie: un oasis de paz en el barrio Alessandrino de Roma, con veranda privada y cocina totalmente equipada — el refugio ideal para disfrutar de Roma lejos del caos del centro. Reserva en Airbnb o Booking.">
+<title>Casa Lobelie — Apartamento en Roma con Veranda Privada</title>
+<meta name="description" content="Casa Lobelie: casa vacacional en Roma, barrio Alessandrino, con veranda privada y jacuzzi. Reserva directamente con nosotros, sin comisiones de intermediación.">
 <link rel="canonical" href="https://casalobelie.it/es.html">
 <link rel="alternate" hreflang="it" href="https://casalobelie.it/">
 <link rel="alternate" hreflang="en" href="https://casalobelie.it/en.html">
@@ -16,14 +16,14 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Casa Lobelie">
-<meta property="og:title" content="Casa Lobelie — Apartamento en Roma, barrio Alessandrino">
-<meta property="og:description" content="Casa Lobelie: un oasis de paz en el barrio Alessandrino de Roma, con veranda privada y cocina totalmente equipada — el refugio ideal para disfrutar de Roma lejos del caos del centro. Reserva en Airbnb o Booking.">
+<meta property="og:title" content="Casa Lobelie — Apartamento en Roma con Veranda Privada">
+<meta property="og:description" content="Casa Lobelie: casa vacacional en Roma, barrio Alessandrino, con veranda privada y jacuzzi. Reserva directamente con nosotros, sin comisiones de intermediación.">
 <meta property="og:url" content="https://casalobelie.it/es.html">
 <meta property="og:image" content="https://casalobelie.it/images/veranda-hero.jpg">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Casa Lobelie — Apartamento en Roma, barrio Alessandrino">
-<meta name="twitter:description" content="Casa Lobelie: un oasis de paz en el barrio Alessandrino de Roma, con veranda privada y cocina totalmente equipada — el refugio ideal para disfrutar de Roma lejos del caos del centro. Reserva en Airbnb o Booking.">
+<meta name="twitter:title" content="Casa Lobelie — Apartamento en Roma con Veranda Privada">
+<meta name="twitter:description" content="Casa Lobelie: casa vacacional en Roma, barrio Alessandrino, con veranda privada y jacuzzi. Reserva directamente con nosotros, sin comisiones de intermediación.">
 <meta name="twitter:image" content="https://casalobelie.it/images/veranda-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,6 +152,32 @@
   .btn-dark:hover{background:var(--terracotta-deep);}
   .btn-outline-dark{border-color:var(--ink);color:var(--ink);}
   .btn-outline-dark:hover{background:var(--ink);color:var(--cream);}
+  .cta-row.cta-row-single{flex-direction:column;align-items:flex-start;gap:14px;}
+  .hero-note{font-size:.88rem;color:#fff8f0;font-weight:600;margin:0;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+
+  /* TRUST BAR */
+  .trust-bar{background:var(--cream-deep);border-bottom:1px solid var(--line);padding:22px 0;}
+  .trust-inner{text-align:center;}
+  .trust-inner h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--terracotta-deep);margin:0 0 6px;}
+  .trust-list{margin:0;font-size:.82rem;font-weight:700;line-height:1.8;color:var(--ink-soft);}
+  .trust-list .dot{color:var(--gold);margin:0 10px;font-weight:400;}
+  @media (max-width:700px){
+    .trust-list{display:flex;flex-direction:column;gap:4px;}
+    .trust-list .dot{display:none;}
+    .trust-list .ti{display:block;}
+  }
+
+  /* OTA RECALL BAND */
+  .ota-recall{background:var(--terracotta-deep);color:#fff;padding:64px 0;text-align:center;}
+  .ota-recall h3{font-family:'Fraunces',serif;font-size:1.7rem;color:#fff;margin-bottom:10px;font-weight:600;}
+  .ota-recall p{color:#f3ddc2;margin-bottom:26px;font-size:1rem;}
+  .ota-recall .btn-primary{background:#fff;color:var(--terracotta-deep);box-shadow:0 10px 24px -6px rgba(0,0,0,.35);}
+  .ota-recall .btn-primary:hover{background:var(--cream);color:var(--terracotta-deep);transform:translateY(-2px);}
+
+  /* OTA NOTE (secondary, low-emphasis) */
+  .prenota .cta-row{justify-content:center;margin-bottom:16px;}
+  .ota-note{font-size:.85rem;color:var(--ink-soft);margin:0 0 8px;}
+  .ota-note a{color:var(--terracotta-deep);font-weight:700;text-decoration:underline;}
 
   /* WELCOME */
   .welcome{background:#fff;}
@@ -221,6 +247,7 @@
   .cat .val{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--terracotta-deep);font-weight:600;}
   .cat .lab{font-size:.72rem;color:var(--ink-soft);margin-top:6px;font-weight:600;}
   .rev-note{margin-top:36px;font-size:.92rem;color:var(--ink-soft);font-style:italic;max-width:680px;}
+  .rev-note a{color:var(--terracotta-deep);font-weight:700;text-decoration:underline;}
 
   /* PRENOTA */
   .prenota{background:#fff;text-align:center;}
@@ -355,11 +382,17 @@
     <span class="eyebrow">Barrio Alessandrino — Roma</span>
     <h1>Un oasis de paz en el corazón del este de Roma</h1>
     <p>Cuando Roma se queda dormida, vuestra veranda cobra vida: luces tenues, el jacuzzi solo para vosotros y el privilegio de no tener prisa.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Reservar en Airbnb</a>
-      <a class="btn btn-primary" href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Reservar en Booking.com</a>
-      <a class="btn btn-primary" href="#richiedi">Consultar Disponibilidad</a>
+    <div class="cta-row cta-row-single">
+      <a class="btn btn-primary" href="#richiedi">Consulta Disponibilidad y Tarifa Directa</a>
+      <p class="hero-note">Reservando directamente no pagas comisiones de intermediación.</p>
     </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="wrap trust-inner">
+    <h3>Reserva Directamente con Casa Lobelie</h3>
+    <p class="trust-list"><span class="ti">Tarifa directa disponible</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Contacto directo con el anfitrión</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Reseñas verificadas</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Alojamiento registrado oficialmente</span></p>
   </div>
 </section>
 
@@ -544,7 +577,7 @@
       <div class="cat"><div class="val">4.7</div><div class="lab">Calidad-precio</div></div>
       <div class="cat"><div class="val">4.0</div><div class="lab">Ubicación</div></div>
     </div>
-    <p class="rev-note">Los huéspedes mencionan con más frecuencia la hospitalidad, la limpieza impecable y la comodidad del transporte como los puntos fuertes de Casa Lobelie. Las opiniones originales se pueden consultar en la página de Airbnb.</p>
+    <p class="rev-note">Los huéspedes mencionan con más frecuencia la hospitalidad, la limpieza impecable y la comodidad del transporte como los puntos fuertes de Casa Lobelie. Las opiniones originales se pueden consultar en la <a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">página de Airbnb</a>.</p>
 
     <div class="section-head" style="margin-top:56px;padding-top:48px;border-top:2px solid var(--cream-deep);">
       <span class="eyebrow">Lo Que Dicen los Huéspedes</span>
@@ -566,7 +599,15 @@
       <div class="cat"><div class="val">8,3</div><div class="lab">Personal</div></div>
       <div class="cat"><div class="val">7,0</div><div class="lab">Ubicación</div></div>
     </div>
-    <p class="rev-note">Esta puntuación la calcula Booking.com a partir de las opiniones verificadas de los huéspedes que se alojaron en Casa Lobelie. Las opiniones originales se pueden consultar en la página de Booking.com.</p>
+    <p class="rev-note">Esta puntuación la calcula Booking.com a partir de las opiniones verificadas de los huéspedes que se alojaron en Casa Lobelie. Las opiniones originales se pueden consultar en la <a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">página de Booking.com</a>.</p>
+  </div>
+</section>
+
+<section class="ota-recall">
+  <div class="wrap">
+    <h3>¿Ya encontraste Casa Lobelie en Booking o Airbnb?</h3>
+    <p>Antes de reservar, consulta nuestra tarifa directa.</p>
+    <a class="btn btn-primary" href="#richiedi">Pide la Tarifa Directa</a>
   </div>
 </section>
 
@@ -575,36 +616,29 @@
     <div class="section-head center">
       <span class="eyebrow">Reserva tu Estancia</span>
       <div class="rule"></div>
-      <h2>¿Listos para vivir Roma como en casa?</h2>
-      <p class="lead" style="margin:0 auto;">Comprobad la disponibilidad y reservad en la plataforma que prefiráis.</p>
+      <h2>Reserva Casa Lobelie Directamente</h2>
+      <p class="lead" style="margin:0 auto;">Consulta la disponibilidad y solicita nuestra tarifa directa disponible.</p>
+      <p class="lead" style="margin:12px auto 0;">Reservando directamente hablas con nosotros sin intermediarios y puedes verificar disponibilidad, condiciones y precio antes de confirmar.</p>
     </div>
-    <div class="book-cards">
-      <div class="book-card">
-        <h3>Airbnb</h3>
-        <p>Mensajes directos, calendario actualizado y opiniones verificadas.</p>
-        <a class="btn btn-primary" href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Ver anuncio</a>
-      </div>
-      <div class="book-card">
-        <h3>Booking.com</h3>
-        <p>Cancelación flexible en muchas tarifas y pago en el alojamiento.</p>
-        <a class="btn btn-primary" href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Ver anuncio</a>
-      </div>
-      <div class="book-card">
-        <h3>WhatsApp</h3>
-        <p>Escríbeme directamente para disponibilidad y reservas directas sin comisión.</p>
-        <a class="btn btn-primary" href="https://wa.me/393335638730?text=Hola%20Mario%2C%20quisiera%20informaci%C3%B3n%20sobre%20Casa%20Lobelie" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-      </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#richiedi">Solicitar Disponibilidad</a>
+      <a class="btn btn-outline-dark" href="https://wa.me/393335638730?text=Buenos%20d%C3%ADas%2C%20me%20gustar%C3%ADa%20conocer%20la%20disponibilidad%20y%20la%20tarifa%20directa%20de%20Casa%20Lobelie." target="_blank" rel="noopener">Escribir por WhatsApp</a>
     </div>
+    <p class="ota-note">¿Prefieres usar una plataforma? Casa Lobelie también está en <a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb</a> y <a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com</a>.</p>
     <div class="direct-request" id="richiedi">
       <div class="dr-intro">
-        <h3>O solicitad disponibilidad directamente</h3>
-        <p>Completad el formulario y os responderemos por email o WhatsApp, sin comisiones de intermediación.</p>
+        <h3>Completad el formulario</h3>
+        <p>Os responderemos directamente con disponibilidad, condiciones y tarifa de la estancia.</p>
       </div>
       <form id="requestForm" onsubmit="return false;">
         <div class="form-grid">
           <div class="full-row">
             <label for="reqNome">Nombre y apellidos</label>
             <input type="text" id="reqNome" placeholder="Vuestro nombre" required>
+          </div>
+          <div class="full-row">
+            <label for="reqEmail">Email</label>
+            <input type="email" id="reqEmail" placeholder="Vuestro email" required>
           </div>
           <div>
             <label for="reqCheckin">Entrada (check-in)</label>
@@ -617,6 +651,10 @@
           <div class="full-row">
             <label for="reqOspiti">Número de huéspedes</label>
             <input type="number" id="reqOspiti" min="1" max="4" placeholder="Ej. 2" required>
+          </div>
+          <div class="full-row">
+            <label for="reqTelefono">Teléfono / WhatsApp (opcional)</label>
+            <input type="tel" id="reqTelefono" placeholder="Vuestro número">
           </div>
         </div>
         <div class="form-actions">
@@ -637,10 +675,10 @@
         <div style="margin-top:4px;font-size:.78rem;opacity:.75;">CIN: IT058091C2ODNCG79B</div>
       </div>
       <div>
-        <div class="col-title">Reservar</div>
+        <div class="col-title">También Estamos En</div>
         <div><a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb</a></div>
         <div><a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com</a></div>
-        <div><a href="https://wa.me/393335638730?text=Hola%20Mario%2C%20quisiera%20informaci%C3%B3n%20sobre%20Casa%20Lobelie" target="_blank" rel="noopener">WhatsApp</a></div>
+        <div><a href="https://wa.me/393335638730?text=Buenos%20d%C3%ADas%2C%20me%20gustar%C3%ADa%20conocer%20la%20disponibilidad%20y%20la%20tarifa%20directa%20de%20Casa%20Lobelie." target="_blank" rel="noopener">WhatsApp</a></div>
       </div>
       <div>
         <div class="col-title">Vuestro Anfitrión</div>
@@ -664,7 +702,7 @@
     <div class="modal-icon modal-icon-error">&#33;</div>
     <h3>Ups, algo salió mal</h3>
     <p>No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos directamente por WhatsApp.</p>
-    <a class="btn btn-primary" href="https://wa.me/393335638730" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    <a class="btn btn-primary" href="https://wa.me/393335638730?text=Buenos%20d%C3%ADas%2C%20me%20gustar%C3%ADa%20conocer%20la%20disponibilidad%20y%20la%20tarifa%20directa%20de%20Casa%20Lobelie." target="_blank" rel="noopener">Escribir por WhatsApp</a>
     <button type="button" class="btn btn-outline-dark" onclick="closeErrorModal()">Cerrar</button>
   </div>
 </div>
@@ -681,14 +719,20 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   function inviaRichiesta(metodo){
     var nome = document.getElementById('reqNome').value.trim();
+    var email = document.getElementById('reqEmail').value.trim();
+    var telefono = document.getElementById('reqTelefono').value.trim();
     var checkin = document.getElementById('reqCheckin').value;
     var checkout = document.getElementById('reqCheckout').value;
     var ospiti = document.getElementById('reqOspiti').value;
-    if(!nome || !checkin || !checkout || !ospiti){
-      alert('Completad todos los campos antes de enviar la solicitud.');
+    if(!nome || !email || !checkin || !checkout || !ospiti){
+      alert('Completad todos los campos obligatorios antes de enviar la solicitud.');
       return;
     }
-    var testo = 'Solicitud de disponibilidad - Casa Lobelie\nNombre: '+nome+'\nEntrada: '+checkin+'\nSalida: '+checkout+'\nHuéspedes: '+ospiti;
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      alert('Introduce una dirección de email válida.');
+      return;
+    }
+    var testo = 'Solicitud de disponibilidad - Casa Lobelie\nNombre: '+nome+'\nEmail: '+email+(telefono ? '\nTeléfono: '+telefono : '')+'\nEntrada: '+checkin+'\nSalida: '+checkout+'\nHuéspedes: '+ospiti;
     if(metodo === 'whatsapp'){
       var msg = encodeURIComponent(testo);
       window.open('https://wa.me/393335638730?text='+msg, '_blank');
@@ -706,6 +750,8 @@
         subject: 'Solicitud de disponibilidad - Casa Lobelie',
         from_name: nome,
         nome: nome,
+        email: email,
+        telefono: telefono,
         checkin: checkin,
         checkout: checkout,
         ospiti: ospiti,
