@@ -120,6 +120,16 @@
   .trust-box p{margin:0;font-weight:700;font-size:.92rem;color:var(--ink);line-height:1.4;}
   .trust-secondary{margin:0;color:var(--ink-soft);font-size:.85rem;font-weight:600;}
 
+  /* RATE VALUE (above Smoobu widget) */
+  .rate-value{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 34px;margin:0 0 32px;text-align:center;}
+  .rate-value h3{color:var(--terracotta-deep);font-size:1.3rem;margin-bottom:10px;}
+  .rate-value-text{color:var(--ink-soft);font-size:.95rem;max-width:520px;margin:0 auto 26px;}
+  .rate-included{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:0 0 22px;}
+  .rate-item{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.85rem;font-weight:700;color:var(--ink);max-width:150px;}
+  .rate-item .icon-wrap{width:42px;height:42px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .rate-cancel{margin:0;font-size:.85rem;font-weight:700;color:var(--green);}
+  .no-ota-note{text-align:center;color:var(--ink-soft);font-size:.8rem;font-weight:600;margin:20px 0 0;}
+
   @media (max-width: 900px){
     nav.links{display:none;}
     .nav-cta{display:none;}
@@ -135,6 +145,10 @@
     .trust-highlight h2{font-size:1.25rem;margin-bottom:22px;}
     .trust-grid{grid-template-columns:1fr;gap:14px;}
     .trust-box{flex-direction:row;text-align:left;padding:16px 18px;}
+    .rate-value{padding:26px 20px;margin:0 0 24px;}
+    .rate-value h3{font-size:1.15rem;}
+    .rate-included{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:18px;}
+    .rate-item{flex-direction:row;text-align:left;max-width:100%;gap:12px;}
   }
   @media (max-width:560px){
     .wrap{padding:0 22px;}
@@ -199,12 +213,23 @@
       </div>
       <p class="trust-secondary">Nessun costo nascosto. Migliore tariffa disponibile sul sito ufficiale di Casa Lobelie.</p>
     </div>
+    <div class="rate-value">
+      <h3>La tua tariffa diretta</h3>
+      <p class="rate-value-text">Prenotando dal sito ufficiale accedi alla migliore tariffa disponibile per Casa Lobelie.</p>
+      <div class="rate-included">
+      <div class="rate-item"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg></div><span>Appartamento intero</span></div>
+      <div class="rate-item"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2C7 6 5 9 5 13a7 7 0 0 0 14 0c0-4-2-7-7-11z"/><path d="M12 22v-9"/></svg></div><span>Veranda privata</span></div>
+      <div class="rate-item"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3s6 6.8 6 11a6 6 0 0 1-12 0c0-4.2 6-11 6-11z"/></svg></div><span>Area benessere privata</span></div>
+      </div>
+      <p class="rate-cancel">Cancellazione gratuita fino a 5 giorni prima dell’arrivo</p>
+    </div>
     <div class="smoobu-wrap">
 <div id="apartmentIframeAll">
 <script type="text/javascript" src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
 <script>BookingToolIframe.initialize({"url": "https://login.smoobu.com/en/booking-tool/iframe/1881911", "baseUrl": "https://login.smoobu.com", "target": "#apartmentIframeAll"})</script>
 </div>
     </div>
+    <p class="no-ota-note">Nessuna commissione OTA sulla prenotazione diretta</p>
   </div>
 </section>
 
