@@ -105,34 +105,27 @@
   .book-hero{background:var(--terracotta);color:#fff;padding:60px 0 52px;text-align:center;}
   .book-hero h1{color:#fff;font-size:2.3rem;margin-bottom:.35em;}
   .book-hero .subtitle{color:#fbeee0;max-width:640px;margin:0 auto;font-size:1.05rem;}
-  .hero-included{margin:16px 0 0;font-size:.82rem;font-weight:700;letter-spacing:.02em;color:#ffe8cc;}
-  .hero-included .dot{color:var(--gold);margin:0 10px;font-weight:400;}
-  .hero-cancel-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:.82rem;padding:9px 20px;border-radius:30px;margin:18px 0 0;}
-  .hero-cancel-badge svg{width:16px;height:16px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 
   .book-widget{background:#fff;padding:48px 0 80px;}
   .smoobu-wrap{width:100%;}
   .smoobu-wrap #apartmentIframeAll{width:100%;}
   .smoobu-wrap #apartmentIframeAll iframe{width:100% !important;max-width:100%;border:0;display:block;}
 
-  /* TRUST HIGHLIGHT (above Smoobu widget) */
-  .trust-highlight{background:var(--cream-deep);border:1px solid var(--line);border-radius:var(--radius);padding:40px 36px;margin:0 0 44px;text-align:center;}
-  .trust-highlight h2{font-size:1.5rem;color:var(--terracotta-deep);margin-bottom:28px;}
-  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0 0 26px;}
-  .trust-box{background:#fff;border-radius:var(--radius-sm);padding:24px 18px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 8px 20px -10px rgba(58,32,20,.2);}
-  .trust-box .icon-wrap{width:46px;height:46px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .trust-box p{margin:0;font-weight:700;font-size:.92rem;color:var(--ink);line-height:1.4;}
-  .trust-secondary{margin:0;color:var(--ink-soft);font-size:.85rem;font-weight:600;}
+  /* VALUE SECTION (above the Smoobu widget) */
+  .value-section{background:var(--cream-deep);border:1px solid var(--line);border-radius:var(--radius);padding:44px 40px;margin:0 0 28px;text-align:center;}
+  .value-section h2{color:var(--terracotta-deep);font-size:1.6rem;margin-bottom:10px;}
+  .value-subtitle{color:var(--ink-soft);font-size:.98rem;max-width:580px;margin:0 auto 30px;}
+  .value-points{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;text-align:left;max-width:660px;margin-left:auto;margin-right:auto;}
+  .value-points li{display:flex;align-items:flex-start;gap:10px;font-weight:700;font-size:.92rem;color:var(--ink);}
+  .value-points li svg{width:19px;height:19px;stroke:var(--green);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:1px;}
 
-  /* RATE VALUE (above Smoobu widget) */
-  .rate-value{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 34px;margin:0 0 32px;text-align:center;}
-  .rate-value h3{color:var(--terracotta-deep);font-size:1.3rem;margin-bottom:10px;}
-  .rate-value-text{color:var(--ink-soft);font-size:.95rem;max-width:520px;margin:0 auto 26px;}
-  .rate-included{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:0 0 22px;}
-  .rate-item{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.85rem;font-weight:700;color:var(--ink);max-width:150px;}
-  .rate-item .icon-wrap{width:42px;height:42px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .rate-cancel{margin:0;font-size:.85rem;font-weight:700;color:var(--green);}
-  .no-ota-note{text-align:center;color:var(--ink-soft);font-size:.8rem;font-weight:600;margin:20px 0 0;}
+  /* RESULTS INFO BOX (directly above the widget, framing what the search result includes) */
+  .results-info{background:#fff;border:1.5px solid var(--terracotta);border-radius:var(--radius);padding:30px 34px;margin:0 0 32px;}
+  .results-info h3{color:var(--terracotta-deep);font-size:1.15rem;margin-bottom:18px;text-align:center;}
+  .results-points{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 26px;}
+  .results-points li{display:flex;align-items:flex-start;gap:8px;font-weight:700;font-size:.87rem;color:var(--ink);}
+  .results-points li svg{width:16px;height:16px;stroke:var(--terracotta-deep);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px;}
+  .results-note{margin:0;text-align:center;color:var(--ink-soft);font-size:.8rem;font-style:italic;}
 
   @media (max-width: 900px){
     nav.links{display:none;}
@@ -145,17 +138,12 @@
     .book-hero{padding:48px 0 40px;}
     .book-widget{padding:36px 0 60px;}
     section{padding:56px 0;}
-    .hero-included{display:flex;flex-direction:column;gap:6px;}
-    .hero-included .dot{display:none;}
-    .hero-cancel-badge{font-size:.78rem;padding:8px 16px;text-align:left;}
-    .trust-highlight{padding:30px 22px;margin:0 0 32px;}
-    .trust-highlight h2{font-size:1.25rem;margin-bottom:22px;}
-    .trust-grid{grid-template-columns:1fr;gap:14px;}
-    .trust-box{flex-direction:row;text-align:left;padding:16px 18px;}
-    .rate-value{padding:26px 20px;margin:0 0 24px;}
-    .rate-value h3{font-size:1.15rem;}
-    .rate-included{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:18px;}
-    .rate-item{flex-direction:row;text-align:left;max-width:100%;gap:12px;}
+    .value-section{padding:30px 22px;margin:0 0 22px;}
+    .value-section h2{font-size:1.3rem;}
+    .value-subtitle{margin-bottom:22px;}
+    .value-points{grid-template-columns:1fr;gap:12px;}
+    .results-info{padding:24px 20px;margin:0 0 24px;}
+    .results-points{grid-template-columns:1fr;gap:10px;}
   }
   @media (max-width:560px){
     .wrap{padding:0 22px;}
@@ -206,31 +194,33 @@
   <div class="wrap">
     <h1>Reserva Casa Lobelie directamente</h1>
     <p class="subtitle">Consulta disponibilidad y precio en tiempo real. Reserva online con pago seguro.</p>
-    <p class="hero-included"><span class="ti">Apartamento completo</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Veranda privada</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Zona de bienestar privada</span></p>
-    <span class="hero-cancel-badge"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Cancelación gratuita hasta 5 días antes de la llegada</span>
   </div>
 </section>
 
 <section class="book-widget">
   <div class="wrap">
-    <div class="trust-highlight">
-      <h2>Reserva directamente con total seguridad</h2>
-      <div class="trust-grid">
-      <div class="trust-box"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div><p>Pago seguro con Stripe</p></div>
-      <div class="trust-box"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/><path d="M8.5 15l2 2 4-4"/></svg></div><p>Cancelación gratuita hasta 5 días antes de la llegada</p></div>
-      <div class="trust-box"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><p>Confirmación inmediata de la reserva por correo electrónico</p></div>
-      </div>
-      <p class="trust-secondary">Sin costes ocultos. Mejor tarifa disponible en la web oficial de Casa Lobelie.</p>
+    <div class="value-section">
+      <h2>Reserva directamente Casa Lobelie</h2>
+      <p class="value-subtitle">En la web oficial puedes acceder a nuestra tarifa directa y reservar online en pocos pasos.</p>
+      <ul class="value-points">
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Apartamento completo</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Veranda privada</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Zona de bienestar privada</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Cancelación gratuita hasta 5 días antes de la llegada</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Pago online seguro</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Confirmación inmediata de la reserva</span></li>
+      </ul>
     </div>
-    <div class="rate-value">
-      <h3>Tu tarifa directa</h3>
-      <p class="rate-value-text">Reserva en la web oficial para acceder a la mejor tarifa disponible de Casa Lobelie.</p>
-      <div class="rate-included">
-      <div class="rate-item"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg></div><span>Apartamento completo</span></div>
-      <div class="rate-item"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2C7 6 5 9 5 13a7 7 0 0 0 14 0c0-4-2-7-7-11z"/><path d="M12 22v-9"/></svg></div><span>Veranda privada</span></div>
-      <div class="rate-item"><div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3s6 6.8 6 11a6 6 0 0 1-12 0c0-4.2 6-11 6-11z"/></svg></div><span>Zona de bienestar privada</span></div>
-      </div>
-      <p class="rate-cancel">Cancelación gratuita hasta 5 días antes de la llegada</p>
+    <div class="results-info">
+      <h3>Tu tarifa directa incluye</h3>
+      <ul class="results-points">
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Estancia en el apartamento completo</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Veranda privada</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Zona de bienestar privada</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Sin comisión de OTA</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Cancelación gratuita hasta 5 días antes de la llegada</span></li>
+      </ul>
+      <p class="results-note">El importe total de la estancia se calcula automáticamente según las fechas seleccionadas.</p>
     </div>
     <div class="smoobu-wrap">
 <div id="apartmentIframeAll">
@@ -238,7 +228,6 @@
 <script>BookingToolIframe.initialize({"url": "https://login.smoobu.com/en/booking-tool/iframe/1881911", "baseUrl": "https://login.smoobu.com", "target": "#apartmentIframeAll"})</script>
 </div>
     </div>
-    <p class="no-ota-note">Sin comisión de OTA en la reserva directa</p>
   </div>
 </section>
 
