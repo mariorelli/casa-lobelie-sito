@@ -101,31 +101,24 @@
   .footer-bottom a{text-decoration:underline;color:#c9bcae;}
   .footer-bottom a:hover{color:#fff;}
 
-  /* BOOKING PAGE */
-  .book-hero{background:var(--terracotta);color:#fff;padding:60px 0 52px;text-align:center;}
-  .book-hero h1{color:#fff;font-size:2.3rem;margin-bottom:.35em;}
-  .book-hero .subtitle{color:#fbeee0;max-width:640px;margin:0 auto;font-size:1.05rem;}
+  /* BOOKING PAGE — compact hero so the Smoobu search box sits above the fold */
+  .book-hero{background:var(--terracotta);color:#fff;padding:34px 0 22px;text-align:center;}
+  .book-hero h1{color:#fff;font-size:1.9rem;margin-bottom:.25em;}
+  .book-hero .subtitle{color:#fbeee0;max-width:640px;margin:0 auto;font-size:.98rem;}
 
-  .book-widget{background:#fff;padding:48px 0 80px;}
+  .book-widget{background:#fff;padding:22px 0 56px;}
   .smoobu-wrap{width:100%;}
   .smoobu-wrap #apartmentIframeAll{width:100%;}
   .smoobu-wrap #apartmentIframeAll iframe{width:100% !important;max-width:100%;border:0;display:block;}
 
-  /* VALUE SECTION (above the Smoobu widget) */
-  .value-section{background:var(--cream-deep);border:1px solid var(--line);border-radius:var(--radius);padding:44px 40px;margin:0 0 28px;text-align:center;}
-  .value-section h2{color:var(--terracotta-deep);font-size:1.6rem;margin-bottom:10px;}
-  .value-subtitle{color:var(--ink-soft);font-size:.98rem;max-width:580px;margin:0 auto 30px;}
-  .value-points{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;text-align:left;max-width:660px;margin-left:auto;margin-right:auto;}
-  .value-points li{display:flex;align-items:flex-start;gap:10px;font-weight:700;font-size:.92rem;color:var(--ink);}
-  .value-points li svg{width:19px;height:19px;stroke:var(--green);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:1px;}
+  /* BENEFITS STRIP (compact row, directly below the widget) */
+  .benefits-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin:26px 0 0;padding:16px 22px;background:var(--cream-deep);border-radius:var(--radius-sm);}
+  .benefits-strip .item{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;color:var(--ink);white-space:nowrap;}
+  .benefits-strip .item svg{width:16px;height:16px;stroke:var(--green);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 
-  /* RESULTS INFO BOX (directly above the widget, framing what the search result includes) */
-  .results-info{background:#fff;border:1.5px solid var(--terracotta);border-radius:var(--radius);padding:30px 34px;margin:0 0 32px;}
-  .results-info h3{color:var(--terracotta-deep);font-size:1.15rem;margin-bottom:18px;text-align:center;}
-  .results-points{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 26px;}
-  .results-points li{display:flex;align-items:flex-start;gap:8px;font-weight:700;font-size:.87rem;color:var(--ink);}
-  .results-points li svg{width:16px;height:16px;stroke:var(--terracotta-deep);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px;}
-  .results-note{margin:0;text-align:center;color:var(--ink-soft);font-size:.8rem;font-style:italic;}
+  /* VALUE STRIP (compact, dot-separated — same pattern as the home page trust-bar) */
+  .value-strip{margin:14px 0 0;text-align:center;font-size:.8rem;font-weight:700;color:var(--ink-soft);}
+  .value-strip .dot{color:var(--gold);margin:0 8px;font-weight:400;}
 
   @media (max-width: 900px){
     nav.links{display:none;}
@@ -134,16 +127,15 @@
     .logo-mark .script{font-size:1.7rem;}
     .logo-mark .casa{font-size:.85rem;}
     .logo-mark .tag{display:none;}
-    .book-hero h1{font-size:1.85rem;}
-    .book-hero{padding:48px 0 40px;}
-    .book-widget{padding:36px 0 60px;}
+    .book-hero{padding:22px 0 16px;}
+    .book-hero h1{font-size:1.35rem;margin-bottom:.2em;}
+    .book-hero .subtitle{font-size:.88rem;}
+    .book-widget{padding:14px 0 40px;}
     section{padding:56px 0;}
-    .value-section{padding:30px 22px;margin:0 0 22px;}
-    .value-section h2{font-size:1.3rem;}
-    .value-subtitle{margin-bottom:22px;}
-    .value-points{grid-template-columns:1fr;gap:12px;}
-    .results-info{padding:24px 20px;margin:0 0 24px;}
-    .results-points{grid-template-columns:1fr;gap:10px;}
+    .benefits-strip{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 18px;margin-top:20px;}
+    .benefits-strip .item{font-size:.85rem;white-space:normal;}
+    .value-strip{display:flex;flex-direction:column;gap:6px;}
+    .value-strip .dot{display:none;}
   }
   @media (max-width:560px){
     .wrap{padding:0 22px;}
@@ -193,41 +185,25 @@
 <section class="book-hero">
   <div class="wrap">
     <h1>Book Casa Lobelie directly</h1>
-    <p class="subtitle">Check availability and real-time pricing. Secure online booking and payment.</p>
+    <p class="subtitle">Check availability and real-time pricing.</p>
   </div>
 </section>
 
 <section class="book-widget">
   <div class="wrap">
-    <div class="value-section">
-      <h2>Book Casa Lobelie directly</h2>
-      <p class="value-subtitle">On the official website you can access our direct rate and book online in just a few steps.</p>
-      <ul class="value-points">
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Entire apartment</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Private veranda</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Private wellness area</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Free cancellation up to 5 days before arrival</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Secure online payment</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Immediate booking confirmation</span></li>
-      </ul>
-    </div>
-    <div class="results-info">
-      <h3>Your direct rate includes</h3>
-      <ul class="results-points">
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Stay in the entire apartment</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Private veranda</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Private wellness area</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>No OTA commission</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span>Free cancellation up to 5 days before arrival</span></li>
-      </ul>
-      <p class="results-note">The total stay price is calculated automatically by the booking system based on the selected dates.</p>
-    </div>
     <div class="smoobu-wrap">
 <div id="apartmentIframeAll">
 <script type="text/javascript" src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
 <script>BookingToolIframe.initialize({"url": "https://login.smoobu.com/en/booking-tool/iframe/1881911", "baseUrl": "https://login.smoobu.com", "target": "#apartmentIframeAll"})</script>
 </div>
     </div>
+    <div class="benefits-strip">
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Free cancellation up to 5 days before arrival</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Direct rate on the official website</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Secure online payment</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Immediate confirmation</span>
+    </div>
+    <p class="value-strip"><span class="ti">Entire apartment</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Private veranda</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Private wellness area</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">No OTA commission</span></p>
   </div>
 </section>
 
