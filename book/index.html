@@ -151,6 +151,32 @@
     .wrap{padding:0 22px;}
   }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PVZ9RM2ME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1PVZ9RM2ME');
+</script>
+<!-- GA4 event: click_prenota (site-wide, delegated) -->
+<script>
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="/prenota/"], a[href*="/book/"], a[href*="/reservar/"], a[href*="/reserver/"]');
+    if (!link) return;
+    gtag('event', 'click_prenota', {
+      link_url: link.getAttribute('href'),
+      link_text: (link.textContent || '').trim(),
+      page_path: window.location.pathname
+    });
+  }, true);
+</script>
+<!-- GA4 event: view_booking_page (fires once, on load of this booking page) -->
+<script>
+  gtag('event', 'view_booking_page', {
+    page_path: window.location.pathname
+  });
+</script>
 </head>
 <body>
 <header class="nav">
