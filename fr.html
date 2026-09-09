@@ -64,7 +64,7 @@
   a{color:inherit;}
   img{max-width:100%;display:block;}
   .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
-  section{padding:100px 0;}
+  section{padding:84px 0;}
   .eyebrow{
     text-transform:uppercase;
     letter-spacing:.12em;
@@ -150,8 +150,6 @@
   .btn-ghost:hover{background:rgba(255,255,255,.2);border-color:#fff;transform:translateY(-2px);}
   .btn-dark{background:var(--ink);color:var(--cream);}
   .btn-dark:hover{background:var(--terracotta-deep);}
-  .btn-outline-dark{border-color:var(--ink);color:var(--ink);}
-  .btn-outline-dark:hover{background:var(--ink);color:var(--cream);}
   .cta-row.cta-row-single{flex-direction:column;align-items:flex-start;gap:14px;}
   .hero-note{font-size:.88rem;color:#fff8f0;font-weight:600;margin:0;text-shadow:0 2px 8px rgba(0,0,0,.5);}
 
@@ -162,7 +160,7 @@
   .trust-list{margin:0;font-size:.82rem;font-weight:700;line-height:1.8;color:var(--ink-soft);}
   .trust-list .dot{color:var(--gold);margin:0 10px;font-weight:400;}
   @media (max-width:700px){
-    .trust-list{display:flex;flex-direction:column;gap:4px;}
+    .trust-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;text-align:left;}
     .trust-list .dot{display:none;}
     .trust-list .ti{display:block;}
   }
@@ -209,11 +207,11 @@
   /* SERVIZI */
   .servizi{background:#fff;}
   .amenity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .amenity{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .2s, box-shadow .2s;}
+  .amenity{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;transition:transform .2s, box-shadow .2s;}
   .amenity:hover{transform:translateY(-3px);box-shadow:0 16px 32px -16px rgba(58,32,20,.25);}
-  .amenity .icon-wrap{margin-bottom:18px;width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px -4px rgba(58,32,20,.2);}
-  .amenity h4{font-size:1.08rem;margin-bottom:8px;font-family:'Fraunces',serif;font-weight:600;}
-  .amenity p{font-size:.9rem;color:var(--ink-soft);margin:0;}
+  .amenity .icon-wrap{margin-bottom:10px;width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px -4px rgba(58,32,20,.2);}
+  .amenity h4{font-size:1rem;margin-bottom:4px;font-family:'Fraunces',serif;font-weight:600;}
+  .amenity p{font-size:.85rem;color:var(--ink-soft);margin:0;line-height:1.45;}
 
   /* ZONA */
   .zona{background:var(--green);color:#f2ede1;}
@@ -246,31 +244,10 @@
   .cat{padding:22px 12px;text-align:center;background:#fff;border-radius:var(--radius-sm);border:1px solid var(--line);}
   .cat .val{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--terracotta-deep);font-weight:600;}
   .cat .lab{font-size:.72rem;color:var(--ink-soft);margin-top:6px;font-weight:600;}
+  .cat.cat-subtle{background:transparent;border-style:dashed;}
+  .cat.cat-subtle .val{font-size:1.15rem;color:var(--ink-soft);font-weight:600;}
   .rev-note{margin-top:36px;font-size:.92rem;color:var(--ink-soft);font-style:italic;max-width:680px;}
   .rev-note a{color:var(--terracotta-deep);font-weight:700;text-decoration:underline;}
-
-  /* PRENOTA */
-  .prenota{background:#fff;text-align:center;}
-  .prenota .section-head{margin-bottom:56px;}
-  .book-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1080px;margin:0 auto;}
-  .book-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:44px 32px;}
-  .book-card h3{font-size:1.3rem;font-family:'Fraunces',serif;font-weight:600;margin-bottom:12px;}
-  .book-card p{color:var(--ink-soft);font-size:.9rem;margin-bottom:26px;min-height:42px;}
-  .book-card .btn{width:100%;justify-content:center;}
-  .direct-request{max-width:1080px;margin:48px auto 0;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:44px 40px;display:grid;grid-template-columns:1fr 1.35fr;gap:44px;align-items:center;}
-  #richiedi{scroll-margin-top:90px;}
-  .direct-request .dr-intro h3{font-family:'Fraunces',serif;font-size:1.4rem;line-height:1.25;margin-bottom:12px;}
-  .direct-request .dr-intro p{color:var(--ink-soft);font-size:.95rem;}
-  .direct-request .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
-  .direct-request .full-row{grid-column:1/-1;}
-  .direct-request label{display:block;font-size:.75rem;font-weight:700;color:var(--ink-soft);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}
-  .direct-request input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius-sm);font-family:inherit;font-size:.92rem;background:#fff;color:var(--ink);}
-  .direct-request input:focus{outline:none;border-color:var(--terracotta);}
-  .direct-request .form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}
-  .direct-request .form-actions .btn{flex:1;min-width:160px;justify-content:center;border:none;cursor:pointer;}
-  @media (max-width:800px){.direct-request{grid-template-columns:1fr;padding:32px 24px;gap:28px;}}
-  @media (max-width:600px){.direct-request .form-grid{grid-template-columns:1fr;}}
-
 
   footer{background:var(--ink);color:#c9bcae;padding:60px 0 30px;font-size:.9rem;}
   .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:36px;}
@@ -298,32 +275,43 @@
     .welcome-grid,.zona-grid{grid-template-columns:1fr;}
     .amenity-grid{grid-template-columns:1fr 1fr;}
     .cat-grid{grid-template-columns:repeat(3,1fr);}
-    .book-cards{grid-template-columns:1fr;}
     .gallery{grid-template-columns:repeat(2,1fr);}
     .hero-content h1{font-size:2.6rem;}
-    section{padding:70px 0;}
-    .hero{height:auto;min-height:94vh;min-height:94dvh;padding-top:40px;}
-    .hero-content{padding-bottom:48px;}
-    .hero img{object-position:15% 60%;transform:scale(1.7);}
+    section{padding:56px 0;}
+    .hero{height:auto;min-height:80vh;min-height:80dvh;padding-top:32px;}
+    .hero-content{padding-bottom:36px;}
+    .hero img{object-position:15% 60%;transform:scale(1.4);}
+  }
+  @media (max-width:380px){
+    .amenity-grid{grid-template-columns:1fr;}
+    .amenity{padding:16px 18px;}
   }
   @media (max-width:560px){
-    .amenity-grid{grid-template-columns:1fr;}
     .cat-grid{grid-template-columns:repeat(2,1fr);}
     .cat:nth-child(2n){border-right:none;}
     .rev-top{gap:32px;}
     .wrap{padding:0 22px;}
   }
 
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,12,8,.55);z-index:200;align-items:center;justify-content:center;padding:20px;}
-  .modal-overlay.open{display:flex;}
-  .modal-box{background:#fff;border-radius:var(--radius);padding:40px 36px;max-width:420px;width:100%;text-align:center;box-shadow:0 24px 60px -12px rgba(0,0,0,.35);}
-  .modal-icon{width:56px;height:56px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:1.8rem;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
-  .modal-icon-error{background:var(--berry);}
-  .modal-box h3{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:10px;}
-  .modal-box p{color:var(--ink-soft);font-size:.92rem;margin-bottom:22px;line-height:1.5;}
-  .modal-box .btn{width:100%;justify-content:center;border:none;cursor:pointer;}
-  .modal-box .btn-outline-dark{border:1.5px solid var(--line);color:var(--ink);background:transparent;margin-top:10px;cursor:pointer;}
-  .modal-box .btn-outline-dark:hover{background:var(--ink);color:#fff;}
+
+  /* STICKY BOOK BUTTON — mobile only */
+  .sticky-book{display:none;}
+  @media (max-width:640px){
+    .sticky-book{
+      display:flex;position:fixed;left:16px;right:16px;
+      bottom:calc(14px + env(safe-area-inset-bottom));
+      z-index:80;
+      background:var(--terracotta);color:#fff;
+      padding:14px 20px;border-radius:30px;
+      font-size:.95rem;font-weight:800;
+      text-decoration:none;justify-content:center;align-items:center;gap:8px;
+      box-shadow:0 12px 28px -8px rgba(13,74,120,.55);
+      transition:opacity .25s ease, transform .25s ease;
+    }
+    .sticky-book:active{background:var(--terracotta-deep);transform:scale(.98);}
+    .sticky-book:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+    .sticky-book.is-hidden{opacity:0;transform:translateY(14px);pointer-events:none;}
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PVZ9RM2ME"></script>
@@ -396,6 +384,8 @@
   </div>
 </header>
 
+<a href="/reserver/" class="sticky-book" id="stickyBook" aria-label="Réservez votre séjour à Casa Lobelie">Réserver</a>
+
 <section class="hero">
   <img src="images/veranda-hero.jpg" alt="Véranda privée de Casa Lobelie entourée de verdure">
   <div class="hero-content">
@@ -404,7 +394,7 @@
     <p>Quand Rome s'endort, votre véranda s'illumine : lumières tamisées, le jacuzzi rien que pour vous et le privilège de prendre votre temps.</p>
     <div class="cta-row cta-row-single">
       <a class="btn btn-primary" href="/reserver/">Réserver</a>
-      <p class="hero-note">Notre meilleur tarif est ici, sur le site officiel.</p>
+      <p class="hero-note">Réservez directement sur le site officiel.</p>
     </div>
   </div>
 </section>
@@ -423,16 +413,16 @@
       <div class="rule"></div>
       <h2>Un havre de paix, au cœur de l'est de Rome</h2>
       <p class="lead">
-        Il y a des jours où Rome semble ne jamais finir. Des rues à parcourir, des lieux à découvrir, des émotions à emporter avec soi. Et puis vient le moment de rentrer, de fermer la porte au bruit et de retrouver enfin son propre espace.
+        Il y a des jours où Rome semble ne jamais finir : des rues à parcourir, des lieux à découvrir, des émotions à emporter avec soi.
       </p>
       <p class="lead">
-        Casa Lobelie, c'est ce moment-là. Un refuge intime et tranquille où ralentir, se sentir chez soi et s'accorder le plaisir de ne plus être pressé.
+        Puis vient le moment de ralentir.
       </p>
       <p class="lead">
-        Et quand la journée laisse place au soir, la véranda privée vous attend : un petit coin de bien-être avec jacuzzi, rien que pour vous. Un apéritif, une lumière tamisée, l'eau chaude et cette agréable sensation de pouvoir laisser tout le reste dehors.
+        Casa Lobelie est un refuge intime et tranquille où se sentir chez soi, retrouver son propre espace et s'accorder le plaisir de ne plus être pressé.
       </p>
       <p class="lead">
-        Rome vous offre la journée. Casa Lobelie prend soin de votre soirée.
+        Le soir, la véranda privée devient l'endroit idéal pour se détendre et laisser le bruit de la ville à l'extérieur.
       </p>
       <div class="stat-row">
         <div class="stat"><div class="num">4,77 / 5</div><div class="label">Note sur Airbnb</div></div>
@@ -506,15 +496,15 @@
     <div class="amenity-grid">
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2C7 6 5 9 5 13a7 7 0 0 0 14 0c0-4-2-7-7-11z"/><path d="M12 22v-9"/></svg></div>
-        <h4>Véranda privée</h4><p>Un espace exclusif rien qu'à vous, avec petit salon et jacuzzi : parfait pour vous détendre en toute intimité.</p>
+        <h4>Véranda privée</h4><p>Salon et jacuzzi, en toute intimité.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="6" rx="2"/><circle cx="7" cy="8" r=".6" fill="currentColor" stroke="none"/><path d="M4 15h4M4 19h7M13 15h7M15 19h5"/></svg></div>
-        <h4>Climatisation et Chauffage</h4><p>Climatisation en été et chauffage indépendant en hiver : confort garanti toute l'année.</p>
+        <h4>Climatisation et Chauffage</h4><p>Confort en toute saison.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5.5 12a11 11 0 0 1 13 0"/><path d="M9 15.5a6 6 0 0 1 6 0"/><circle cx="12" cy="19" r="1"/></svg></div>
-        <h4>WiFi haut débit</h4><p>Connexion rapide (plus de 160 Mbps) et un espace de travail dédié pour travailler en toute tranquillité.</p>
+        <h4>Wi-Fi</h4><p>Connexion Wi-Fi incluse.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4v7a4 4 0 0 0 4 4h1v7"/><path d="M9 4v7"/><path d="M18 4c-1.5 2-2 4-2 6a3 3 0 0 0 3 3v9"/></svg></div>
@@ -522,27 +512,27 @@
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18"/><path d="M5 10V7a2 2 0 0 1 2-2h3v5"/></svg></div>
-        <h4>Matelas à mémoire de forme</h4><p>Configuration flexible — lit double ou deux lits jumeaux — avec un linge de maison soigné.</p>
+        <h4>Matelas à mémoire de forme</h4><p>Lit double ou deux lits jumeaux.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M14.5 3a4.5 4.5 0 1 0 3.4 7.4L21 13l-2 2-1.4-1.4L16 15l-2-2 1.4-1.6A4.5 4.5 0 0 0 14.5 3z"/></svg></div>
-        <h4>Arrivée autonome</h4><p>Accès autonome par code, pour un check-in simple et flexible dans la plage horaire prévue.</p>
+        <h4>Arrivée autonome</h4><p>Accès par code.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M5 17h14M6 17v-4l1.5-4.5h9L18 13v4"/><circle cx="8.5" cy="17" r="1.5"/><circle cx="15.5" cy="17" r="1.5"/></svg></div>
-        <h4>Parking gratuit</h4><p>Stationnement gratuit dans la rue à proximité, pratique pour ceux qui arrivent en voiture.</p>
+        <h4>Parking gratuit</h4><p>Stationnement gratuit à proximité.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6"/><circle cx="7" cy="9" r="1.6"/><circle cx="17" cy="9" r="1.6"/><path d="M8 20c0-3 1.5-5 4-5s4 2 4 5"/></svg></div>
-        <h4>Animaux acceptés</h4><p>Vos animaux de compagnie sont les bienvenus, sans supplément.</p>
+        <h4>Animaux acceptés</h4><p>Animaux bienvenus, sans supplément.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="8" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="14" r="1"/></svg></div>
-        <h4>Arrêt de bus à deux pas</h4><p>L'arrêt de la ligne 213 se trouve à environ 100 mètres de l'appartement. La ligne de métro C toute proche vous emmène directement au Colisée en environ 30 minutes.</p>
+        <h4>Arrêt de bus à deux pas</h4><p>Ligne 213 à 100 m ; métro C à proximité.</p>
       </div>
       <div class="amenity">
         <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h9l3 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h4"/></svg></div>
-        <h4>Jusqu'au moindre détail</h4><p>Sèche-cheveux, fer à repasser et tout ce qu'il faut pour un séjour sans souci.</p>
+        <h4>Jusqu'au moindre détail</h4><p>Sèche-cheveux, fer à repasser et l'essentiel.</p>
       </div>
     </div>
   </div>
@@ -554,7 +544,8 @@
       <span class="eyebrow">Où Nous Sommes</span>
       <div class="rule"></div>
       <h2>Quartier Alessandrino, est de Rome</h2>
-      <p class="lead">Un quartier calme et authentique, loin du bruit et de la circulation du centre historique — idéal pour un vrai repos après une journée parmi les monuments. Le centre historique reste à deux pas, facilement accessible en transports en commun.</p>
+      <p class="lead">Un quartier calme et authentique, loin du chaos du centre historique, idéal pour retrouver la tranquillité après une journée à la découverte de Rome.</p>
+      <p class="lead" style="margin-top:14px;">Le centre est accessible en transports en commun, et la ligne de métro C relie directement le quartier à la zone du Colisée.</p>
       <ul>
         <li><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;"><rect x="3" y="7" width="18" height="10" rx="2"/><circle cx="7.5" cy="17" r="1.3"/><circle cx="16.5" cy="17" r="1.3"/></svg> Ligne de bus 213 — arrêt à environ 100 mètres de l'appartement</li>
         <li><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;"><rect x="4" y="10" width="16" height="8" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Métro C à proximité — directement au Colisée en environ 30 minutes</li>
@@ -617,7 +608,7 @@
       <div class="cat"><div class="val">8,6</div><div class="lab">Rapport qualité-prix</div></div>
       <div class="cat"><div class="val">8,6</div><div class="lab">Équipements</div></div>
       <div class="cat"><div class="val">8,3</div><div class="lab">Personnel</div></div>
-      <div class="cat"><div class="val">7,0</div><div class="lab">Emplacement</div></div>
+      <div class="cat cat-subtle"><div class="val">7,0</div><div class="lab">Emplacement</div></div>
     </div>
     <p class="rev-note">Cette note est calculée par Booking.com à partir des avis vérifiés des voyageurs ayant séjourné à Casa Lobelie. Les avis originaux sont consultables sur la <a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">page Booking.com</a>.</p>
   </div>
@@ -625,66 +616,12 @@
 
 <section class="ota-recall">
   <div class="wrap">
-    <h3>Vous avez déjà trouvé Casa Lobelie sur Booking ou Airbnb ?</h3>
-    <p>Avant de réserver, vérifiez notre tarif direct.</p>
-    <a class="btn btn-primary" href="/reserver/">Vérifiez disponibilités et tarif</a>
+    <h3>Vous avez trouvé Casa Lobelie sur Booking ou Airbnb ?</h3>
+    <p>Avant de réserver, vérifiez le tarif sur le site officiel.</p>
+    <a class="btn btn-primary" href="/reserver/">Vérifiez disponibilité et tarif</a>
   </div>
 </section>
 
-<section class="prenota" id="prenota">
-  <div class="wrap">
-    <div class="section-head center">
-      <span class="eyebrow">Réservez Votre Séjour</span>
-      <div class="rule"></div>
-      <h2>Réservez Casa Lobelie Directement</h2>
-      <p class="lead" style="margin:0 auto;">Vérifiez la disponibilité et demandez notre tarif direct disponible.</p>
-      <p class="lead" style="margin:12px auto 0;">En réservant directement, vous nous parlez sans intermédiaire et pouvez vérifier la disponibilité, les conditions et le prix avant de confirmer.</p>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/reserver/">Réservez en direct</a>
-      <a class="btn btn-outline-dark" href="https://wa.me/393335638730?text=Bonjour%2C%20je%20souhaiterais%20conna%C3%AEtre%20la%20disponibilit%C3%A9%20et%20le%20tarif%20direct%20pour%20Casa%20Lobelie." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-    </div>
-    <p class="ota-note">Vous préférez utiliser une plateforme ? Casa Lobelie est aussi présente sur <a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb</a> et <a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com</a>.</p>
-    <div class="direct-request" id="richiedi">
-      <div class="dr-intro">
-        <h3>Remplissez le formulaire</h3>
-        <p>Nous vous répondrons directement avec la disponibilité, les conditions et le tarif du séjour.</p>
-      </div>
-      <form id="requestForm" onsubmit="return false;">
-        <div class="form-grid">
-          <div class="full-row">
-            <label for="reqNome">Nom et prénom</label>
-            <input type="text" id="reqNome" placeholder="Votre nom" required>
-          </div>
-          <div class="full-row">
-            <label for="reqEmail">E-mail</label>
-            <input type="email" id="reqEmail" placeholder="Votre e-mail" required>
-          </div>
-          <div>
-            <label for="reqCheckin">Arrivée</label>
-            <input type="date" id="reqCheckin" required>
-          </div>
-          <div>
-            <label for="reqCheckout">Départ</label>
-            <input type="date" id="reqCheckout" required>
-          </div>
-          <div class="full-row">
-            <label for="reqOspiti">Nombre de personnes</label>
-            <input type="number" id="reqOspiti" min="1" max="4" placeholder="Ex. 2" required>
-          </div>
-          <div class="full-row">
-            <label for="reqTelefono">Téléphone / WhatsApp (facultatif)</label>
-            <input type="tel" id="reqTelefono" placeholder="Votre numéro">
-          </div>
-        </div>
-        <div class="form-actions">
-          <button type="button" class="btn btn-primary" id="btnInviaEmail" onclick="inviaRichiesta('email')">Envoyer la Demande</button>
-          <button type="button" class="btn btn-primary" onclick="inviaRichiesta('whatsapp')">Envoyer sur WhatsApp</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap">
@@ -709,23 +646,6 @@
   </div>
 </footer>
 
-<div class="modal-overlay" id="thankYouModal">
-  <div class="modal-box">
-    <div class="modal-icon">&#10003;</div>
-    <h3 id="thankYouTitle">Merci !</h3>
-    <p>Votre demande a bien été envoyée. Nous vous répondrons dès que possible par email ou WhatsApp.</p>
-    <button type="button" class="btn btn-primary" onclick="closeThankYou()">Fermer</button>
-  </div>
-</div>
-<div class="modal-overlay" id="errorModal">
-  <div class="modal-box">
-    <div class="modal-icon modal-icon-error">&#33;</div>
-    <h3>Oups, une erreur est survenue</h3>
-    <p>Nous n'avons pas pu envoyer votre demande. Réessayez, ou écrivez-nous directement sur WhatsApp.</p>
-    <a class="btn btn-primary" href="https://wa.me/393335638730?text=Bonjour%2C%20je%20souhaiterais%20conna%C3%AEtre%20la%20disponibilit%C3%A9%20et%20le%20tarif%20direct%20pour%20Casa%20Lobelie." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-    <button type="button" class="btn btn-outline-dark" onclick="closeErrorModal()">Fermer</button>
-  </div>
-</div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <button class="close" onclick="closeLightbox(event)">&times;</button>
@@ -737,69 +657,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  function inviaRichiesta(metodo){
-    var nome = document.getElementById('reqNome').value.trim();
-    var email = document.getElementById('reqEmail').value.trim();
-    var telefono = document.getElementById('reqTelefono').value.trim();
-    var checkin = document.getElementById('reqCheckin').value;
-    var checkout = document.getElementById('reqCheckout').value;
-    var ospiti = document.getElementById('reqOspiti').value;
-    if(!nome || !email || !checkin || !checkout || !ospiti){
-      alert('Veuillez remplir tous les champs obligatoires avant d\'envoyer la demande.');
-      return;
-    }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      alert('Veuillez saisir une adresse e-mail valide.');
-      return;
-    }
-    var testo = 'Demande de disponibilité - Casa Lobelie\nNom: '+nome+'\nEmail: '+email+(telefono ? '\nTéléphone: '+telefono : '')+'\nArrivée: '+checkin+'\nDépart: '+checkout+'\nPersonnes: '+ospiti;
-    if(metodo === 'whatsapp'){
-      var msg = encodeURIComponent(testo);
-      window.open('https://wa.me/393335638730?text='+msg, '_blank');
-      return;
-    }
-    var btn = document.getElementById('btnInviaEmail');
-    var originalText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Envoi en cours…';
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({
-        access_key: '8b8c3e98-575f-450f-aece-0baef51261f1',
-        subject: 'Demande de disponibilité - Casa Lobelie',
-        from_name: nome,
-        nome: nome,
-        email: email,
-        telefono: telefono,
-        checkin: checkin,
-        checkout: checkout,
-        ospiti: ospiti,
-        message: testo
-      })
-    })
-    .then(function(res){ return res.json(); })
-    .then(function(data){
-      if(data.success){
-        document.getElementById('thankYouTitle').textContent = nome ? 'Merci, ' + nome + '!' : 'Merci !';
-        document.getElementById('thankYouModal').classList.add('open');
-        document.getElementById('requestForm').reset();
-      } else {
-        document.getElementById('errorModal').classList.add('open');
-      }
-    })
-    .catch(function(){
-      document.getElementById('errorModal').classList.add('open');
-    })
-    .finally(function(){
-      btn.disabled = false;
-      btn.textContent = originalText;
-    });
-  }
-
-  function closeThankYou(){ document.getElementById('thankYouModal').classList.remove('open'); }
-  function closeErrorModal(){ document.getElementById('errorModal').classList.remove('open'); }
-
   function openLightbox(src, caption){
     document.getElementById('lightbox-img').src = src;
     document.getElementById('lightbox-cap').textContent = caption || '';
@@ -813,6 +670,22 @@
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
   });
+
+  (function(){
+    var stickyBtn = document.getElementById('stickyBook');
+    var hideZones = [document.querySelector('footer'), document.querySelector('.ota-recall')].filter(Boolean);
+    if (stickyBtn && hideZones.length && 'IntersectionObserver' in window) {
+      var visible = {};
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          visible[entry.target] = entry.isIntersecting;
+        });
+        var anyVisible = hideZones.some(function(el){ return visible[el]; });
+        stickyBtn.classList.toggle('is-hidden', anyVisible);
+      }, { rootMargin: '0px 0px -15% 0px' });
+      hideZones.forEach(function(el){ obs.observe(el); });
+    }
+  })();
 </script>
 
 </body>
