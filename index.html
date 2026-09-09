@@ -314,8 +314,194 @@
     });
   }, true);
 </script>
+<style id="clCookieStyles">
+  .cl-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--cream,#fbf3e6);border-top:1px solid var(--line,#ecdcc4);box-shadow:0 -8px 30px -12px rgba(58,32,20,.25);padding:18px 24px;}
+  .cl-cookie-banner[hidden]{display:none;}
+  .cl-cookie-banner__inner{max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;justify-content:space-between;}
+  .cl-cookie-banner__text{margin:0;font-size:.9rem;color:var(--ink,#3a2a20);line-height:1.5;flex:1 1 380px;}
+  .cl-cookie-banner__actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  .cl-cookie-btn{font-family:inherit;font-size:.85rem;font-weight:700;border-radius:30px;padding:10px 20px;cursor:pointer;border:1.5px solid transparent;transition:all .2s ease;white-space:nowrap;}
+  .cl-cookie-btn--primary{background:var(--terracotta,#0d4a78);color:#fff;}
+  .cl-cookie-btn--primary:hover{background:var(--terracotta-deep,#08395d);}
+  .cl-cookie-btn--ghost{background:transparent;color:var(--ink,#3a2a20);border-color:var(--line,#ecdcc4);}
+  .cl-cookie-btn--ghost:hover{background:var(--cream-deep,#f3e6d2);}
+  .cl-cookie-prefs{position:fixed;inset:0;z-index:210;}
+  .cl-cookie-prefs[hidden]{display:none;}
+  .cl-cookie-prefs__overlay{position:absolute;inset:0;background:rgba(20,12,8,.5);}
+  .cl-cookie-prefs__box{position:relative;max-width:480px;margin:8vh auto 0;background:#fff;border-radius:var(--radius,18px);padding:28px 26px;box-shadow:0 30px 70px rgba(0,0,0,.3);max-height:82vh;overflow:auto;}
+  .cl-cookie-prefs__title{margin:0 0 10px;font-family:'Fraunces',serif;font-size:1.3rem;color:var(--ink,#3a2a20);}
+  .cl-cookie-prefs__body{margin:0 0 20px;font-size:.88rem;color:var(--ink-soft,#6b5c4d);line-height:1.5;}
+  .cl-cookie-prefs__row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line,#ecdcc4);}
+  .cl-cookie-prefs__row-text{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--ink,#3a2a20);}
+  .cl-cookie-prefs__row-text span{color:var(--ink-soft,#6b5c4d);font-size:.8rem;font-weight:400;}
+  .cl-cookie-tag{font-size:.72rem;font-weight:700;color:var(--ink-soft,#6b5c4d);background:var(--cream-deep,#f3e6d2);padding:4px 10px;border-radius:20px;white-space:nowrap;height:fit-content;}
+  .cl-cookie-switch{position:relative;display:inline-block;width:44px;height:26px;flex-shrink:0;}
+  .cl-cookie-switch input{opacity:0;width:0;height:0;}
+  .cl-cookie-switch__slider{position:absolute;cursor:pointer;inset:0;background:var(--line,#ecdcc4);border-radius:30px;transition:.2s;}
+  .cl-cookie-switch__slider::before{content:"";position:absolute;height:20px;width:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;}
+  .cl-cookie-switch input:checked + .cl-cookie-switch__slider{background:var(--terracotta,#0d4a78);}
+  .cl-cookie-switch input:checked + .cl-cookie-switch__slider::before{transform:translateX(18px);}
+  .cl-cookie-switch input:focus-visible + .cl-cookie-switch__slider{outline:2px solid var(--gold,#a37830);outline-offset:2px;}
+  .cl-cookie-prefs__actions{margin-top:20px;display:flex;justify-content:flex-end;}
+  body.cl-has-banner .sticky-book{display:none!important;}
+  .cl-cookie-footer-link{display:block;margin-top:10px;}
+  .cl-cookie-footer-link a{color:#c9bcae;text-decoration:underline;font-size:.8rem;background:none;border:none;padding:0;cursor:pointer;font-family:inherit;}
+  @media (max-width:560px){
+    .cl-cookie-banner{padding:16px;}
+    .cl-cookie-banner__actions{width:100%;justify-content:stretch;}
+    .cl-cookie-btn{flex:1;text-align:center;}
+    .cl-cookie-prefs__box{margin:0;max-height:100vh;border-radius:0;height:100%;}
+  }
+</style>
+<script id="clCookieConsentScript">
+(function(){
+  var CONSENT_KEY = 'cl_cookie_consent';
+  var PIXEL_ID = '28376685878607339';
+
+  function getConsent(){
+    try {
+      var raw = localStorage.getItem(CONSENT_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch(e){ return null; }
+  }
+  function setConsent(marketing){
+    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ marketing: !!marketing, ts: Date.now() })); } catch(e){}
+  }
+
+  function loadMetaPixel(){
+    if (window._clPixelLoaded) return;
+    window._clPixelLoaded = true;
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+
+  function hasMarketingConsent(){
+    var c = getConsent();
+    return !!(c && c.marketing === true);
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var banner = document.getElementById('clCookieBanner');
+    var prefs = document.getElementById('clCookiePrefs');
+    var toggle = document.getElementById('clCookieMarketingToggle');
+
+    function showBanner(){ if (banner) { banner.hidden = false; document.body.classList.add('cl-has-banner'); } }
+    function hideBanner(){ if (banner) { banner.hidden = true; document.body.classList.remove('cl-has-banner'); } }
+    function showPrefs(){
+      if (toggle) toggle.checked = hasMarketingConsent();
+      if (prefs) prefs.hidden = false;
+    }
+    function hidePrefs(){ if (prefs) prefs.hidden = true; }
+
+    var consent = getConsent();
+    if (consent && consent.marketing === true) {
+      loadMetaPixel();
+    } else if (!consent) {
+      showBanner();
+    }
+
+    var btnAccept = document.getElementById('clCookieAccept');
+    var btnReject = document.getElementById('clCookieReject');
+    var btnManage = document.getElementById('clCookieManage');
+    var btnSave = document.getElementById('clCookieSavePrefs');
+    var overlay = document.getElementById('clCookiePrefsOverlay');
+    var reopen = document.getElementById('clCookiePrefsReopen');
+
+    if (btnAccept) btnAccept.addEventListener('click', function(){
+      setConsent(true);
+      hideBanner();
+      hidePrefs();
+      loadMetaPixel();
+    });
+    if (btnReject) btnReject.addEventListener('click', function(){
+      setConsent(false);
+      hideBanner();
+      hidePrefs();
+    });
+    if (btnManage) btnManage.addEventListener('click', function(){ showPrefs(); });
+    if (btnSave) btnSave.addEventListener('click', function(){
+      var marketing = !!(toggle && toggle.checked);
+      setConsent(marketing);
+      hidePrefs();
+      hideBanner();
+      if (marketing) loadMetaPixel();
+    });
+    if (overlay) overlay.addEventListener('click', function(){ hidePrefs(); });
+    if (reopen) reopen.addEventListener('click', function(e){
+      e.preventDefault();
+      showBanner();
+      showPrefs();
+    });
+  });
+
+  // Meta Pixel event: InitiateCheckout on booking CTAs (Prenota/Book/Reservar/Réserver),
+  // including the buttons that lead to the Smoobu booking engine. Fires only with marketing consent.
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="/prenota/"], a[href*="/book/"], a[href*="/reservar/"], a[href*="/reserver/"]');
+    if (!link) return;
+    if (window.fbq && hasMarketingConsent()) {
+      fbq('track', 'InitiateCheckout');
+    }
+  }, true);
+
+  // Meta Pixel event: Contact on WhatsApp links. Fires only with marketing consent.
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (!link) return;
+    if (window.fbq && hasMarketingConsent()) {
+      fbq('track', 'Contact');
+    }
+  }, true);
+})();
+</script>
 </head>
 <body>
+<div id="clCookieBanner" class="cl-cookie-banner" role="dialog" aria-live="polite" aria-label="Banner cookie" hidden>
+  <div class="cl-cookie-banner__inner">
+    <p class="cl-cookie-banner__text">Utilizziamo cookie tecnici necessari al funzionamento del sito. Con il vostro consenso, utilizziamo anche cookie di marketing (Meta Pixel) per misurare e migliorare le nostre campagne pubblicitarie.</p>
+    <div class="cl-cookie-banner__actions">
+      <button type="button" id="clCookieManage" class="cl-cookie-btn cl-cookie-btn--ghost">Gestisci preferenze</button>
+      <button type="button" id="clCookieReject" class="cl-cookie-btn cl-cookie-btn--ghost">Rifiuta</button>
+      <button type="button" id="clCookieAccept" class="cl-cookie-btn cl-cookie-btn--primary">Accetta tutto</button>
+    </div>
+  </div>
+</div>
+<div id="clCookiePrefs" class="cl-cookie-prefs" role="dialog" aria-modal="true" aria-label="Preferenze cookie" hidden>
+  <div class="cl-cookie-prefs__overlay" id="clCookiePrefsOverlay"></div>
+  <div class="cl-cookie-prefs__box">
+    <h2 class="cl-cookie-prefs__title">Preferenze cookie</h2>
+    <p class="cl-cookie-prefs__body">Potete scegliere quali cookie attivare. I cookie tecnici sono sempre attivi perché necessari al funzionamento del sito.</p>
+    <div class="cl-cookie-prefs__row">
+      <div class="cl-cookie-prefs__row-text">
+        <strong>Cookie di marketing (Meta Pixel)</strong>
+        <span>Usati per misurare e migliorare l'efficacia delle nostre campagne pubblicitarie su Meta (Facebook e Instagram).</span>
+      </div>
+      <label class="cl-cookie-switch">
+        <input type="checkbox" id="clCookieMarketingToggle">
+        <span class="cl-cookie-switch__slider" aria-hidden="true"></span>
+      </label>
+    </div>
+    <div class="cl-cookie-prefs__row">
+      <div class="cl-cookie-prefs__row-text">
+        <strong>Cookie tecnici</strong>
+        <span>Necessari al funzionamento del sito. Non possono essere disattivati.</span>
+      </div>
+      <span class="cl-cookie-tag">Sempre attivi</span>
+    </div>
+    <div class="cl-cookie-prefs__actions">
+      <button type="button" id="clCookieSavePrefs" class="cl-cookie-btn cl-cookie-btn--primary">Salva preferenze</button>
+    </div>
+  </div>
+</div>
+
 
 <header class="nav">
   <div class="nav-inner">
@@ -622,7 +808,8 @@
       </div>
     </div>
     <div class="footer-bottom">© <span id="year"></span> Casa Lobelie. Sito indipendente, non affiliato ad Airbnb o Booking.com. — <a href="termini.html" style="text-decoration:underline;">Termini e Condizioni</a> · <a href="privacy.html" style="text-decoration:underline;">Privacy Policy</a></div>
-  </div>
+  <div class="cl-cookie-footer-link"><a href="#" id="clCookiePrefsReopen">Preferenze Cookie</a></div>
+</div>
 </footer>
 
 
