@@ -293,25 +293,6 @@
     .wrap{padding:0 22px;}
   }
 
-
-  /* STICKY BOOK BUTTON — mobile only */
-  .sticky-book{display:none;}
-  @media (max-width:640px){
-    .sticky-book{
-      display:flex;position:fixed;left:16px;right:16px;
-      bottom:calc(14px + env(safe-area-inset-bottom));
-      z-index:80;
-      background:var(--terracotta);color:#fff;
-      padding:14px 20px;border-radius:30px;
-      font-size:.95rem;font-weight:800;
-      text-decoration:none;justify-content:center;align-items:center;gap:8px;
-      box-shadow:0 12px 28px -8px rgba(13,74,120,.55);
-      transition:opacity .25s ease, transform .25s ease;
-    }
-    .sticky-book:active{background:var(--terracotta-deep);transform:scale(.98);}
-    .sticky-book:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
-    .sticky-book.is-hidden{opacity:0;transform:translateY(14px);pointer-events:none;}
-  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PVZ9RM2ME"></script>
@@ -383,8 +364,6 @@
     </div>
   </div>
 </header>
-
-<a href="/prenota/" class="sticky-book" id="stickyBook" aria-label="Prenota il tuo soggiorno a Casa Lobelie">Prenota</a>
 
 <section class="hero">
   <img src="images/veranda-hero.jpg" alt="Veranda privata di Casa Lobelie tra il verde">
@@ -670,22 +649,6 @@
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
   });
-
-  (function(){
-    var stickyBtn = document.getElementById('stickyBook');
-    var hideZones = [document.querySelector('footer'), document.querySelector('.ota-recall')].filter(Boolean);
-    if (stickyBtn && hideZones.length && 'IntersectionObserver' in window) {
-      var visible = {};
-      var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          visible[entry.target] = entry.isIntersecting;
-        });
-        var anyVisible = hideZones.some(function(el){ return visible[el]; });
-        stickyBtn.classList.toggle('is-hidden', anyVisible);
-      }, { rootMargin: '0px 0px -15% 0px' });
-      hideZones.forEach(function(el){ obs.observe(el); });
-    }
-  })();
 </script>
 
 </body>
