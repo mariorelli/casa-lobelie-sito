@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Guest Guide â Casa Lobelie</title>
+<meta name="description" content="Guida digitale per gli ospiti di Casa Lobelie: Wi-Fi, check-in e check-out, come muoversi, regole della casa e consigli su Roma.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://casalobelie.it/guest/">
+<meta name="theme-color" content="#0d4a78">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Casa Lobelie">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&amp;family=Alex+Brush&amp;family=Nunito+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="app-header" id="appHeader">
+  <div class="app-header-inner">
+    <div class="header-left">
+      <button type="button" class="back-btn" id="backBtn" aria-label="Indietro">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <a href="#/it/home" class="logo-mark" id="logoLink">
+        <span class="casa">Casa</span>
+        <span class="script">Lobelie</span>
+        <span class="tag">Roma</span>
+      </a>
+    </div>
+    <div class="lang-switch" id="langSwitch"></div>
+  </div>
+  <div class="app-header-subrow" id="headerSubrow" hidden>
+    <span class="header-title" id="headerTitle"></span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div id="app"></div>
+  </div>
+</main>
+
+<div class="wa-floating" id="waFloating"></div>
+
+<script src="js/qrcode.min.js"></script>
+<script src="js/content.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
