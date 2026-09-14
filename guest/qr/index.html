@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code â Guest Guide Casa Lobelie</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d4a78">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&amp;family=Alex+Brush&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3a2a20; --ink-soft:#6b5c4d; --cream:#fbf3e6; --cream-deep:#f3e6d2;
+    --line:#ecdcc4; --terracotta:#0d4a78; --terracotta-deep:#08395d; --gold:#a37830;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Nunito Sans',sans-serif;background:var(--cream);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;min-height:100vh;padding:32px 20px;}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:28px;padding:44px 36px;
+    max-width:420px;width:100%;text-align:center;box-shadow:0 24px 60px -30px rgba(58,32,20,.35);
+  }
+  .logo-mark{display:flex;flex-direction:column;align-items:center;margin-bottom:18px;}
+  .logo-mark .tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);font-weight:800;}
+  .logo-mark .casa{font-family:'Nunito Sans',sans-serif;font-weight:800;color:var(--terracotta-deep);font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;}
+  .logo-mark .script{font-family:'Alex Brush',cursive;font-size:2.3rem;color:var(--terracotta-deep);line-height:1;margin-top:-4px;}
+  h1{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;color:var(--terracotta-deep);margin:0 0 6px;}
+  p.sub{color:var(--ink-soft);font-size:.9rem;margin:0 0 26px;}
+  #qrHolder{display:inline-block;padding:16px;background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:22px;}
+  .url{font-size:.82rem;color:var(--ink-soft);word-break:break-all;margin-bottom:26px;}
+  .actions{display:flex;gap:10px;}
+  .btn{
+    flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 16px;border-radius:30px;font-weight:700;font-size:.85rem;cursor:pointer;
+    border:1.5px solid transparent;text-decoration:none;
+  }
+  .btn-primary{background:var(--terracotta);color:#fff;}
+  .btn-outline{background:var(--cream-deep);color:var(--terracotta-deep);}
+  @media print{
+    body{background:#fff;padding:0;}
+    .actions{display:none;}
+    .card{box-shadow:none;border:none;}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo-mark">
+      <span class="tag">Roma</span>
+      <span class="casa">Casa</span>
+      <span class="script">Lobelie</span>
+    </div>
+    <h1>QR Code della Guest Guide</h1>
+    <p class="sub">Da stampare ed esporre in appartamento â inquadrandolo, gli ospiti aprono subito la guida.</p>
+    <div id="qrHolder"></div>
+    <div class="url">https://casalobelie.it/guest/</div>
+    <div class="actions">
+      <button type="button" class="btn btn-outline" onclick="window.print()">Stampa</button>
+      <a class="btn btn-primary" id="downloadBtn" href="#">Scarica PNG</a>
+    </div>
+  </div>
+
+<script src="../js/qrcode.min.js"></script>
+<script>
+  var TARGET_URL = "https://casalobelie.it/guest/";
+  var holder = document.getElementById("qrHolder");
+  new QRCode(holder, { text: TARGET_URL, width: 220, height: 220, colorDark: "#3a2a20", colorLight: "#ffffff" });
+
+  setTimeout(function () {
+    var canvas = holder.querySelector("canvas");
+    var img = holder.querySelector("img");
+    var dl = document.getElementById("downloadBtn");
+    dl.addEventListener("click", function (e) {
+      e.preventDefault();
+      var dataUrl = canvas ? canvas.toDataURL("image/png") : (img ? img.src : null);
+      if (!dataUrl) return;
+      var a = document.createElement("a");
+      a.href = dataUrl;
+      a.download = "casalobelie-guest-guide-qr.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+  }, 150);
+</script>
+</body>
+</html>
