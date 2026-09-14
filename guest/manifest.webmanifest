@@ -1,0 +1,18 @@
+{
+  "name": "Casa Lobelie â Guest Guide",
+  "short_name": "Casa Lobelie",
+  "description": "Guida digitale per gli ospiti di Casa Lobelie a Roma.",
+  "start_url": "/guest/#/it/home",
+  "scope": "/guest/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf3e6",
+  "theme_color": "#0d4a78",
+  "lang": "it",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
