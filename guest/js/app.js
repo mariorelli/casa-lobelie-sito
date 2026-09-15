@@ -393,8 +393,18 @@
         body = "<p>" + esc(tr(DATA.house.bedroom.config, lang)) + " " + esc(tr(DATA.house.bedroom.mattress, lang)) + "</p>";
       } else if (key === "wifi") {
         body = "<p>" + esc(I18N[lang].wifi.network) + ": " + esc(DATA.wifi.ssid) + '. <a href="' + buildHash(lang, "wifi") + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(I18N[lang].wifi.title) + " →</a></p>";
+      } else if (DATA.house[key] && DATA.house[key].intro) {
+        // Testo reale fornito da Mario: intro + eventuale elenco puntato + outro.
+        var h = DATA.house[key];
+        body = "<p>" + esc(tr(h.intro, lang)) + "</p>";
+        if (h.list && h.list.length) {
+          body += relaxChecklist(h.list, lang);
+        }
+        if (h.outro) {
+          body += "<p>" + esc(tr(h.outro, lang)) + "</p>";
+        }
       } else if (DATA.house[key]) {
-        // Testo reale fornito da Mario.
+        // Testo reale fornito da Mario (formato semplice, senza elenco).
         body = "<p>" + esc(tr(DATA.house[key], lang)) + "</p>";
       } else {
         // Nessun testo reale ancora disponibile: invito a scrivere a Mario,

@@ -104,14 +104,11 @@ window.GUEST_DATA = {
 
   /* ---------------------------------------------------------------------
      LA CASA
-     NOTA: per i punti "Climatizzazione, Riscaldamento, Cucina, Macchina
-     espresso, Bagno, Raccolta rifiuti" servono i testi reali scritti da
-     Mario (istruzioni specifiche sugli elettrodomestici di Casa Lobelie).
-     Finché non arrivano, la guida NON inventa dettagli: mostra un invito
-     a scrivere a Mario su WhatsApp per quella singola voce (vedi app.js /
-     i18n.js, chiave house.askHostPrefix). Aggiungete qui una chiave con lo
-     stesso nome (es. "aircon: { it:'...', en:'...', es:'...', fr:'...' }")
-     per far comparire il testo reale al posto dell'invito.
+     Ogni voce "operativa" (aircon, heating, kitchen, espresso, bathroom,
+     waste) usa la forma { intro, list, outro } — intro/outro sono testi
+     { it, en, es, fr }, list è un array (anche vuoto) di testi puntati
+     { it, en, es, fr }. Testi reali forniti da Mario — non inventare né
+     modificare il significato quando si traduce.
   --------------------------------------------------------------------- */
   house: {
     bedroom: {
@@ -127,10 +124,118 @@ window.GUEST_DATA = {
         es: "Colchón de espuma viscoelástica (memory foam).",
         fr: "Matelas à mémoire de forme."
       }
+    },
+
+    aircon: {
+      intro: {
+        it: "L'appartamento è dotato di aria condizionata. Utilizza il telecomando presente nell'appartamento per accendere, spegnere e regolare la temperatura.",
+        en: "The apartment is equipped with air conditioning. Use the remote control provided in the apartment to turn it on, turn it off and adjust the temperature.",
+        es: "El apartamento cuenta con aire acondicionado. Utiliza el mando a distancia disponible en el apartamento para encenderlo, apagarlo y regular la temperatura.",
+        fr: "L'appartement est équipé de la climatisation. Utilisez la télécommande présente dans l'appartement pour l'allumer, l'éteindre et régler la température."
+      },
+      list: [
+        { it: "Tieni porte e finestre chiuse mentre il climatizzatore è acceso.", en: "Keep doors and windows closed while the air conditioner is on.", es: "Mantén puertas y ventanas cerradas mientras el aire acondicionado esté encendido.", fr: "Gardez portes et fenêtres fermées pendant que le climatiseur est allumé." },
+        { it: "Evita temperature eccessivamente basse.", en: "Avoid setting excessively low temperatures.", es: "Evita temperaturas demasiado bajas.", fr: "Évitez des températures trop basses." },
+        { it: "Quando lasci l'appartamento per molte ore, spegni il climatizzatore.", en: "Turn off the air conditioner when you leave the apartment for several hours.", es: "Apaga el aire acondicionado cuando salgas del apartamento durante muchas horas.", fr: "Éteignez le climatiseur lorsque vous quittez l'appartement pour plusieurs heures." }
+      ],
+      outro: {
+        it: "Se il telecomando o il climatizzatore non funzionano correttamente, contatta Casa Lobelie tramite WhatsApp.",
+        en: "If the remote control or the air conditioner isn't working properly, please contact Casa Lobelie via WhatsApp.",
+        es: "Si el mando o el aire acondicionado no funcionan correctamente, contacta con Casa Lobelie por WhatsApp.",
+        fr: "Si la télécommande ou le climatiseur ne fonctionnent pas correctement, contactez Casa Lobelie via WhatsApp."
+      }
+    },
+
+    heating: {
+      intro: {
+        it: "Casa Lobelie dispone di riscaldamento autonomo. Utilizza solamente i normali comandi messi a disposizione degli ospiti. Non modificare impostazioni tecniche dell'impianto.",
+        en: "Casa Lobelie has independent heating. Please use only the standard controls provided for guests. Do not change the system's technical settings.",
+        es: "Casa Lobelie dispone de calefacción autónoma. Utiliza solo los mandos habituales puestos a disposición de los huéspedes. No modifiques la configuración técnica del sistema.",
+        fr: "Casa Lobelie dispose d'un chauffage autonome. Utilisez uniquement les commandes habituelles mises à disposition des hôtes. Ne modifiez pas les réglages techniques de l'installation."
+      },
+      list: [],
+      outro: {
+        it: "In caso di dubbi o malfunzionamenti, contatta Casa Lobelie tramite WhatsApp.",
+        en: "If you have any questions or notice a malfunction, please contact Casa Lobelie via WhatsApp.",
+        es: "Si tienes dudas o detectas algún fallo, contacta con Casa Lobelie por WhatsApp.",
+        fr: "En cas de doute ou de dysfonctionnement, contactez Casa Lobelie via WhatsApp."
+      }
+    },
+
+    kitchen: {
+      intro: {
+        it: "La cucina è a disposizione degli ospiti durante il soggiorno. Dopo l'utilizzo:",
+        en: "The kitchen is available to guests throughout the stay. After use, please:",
+        es: "La cocina está a disposición de los huéspedes durante la estancia. Después de usarla:",
+        fr: "La cuisine est à la disposition des hôtes pendant le séjour. Après utilisation :"
+      },
+      list: [
+        { it: "Spegni sempre gli apparecchi utilizzati.", en: "Always turn off any appliances you have used.", es: "Apaga siempre los electrodomésticos que hayas utilizado.", fr: "Éteignez toujours les appareils utilisés." },
+        { it: "Non lasciare pentole o apparecchi accesi incustoditi.", en: "Never leave pots or appliances on and unattended.", es: "No dejes ollas o aparatos encendidos sin vigilancia.", fr: "Ne laissez jamais de casseroles ou d'appareils allumés sans surveillance." },
+        { it: "Lascia il piano cucina ordinato.", en: "Leave the countertop tidy.", es: "Deja la encimera ordenada.", fr: "Laissez le plan de travail rangé." },
+        { it: "Riponi gli alimenti deteriorabili in frigorifero.", en: "Store perishable food in the fridge.", es: "Guarda los alimentos perecederos en la nevera.", fr: "Rangez les aliments périssables au réfrigérateur." },
+        { it: "Evita di lasciare residui di cibo in giro.", en: "Avoid leaving food scraps around.", es: "Evita dejar restos de comida.", fr: "Évitez de laisser des résidus de nourriture." }
+      ],
+      outro: {
+        it: "Prima di uscire dall'appartamento verifica sempre che gli apparecchi utilizzati siano spenti.",
+        en: "Before leaving the apartment, always check that any appliances you used are switched off.",
+        es: "Antes de salir del apartamento, comprueba siempre que los electrodomésticos utilizados estén apagados.",
+        fr: "Avant de quitter l'appartement, vérifiez toujours que les appareils utilisés sont éteints."
+      }
+    },
+
+    espresso: {
+      intro: {
+        it: "A Casa Lobelie è disponibile una macchina per il caffè espresso. Utilizza la macchina presente in cucina seguendo le indicazioni disponibili accanto all'apparecchio.",
+        en: "Casa Lobelie has an espresso machine available. Use the machine in the kitchen following the instructions next to it.",
+        es: "En Casa Lobelie hay disponible una cafetera espresso. Utiliza la máquina de la cocina siguiendo las indicaciones que hay junto al aparato.",
+        fr: "Casa Lobelie met à disposition une machine à café espresso. Utilisez la machine présente dans la cuisine en suivant les indications situées à côté de l'appareil."
+      },
+      list: [],
+      outro: {
+        it: "Se hai dubbi sul funzionamento, contatta Casa Lobelie tramite WhatsApp.",
+        en: "If you're not sure how it works, please contact Casa Lobelie via WhatsApp.",
+        es: "Si tienes dudas sobre su funcionamiento, contacta con Casa Lobelie por WhatsApp.",
+        fr: "En cas de doute sur son fonctionnement, contactez Casa Lobelie via WhatsApp."
+      }
+    },
+
+    bathroom: {
+      intro: {
+        it: "Per evitare problemi agli scarichi, nel WC getta esclusivamente carta igienica. Non gettare:",
+        en: "To avoid drain problems, only flush toilet paper down the toilet. Please don't flush:",
+        es: "Para evitar problemas en los desagües, en el WC tira únicamente papel higiénico. No tires:",
+        fr: "Pour éviter les problèmes de canalisation, ne jetez dans les toilettes que du papier toilette. Ne jetez pas :"
+      },
+      list: [
+        { it: "Salviette.", en: "Wet wipes.", es: "Toallitas húmedas.", fr: "Lingettes." },
+        { it: "Assorbenti.", en: "Sanitary pads or tampons.", es: "Compresas o tampones.", fr: "Serviettes ou tampons hygiéniques." },
+        { it: "Cotton fioc.", en: "Cotton swabs.", es: "Bastoncillos de algodón.", fr: "Cotons-tiges." },
+        { it: "Altri oggetti.", en: "Any other objects.", es: "Otros objetos.", fr: "Tout autre objet." }
+      ],
+      outro: {
+        it: "Segnala immediatamente eventuali perdite d'acqua o malfunzionamenti. Dopo l'utilizzo lascia il bagno in condizioni ordinate.",
+        en: "Please report any water leaks or malfunctions immediately. Leave the bathroom tidy after use.",
+        es: "Informa de inmediato cualquier fuga de agua o mal funcionamiento. Deja el baño ordenado después de usarlo.",
+        fr: "Signalez immédiatement toute fuite d'eau ou tout dysfonctionnement. Laissez la salle de bain en ordre après utilisation."
+      }
+    },
+
+    waste: {
+      intro: {
+        it: "Ti chiediamo di mantenere l'appartamento ordinato e di separare correttamente i rifiuti quando possibile. Utilizza i contenitori e i sacchetti predisposti nella struttura.",
+        en: "Please keep the apartment tidy and sort waste correctly whenever possible. Use the bins and bags provided in the property.",
+        es: "Te pedimos mantener el apartamento ordenado y separar correctamente los residuos siempre que sea posible. Utiliza los contenedores y bolsas puestos a disposición en el alojamiento.",
+        fr: "Nous vous demandons de garder l'appartement en ordre et de trier correctement les déchets lorsque c'est possible. Utilisez les conteneurs et sacs prévus dans le logement."
+      },
+      list: [],
+      outro: {
+        it: "Non lasciare o abbandonare sacchetti di rifiuti nella veranda o nell'area relax.",
+        en: "Please don't leave or abandon rubbish bags on the veranda or in the relax area.",
+        es: "No dejes ni abandones bolsas de basura en la veranda ni en la zona de relax.",
+        fr: "Ne laissez pas et n'abandonnez pas de sacs de déchets sur la véranda ou dans l'espace détente."
+      }
     }
-    // aircon: {...}, heating: {...}, kitchen: {...}, espresso: {...},
-    // bathroom: {...}, waste: {...} — da aggiungere quando Mario fornisce
-    // i testi reali (vedi nota sopra).
   },
 
   /* ---------------------------------------------------------------------
