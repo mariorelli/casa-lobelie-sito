@@ -91,6 +91,7 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   .logo-mark{display:flex;flex-direction:column;line-height:1;flex-shrink:0;text-decoration:none;}
+  .logo-mark img{height:56px;width:auto;display:block;}
   .logo-mark .casa{font-family:'Nunito Sans',sans-serif;font-weight:800;color:var(--terracotta-deep);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;display:block;}
   .logo-mark .script{font-family:'Alex Brush',cursive;font-size:2.15rem;color:var(--terracotta-deep);line-height:1;display:block;margin-top:-2px;}
   .logo-mark .tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-top:2px;font-weight:700;}
@@ -273,6 +274,7 @@
     .logo-mark .script{font-size:1.7rem;}
     .logo-mark .casa{font-size:.85rem;}
     .logo-mark .tag{display:none;}
+    .logo-mark img{height:40px;}
     .welcome-grid,.zona-grid{grid-template-columns:1fr;}
     .amenity-grid{grid-template-columns:1fr 1fr;}
     .cat-grid{grid-template-columns:repeat(3,1fr);}
@@ -506,10 +508,7 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="#" class="logo-mark">
-      <span class="casa">Casa</span>
-      <span class="script">Lobelie</span>
-      <span class="tag">Alquiler de Corta Estancia</span>
+    <a href="#" class="logo-mark"><img src="images/logo.png" alt="Casa Lobelie">
     </a>
     <nav class="links">
       <a href="#benvenuti">Bienvenida</a>
