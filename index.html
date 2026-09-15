@@ -97,7 +97,7 @@
   .logo-mark .tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-top:2px;font-weight:700;}
   .logo-mark .tag::before{content:"\2022\00a0";}
   .logo-mark .tag::after{content:"\00a0\2022";}
-  nav.links{display:flex;gap:30px;font-size:.9rem;font-weight:700;}
+  nav.links{display:flex;gap:20px;font-size:.85rem;font-weight:700;}
   nav.links a{text-decoration:none;color:var(--ink-soft);transition:color .2s;}
   nav.links a:hover{color:var(--terracotta-deep);}
   .nav-cta{
@@ -296,6 +296,11 @@
     .wrap{padding:0 22px;}
   }
 
+  @media (min-width:901px) and (max-width:1023px){
+    nav.links{display:none;}
+    .nav-cta{display:none;}
+    #menuToggle{display:block;}
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PVZ9RM2ME"></script>
@@ -517,6 +522,7 @@
       <a href="#zona">La Zona</a>
       <a href="#recensioni">Recensioni</a>
           <a href="guida.html">La Guida</a>
+          <a href="servizi-extra.html">Servizi Extra</a>
     </nav>
     <div class="nav-right">
       <div class="lang-switch">
@@ -538,6 +544,7 @@
     <a href="#zona" onclick="document.getElementById('mobileLinks').classList.remove('open')">La Zona</a>
     <a href="#recensioni" onclick="document.getElementById('mobileLinks').classList.remove('open')">Recensioni</a>
     <a href="guida.html">La Guida</a>
+    <a href="servizi-extra.html">Servizi Extra</a>
     <a href="/prenota/" class="mobile-cta" onclick="document.getElementById('mobileLinks').classList.remove('open')">Prenota</a>
     <div style="display:flex;gap:8px;padding-top:14px;align-items:center;">
       <a href="index.html" style="font-weight:800;color:var(--terracotta-deep);">IT</a>

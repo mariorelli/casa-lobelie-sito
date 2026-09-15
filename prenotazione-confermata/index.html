@@ -80,7 +80,7 @@
   .logo-mark .tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-top:2px;font-weight:700;}
   .logo-mark .tag::before{content:"\2022\00a0";}
   .logo-mark .tag::after{content:"\00a0\2022";}
-  nav.links{display:flex;gap:30px;font-size:.9rem;font-weight:700;}
+  nav.links{display:flex;gap:20px;font-size:.85rem;font-weight:700;}
   nav.links a{text-decoration:none;color:var(--ink-soft);transition:color .2s;}
   nav.links a:hover{color:var(--terracotta-deep);}
   nav.links a.active{color:var(--terracotta-deep);}
@@ -170,6 +170,11 @@
     });
   }, true);
 </script>
+  @media (min-width:901px) and (max-width:1023px){
+    nav.links{display:none;}
+    .nav-cta{display:none;}
+    #menuToggle{display:block;}
+  }
 </style>
 <style id="clCookieStyles">
   .cl-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--cream,#fbf3e6);border-top:1px solid var(--line,#ecdcc4);box-shadow:0 -8px 30px -12px rgba(58,32,20,.25);padding:18px 24px;}
@@ -376,6 +381,7 @@
       <a href="/index.html#zona">La Zona</a>
       <a href="/index.html#recensioni">Recensioni</a>
       <a href="/guida.html">La Guida</a>
+      <a href="/servizi-extra.html">Servizi Extra</a>
     </nav>
 <nav class="links" data-lang="en" hidden>
       <a href="/en.html#benvenuti">Welcome</a>
@@ -384,6 +390,7 @@
       <a href="/en.html#zona">The Area</a>
       <a href="/en.html#recensioni">Reviews</a>
       <a href="/guida-en.html">Our Guide</a>
+      <a href="/servizi-extra-en.html">Extra Services</a>
     </nav>
 <nav class="links" data-lang="es" hidden>
       <a href="/es.html#benvenuti">Bienvenida</a>
@@ -392,6 +399,7 @@
       <a href="/es.html#zona">La Zona</a>
       <a href="/es.html#recensioni">Opiniones</a>
       <a href="/guida-es.html">Nuestra Guía</a>
+      <a href="/servizi-extra-es.html">Servicios Extra</a>
     </nav>
 <nav class="links" data-lang="fr" hidden>
       <a href="/fr.html#benvenuti">Bienvenue</a>
@@ -400,6 +408,7 @@
       <a href="/fr.html#zona">Le Quartier</a>
       <a href="/fr.html#recensioni">Avis</a>
       <a href="/guida-fr.html">Notre Guide</a>
+      <a href="/servizi-extra-fr.html">Services Extra</a>
     </nav>
     <div class="nav-right">
       <div class="lang-switch">
@@ -422,6 +431,7 @@
     <a href="/index.html#zona">La Zona</a>
     <a href="/index.html#recensioni">Recensioni</a>
     <a href="/guida.html">La Guida</a>
+    <a href="/servizi-extra.html">Servizi Extra</a>
     <a href="/prenota" class="mobile-cta">Prenota</a>
   </div>
 <div data-lang="en" hidden>
@@ -431,6 +441,7 @@
     <a href="/en.html#zona">The Area</a>
     <a href="/en.html#recensioni">Reviews</a>
     <a href="/guida-en.html">Our Guide</a>
+    <a href="/servizi-extra-en.html">Extra Services</a>
     <a href="/prenota" class="mobile-cta">Book</a>
   </div>
 <div data-lang="es" hidden>
@@ -440,6 +451,7 @@
     <a href="/es.html#zona">La Zona</a>
     <a href="/es.html#recensioni">Opiniones</a>
     <a href="/guida-es.html">Nuestra Guía</a>
+    <a href="/servizi-extra-es.html">Servicios Extra</a>
     <a href="/prenota" class="mobile-cta">Reservar</a>
   </div>
 <div data-lang="fr" hidden>
@@ -449,6 +461,7 @@
     <a href="/fr.html#zona">Le Quartier</a>
     <a href="/fr.html#recensioni">Avis</a>
     <a href="/guida-fr.html">Notre Guide</a>
+    <a href="/servizi-extra-fr.html">Services Extra</a>
     <a href="/prenota" class="mobile-cta">Réserver</a>
   </div>
     <div style="display:flex;gap:8px;padding-top:14px;align-items:center;">
