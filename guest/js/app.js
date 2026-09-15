@@ -1,5 +1,5 @@
 /* ============================================================================
-   CASA LOBELIE — GUEST GUIDE — LOGICA APPLICAZIONE
+   CASA LOBELIE â GUEST GUIDE â LOGICA APPLICAZIONE
    Router leggero via hash (#/lingua/sezione), rendering e interazioni.
    Non è necessario modificare questo file per aggiornare i contenuti:
    per quello usate content.js (dati) e i18n.js (testi di interfaccia).
@@ -388,7 +388,7 @@
       if (key === "bedroom") {
         body = esc(tr(DATA.house.bedroom.config, lang)) + " " + esc(tr(DATA.house.bedroom.mattress, lang));
       } else if (key === "wifi") {
-        body = I18N[lang].wifi.network + ": " + esc(DATA.wifi.ssid) + '. <a href="' + buildHash(lang, "wifi") + '" style="color:var(--terracotta-deep);font-weight:700;">' + I18N[lang].wifi.title + " →</a>";
+        body = I18N[lang].wifi.network + ": " + esc(DATA.wifi.ssid) + '. <a href="' + buildHash(lang, "wifi") + '" style="color:var(--terracotta-deep);font-weight:700;">' + I18N[lang].wifi.title + " â</a>";
       } else {
         body = esc(t.genericComingSoon);
       }
@@ -519,7 +519,7 @@
     } else {
       html += '<ul class="mini-list">';
       DATA.property.otherContacts.forEach(function (c) {
-        html += '<li>' + icon("phone") + '<span>' + esc(tr(c.label, state.lang)) + ' — <a href="tel:' + esc(c.phone) + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(c.phone) + "</a></span></li>";
+        html += '<li>' + icon("phone") + '<span>' + esc(tr(c.label, state.lang)) + ' â <a href="tel:' + esc(c.phone) + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(c.phone) + "</a></span></li>";
       });
       html += "</ul>";
     }
