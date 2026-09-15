@@ -1,10 +1,10 @@
 /* ============================================================================
    CASA LOBELIE â GUEST GUIDE â SERVICE WORKER
    Ambito limitato a /guest/ (vedi registrazione in app.js con scope esplicito):
-   non puÃ² in alcun modo intercettare le richieste del sito principale.
+   non può in alcun modo intercettare le richieste del sito principale.
    Strategia: cache-first per i file statici dell'app, network-first per i
    contenuti (cosi le modifiche a content.js/i18n.js arrivano subito),
-   con fallback alla cache quando la connessione Ã¨ lenta o assente.
+   con fallback alla cache quando la connessione è lenta o assente.
    ============================================================================ */
 var CACHE_NAME = "cl-guest-cache-v1";
 var APP_SHELL = [
