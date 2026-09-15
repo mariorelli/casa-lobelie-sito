@@ -6,7 +6,7 @@
    contenuti (cosi le modifiche a content.js/i18n.js arrivano subito),
    con fallback alla cache quando la connessione è lenta o assente.
    ============================================================================ */
-var CACHE_NAME = "cl-guest-cache-v2";
+var CACHE_NAME = "cl-guest-cache-v3";
 var APP_SHELL = [
   "/guest/",
   "/guest/index.html",
