@@ -1,5 +1,5 @@
 /* ============================================================================
-   CASA LOBELIE â GUEST GUIDE â LOGICA APPLICAZIONE
+   CASA LOBELIE — GUEST GUIDE — LOGICA APPLICAZIONE
    Router leggero via hash (#/lingua/sezione), rendering e interazioni.
    Non è necessario modificare questo file per aggiornare i contenuti:
    per quello usate content.js (dati) e i18n.js (testi di interfaccia).
@@ -159,24 +159,28 @@
     navigate(state.lang, "home");
   });
 
-  /* ---------------- render: sections ---------------- */
+  /* ---------------- render: sections ----------------
+     Ordine richiesto: Wi-Fi, La casa, Area Relax, Regole, Check-in,
+     Check-out, Come muoversi, Parcheggio, Contatta l'host, Mangiare
+     vicino, Shopping e servizi, Scopri Roma, Per il tuo soggiorno,
+     Emergenze. */
   var NAV_ITEMS = [
     { key: "wifi", icon: "wifi" },
+    { key: "house", icon: "house" },
+    { key: "relax", icon: "hotTub" },
+    { key: "rules", icon: "warning" },
     { key: "checkin", icon: "key" },
     { key: "checkout", icon: "keyOut" },
     { key: "transport", icon: "compass" },
-    { key: "relax", icon: "hotTub" },
-    { key: "house", icon: "house" },
     { key: "parking", icon: "parking" },
+    { key: "contact", icon: "chat" },
     { key: "eat", icon: "utensils" },
     { key: "shopping", icon: "bag" },
     { key: "rome", icon: "landmark" },
     { key: "stay", icon: "gift" },
-    { key: "rules", icon: "warning" },
-    { key: "emergency", icon: "warning" },
-    { key: "contact", icon: "chat" }
+    { key: "emergency", icon: "warning" }
   ];
-  var QUICK_ITEMS = ["wifi", "checkin", "checkout", "transport"];
+  var QUICK_ITEMS = ["wifi", "house", "relax", "checkout"];
 
   function sectionHead(t, key, subtitle) {
     return (
@@ -186,8 +190,8 @@
     );
   }
 
-  var DURING_STAY_ITEMS = ["relax", "transport", "rules"];
-  var NEED_SOMETHING_ITEMS = ["stay", "emergency", "contact"];
+  var DURING_STAY_ITEMS = ["relax", "rules", "parking"];
+  var NEED_SOMETHING_ITEMS = ["contact", "stay", "emergency"];
 
   function listRow(key, lang, t) {
     var item = NAV_ITEMS.filter(function (n) { return n.key === key; })[0];
@@ -201,13 +205,13 @@
     var t = I18N[state.lang];
     var lang = state.lang;
     var html = "";
+    html += '<div class="home-logo-wrap"><img class="home-logo" src="/guest/images/logo.png" alt="Casa Lobelie"></div>';
     html += '<div class="hero-welcome"><h1>' + esc(t.welcomeTitle) + "</h1><p>" + esc(t.welcomeSubtitle) + "</p></div>";
 
     html += '<div class="quick-row">';
     QUICK_ITEMS.forEach(function (key) {
       var item = NAV_ITEMS.filter(function (n) { return n.key === key; })[0];
-      var label = key === "transport" ? t.quickAccessArrival : t.nav[key];
-      html += '<a class="quick-btn" href="' + buildHash(lang, key) + '"><span class="icon-wrap">' + icon(item.icon) + "</span>" + esc(label) + "</a>";
+      html += '<a class="quick-btn" href="' + buildHash(lang, key) + '"><span class="icon-wrap">' + icon(item.icon) + "</span>" + esc(t.nav[key]) + "</a>";
     });
     html += "</div>";
 
@@ -386,11 +390,18 @@
     order.forEach(function (key) {
       var body = "";
       if (key === "bedroom") {
-        body = esc(tr(DATA.house.bedroom.config, lang)) + " " + esc(tr(DATA.house.bedroom.mattress, lang));
+        body = "<p>" + esc(tr(DATA.house.bedroom.config, lang)) + " " + esc(tr(DATA.house.bedroom.mattress, lang)) + "</p>";
       } else if (key === "wifi") {
-        body = I18N[lang].wifi.network + ": " + esc(DATA.wifi.ssid) + '. <a href="' + buildHash(lang, "wifi") + '" style="color:var(--terracotta-deep);font-weight:700;">' + I18N[lang].wifi.title + " â</a>";
+        body = "<p>" + esc(I18N[lang].wifi.network) + ": " + esc(DATA.wifi.ssid) + '. <a href="' + buildHash(lang, "wifi") + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(I18N[lang].wifi.title) + " →</a></p>";
+      } else if (DATA.house[key]) {
+        // Testo reale fornito da Mario.
+        body = "<p>" + esc(tr(DATA.house[key], lang)) + "</p>";
       } else {
-        body = esc(t.genericComingSoon);
+        // Nessun testo reale ancora disponibile: invito a scrivere a Mario,
+        // invece di inventare istruzioni sull'elettrodomestico.
+        var askMsg = t.askHostPrefix + t.sections[key];
+        body = "<p>" + esc(t.genericComingSoon) + "</p>" +
+          '<a class="btn btn-outline" style="width:auto;padding:11px 18px;font-size:.85rem;" href="' + waUrl(DATA.property.whatsappNumber, askMsg) + '" target="_blank" rel="noopener">' + icon("whatsapp") + esc(tAll.contact.whatsappButton) + "</a>";
       }
       html += '<details class="accordion"><summary>' + esc(t.sections[key]) + icon("arrowLeft", "chev") + '</summary><div class="accordion-body">' + body + "</div></details>";
     });
@@ -481,9 +492,11 @@
       var name = tr(place.name, lang);
       html += '<div class="rome-card">';
       html += '<img class="photo" src="' + esc(place.image) + '" alt="' + esc(name) + '" loading="lazy" data-fallback-label="' + esc(name) + '">';
-      html += '<div class="body"><h3>' + esc(name) + "</h3>";
+      html += '<div class="body">';
+      if (place.badge) html += '<span class="badge">' + esc(tr(place.badge, lang)) + "</span>";
+      html += "<h3>" + esc(name) + "</h3>";
       html += "<p>" + esc(tr(place.description, lang)) + "</p>";
-      html += '<div class="getting-there">' + esc(tr(place.gettingThere, lang)) + "</div>";
+      if (place.gettingThere) html += '<div class="getting-there">' + esc(tr(place.gettingThere, lang)) + "</div>";
       html += '<a class="btn btn-primary" href="' + mapsDirUrl(place.mapsQuery) + '" target="_blank" rel="noopener">' + icon("compass") + t.openRoute + "</a>";
       html += "</div></div>";
     });
@@ -519,7 +532,7 @@
     } else {
       html += '<ul class="mini-list">';
       DATA.property.otherContacts.forEach(function (c) {
-        html += '<li>' + icon("phone") + '<span>' + esc(tr(c.label, state.lang)) + ' â <a href="tel:' + esc(c.phone) + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(c.phone) + "</a></span></li>";
+        html += '<li>' + icon("phone") + '<span>' + esc(tr(c.label, state.lang)) + ' — <a href="tel:' + esc(c.phone) + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(c.phone) + "</a></span></li>";
       });
       html += "</ul>";
     }

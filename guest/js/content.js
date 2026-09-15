@@ -47,7 +47,7 @@ window.GUEST_DATA = {
   --------------------------------------------------------------------- */
   wifi: {
     ssid: "casalobelie",
-    password: "" // <-- INSERIRE QUI LA PASSWORD REALE DELLA RETE WI-FI
+    password: "lobelie20"
   },
 
   /* ---------------------------------------------------------------------
@@ -104,6 +104,14 @@ window.GUEST_DATA = {
 
   /* ---------------------------------------------------------------------
      LA CASA
+     NOTA: per i punti "Climatizzazione, Riscaldamento, Cucina, Macchina
+     espresso, Bagno, Raccolta rifiuti" servono i testi reali scritti da
+     Mario (istruzioni specifiche sugli elettrodomestici di Casa Lobelie).
+     Finché non arrivano, la guida NON inventa dettagli: mostra un invito
+     a scrivere a Mario su WhatsApp per quella singola voce (vedi app.js /
+     i18n.js, chiave house.askHostPrefix). Aggiungete qui una chiave con lo
+     stesso nome (es. "aircon: { it:'...', en:'...', es:'...', fr:'...' }")
+     per far comparire il testo reale al posto dell'invito.
   --------------------------------------------------------------------- */
   house: {
     bedroom: {
@@ -120,6 +128,9 @@ window.GUEST_DATA = {
         fr: "Matelas à mémoire de forme."
       }
     }
+    // aircon: {...}, heating: {...}, kitchen: {...}, espresso: {...},
+    // bathroom: {...}, waste: {...} — da aggiungere quando Mario fornisce
+    // i testi reali (vedi nota sopra).
   },
 
   /* ---------------------------------------------------------------------
@@ -147,7 +158,7 @@ window.GUEST_DATA = {
     duringUse: [
       { it: "Usare solo i comandi del pannello della vasca.", en: "Use only the hot tub control panel.", es: "Usad solo los mandos del panel del jacuzzi.", fr: "Utilisez uniquement les commandes du panneau du jacuzzi." },
       { it: "Per l'idromassaggio usare il comando bolle / massaggio.", en: "Use the bubbles / massage control for hydromassage.", es: "Para el hidromasaje, usad el mando de burbujas / masaje.", fr: "Pour l'hydromassage, utilisez la commande bulles / massage." },
-      { it: "Se l'idromassaggio si arresta automaticamente, è normale.", en: "If hydromassage stops automatically, this is normal.", es: "Si el hidromasaje se detiene automáticamente, es normal.", fr: "Si l'hydromassage s'arxête automatiquement, c'est normal." },
+      { it: "Se l'idromassaggio si arresta automaticamente, è normale.", en: "If hydromassage stops automatically, this is normal.", es: "Si el hidromasaje se detiene automáticamente, es normal.", fr: "Si l'hydromassage s'arrête automatiquement, c'est normal." },
       { it: "Non modificare filtrazione, programmi o impostazioni tecniche.", en: "Do not change filtration, programmes or technical settings.", es: "No modifiquéis la filtración, los programas ni los ajustes técnicos.", fr: "Ne modifiez pas la filtration, les programmes ni les réglages techniques." },
       { it: "Non scollegare la vasca dalla corrente.", en: "Do not unplug the hot tub.", es: "No desconectéis el jacuzzi de la corriente.", fr: "Ne débranchez pas le jacuzzi de l'alimentation électrique." }
     ],
@@ -182,12 +193,49 @@ window.GUEST_DATA = {
   },
 
   /* ---------------------------------------------------------------------
-     MANGIARE VICINO — struttura pronta, nessun locale inventato.
-     Copiate il blocco di esempio per aggiungerne uno nuovo.
+     MANGIARE VICINO — i consigli reali di Mario (dalla guida di Roma già
+     pubblicata su casalobelie.it/guida). Copiate il blocco di esempio per
+     aggiungerne uno nuovo.
      category consigliate: "restaurant" | "pizzeria" | "bar" | "breakfast"
   --------------------------------------------------------------------- */
   restaurants: [
-    // ESEMPIO — decommentate e completate quando avete i dati reali:
+    {
+      name: "Cin Cin Bar",
+      category: { it: "Ristorante", en: "Restaurant", es: "Restaurante", fr: "Restaurant" },
+      description: {
+        it: "Potete cenare o pranzare in questo ristorante con cucina tipica romana. Caratteristici sono i due balconi con vista su Piazza Venezia.",
+        en: "A restaurant serving classic Roman cuisine, perfect for lunch or dinner. Its two balconies overlooking Piazza Venezia are a real highlight.",
+        es: "Un restaurante con cocina típica romana, ideal para comer o cenar. Sus dos balcones con vistas a Piazza Venezia son un verdadero punto fuerte.",
+        fr: "Un restaurant de cuisine romaine traditionnelle, parfait pour déjeuner ou dîner. Ses deux balcons avec vue sur la Piazza Venezia sont un vrai plus."
+      },
+      mapsQuery: "Cin Cin Bar, Roma",
+      phone: ""
+    },
+    {
+      name: "Ristorante Sora Lella",
+      category: { it: "Ristorante", en: "Restaurant", es: "Restaurante", fr: "Restaurant" },
+      description: {
+        it: "Ristorante famoso e rinomato, prezzi adeguati alla fama e alla location. Si mangia bene e il personale è professionale: consigliato per un pranzo o una cena speciale.",
+        en: "A famous, well-established restaurant with prices that match its reputation and location. Great food and professional staff — recommended for a special lunch or dinner.",
+        es: "Un restaurante famoso y de gran reputación, con precios acordes a su fama y ubicación. Se come muy bien y el personal es profesional: recomendado para una comida o cena especial.",
+        fr: "Un restaurant réputé et bien établi, avec des prix à la hauteur de sa renommée et de son emplacement. On y mange très bien et le personnel est professionnel : recommandé pour un déjeuner ou un dîner spécial."
+      },
+      mapsQuery: "Ristorante Sora Lella, Roma",
+      phone: ""
+    },
+    {
+      name: "Ovosodo Trattoria Pinseria",
+      category: { it: "Trattoria", en: "Trattoria", es: "Trattoria", fr: "Trattoria" },
+      description: {
+        it: "Una garanzia, non delude mai. I primi piatti sono ottimi, così come i fritti e i dolci — consigliate le fettuccine al ragù in bianco e il cestino di crema/croccante al pistacchio. Molto apprezzata anche la formula aperitivo a 12€, con un tagliere di fritto, pizza, affettati, formaggio, mini panino e patatine fatte in casa. Consigliata la prenotazione.",
+        en: "A safe bet that never disappoints. The pasta dishes are excellent, as are the fried starters and desserts — we recommend the fettuccine al ragù in bianco and the pistachio cream basket. The €12 aperitivo, which includes a cocktail and a board of fried snacks, pizza, cold cuts, cheese, a mini sandwich and homemade crisps, is also very popular. Booking ahead is recommended.",
+        es: "Una garantía, nunca decepciona. Los primeros platos son excelentes, así como los fritos y los postres — recomendamos las fettuccine al ragù in bianco y la cesta de crema/crujiente de pistacho. También es muy popular el aperitivo por 12€, que incluye un cóctel y una tabla con fritos, pizza, embutidos, queso, mini bocadillo y patatas fritas caseras. Se recomienda reservar.",
+        fr: "Une valeur sûre qui ne déçoit jamais. Les plats de pâtes sont excellents, tout comme les fritures et les desserts — nous recommandons les fettuccine al ragù in bianco et la corbeille de crème/croquant à la pistache. L'apéritif à 12 €, qui comprend un cocktail et une planche de fritures, pizza, charcuterie, fromage, mini-sandwich et chips maison, est également très apprécié. Réservation conseillée."
+      },
+      mapsQuery: "Ovosodo Trattoria Pinseria, Roma",
+      phone: ""
+    }
+    // ESEMPIO — decommentate e completate quando avete altri dati reali:
     // {
     //   name: "Nome del locale",
     //   category: { it: "Ristorante", en: "Restaurant", es: "Restaurante", fr: "Restaurant" },
@@ -199,7 +247,10 @@ window.GUEST_DATA = {
   ],
 
   /* ---------------------------------------------------------------------
-     SHOPPING E SERVIZI — stessa struttura di "restaurants".
+     SHOPPING E SERVIZI — stessa struttura di "restaurants". Attualmente
+     vuota: Mario non ha ancora indicato supermercati/farmacie/servizi da
+     consigliare. Non è stato inventato nulla — la guida mostra un avviso
+     "arriveranno presto" al posto di locali finti.
      category consigliate: "supermarket" | "pharmacy" | "tobacco" | "atm" | "laundry" | "other"
   --------------------------------------------------------------------- */
   shopping: [
@@ -214,120 +265,76 @@ window.GUEST_DATA = {
   ],
 
   /* ---------------------------------------------------------------------
-     SCOPRI ROMA — 6 mete classiche. Testi brevi e informazioni generiche
-     e pubbliche; i tempi di percorrenza sono orientativi (il pulsante
-     "Apri percorso" calcola sempre il tragitto reale in tempo reale).
-     Per ogni voce, aggiungete una foto in guest/images/ con il nome
-     indicato in "image" (se il file non esiste, appare un segnaposto).
+     SCOPRI ROMA — le mete scelte da Mario nella guida di Roma già
+     pubblicata su casalobelie.it/guida, con le foto reali del progetto
+     (nessuna immagine casuale). "badge" riporta, dove presente, il
+     giudizio reale già mostrato sulla guida ("consigliato da... persone").
   --------------------------------------------------------------------- */
   romeHighlights: [
     {
-      id: "colosseo",
-      name: { it: "Colosseo", en: "Colosseum", es: "Coliseo", fr: "Colisée" },
+      id: "giardino-aranci",
+      name: { it: "Giardino degli Aranci", en: "Giardino degli Aranci (Orange Garden)", es: "Giardino degli Aranci (Jardín de los Naranjos)", fr: "Giardino degli Aranci (Jardin des Orangers)" },
       description: {
-        it: "Il grande anfiteatro romano, simbolo di Roma nel mondo.",
-        en: "Rome's great amphitheatre and the city's most iconic landmark.",
-        es: "El gran anfiteatro romano, símbolo de Roma en el mundo.",
-        fr: "Le grand amphithéâtre romain, symbole de Rome dans le monde."
+        it: "In cima al colle Aventino si trova il Parco Savello, conosciuto da tutti come il Giardino degli Aranci: una location nascosta e un po' misteriosa, ma soprattutto unica, da cui si ammira una vista spettacolare su tutta Roma — magari al tramonto.",
+        en: "At the top of the Aventine Hill is Parco Savello, known to everyone as the Giardino degli Aranci (Orange Garden): a hidden, slightly mysterious spot with a truly unique, spectacular view over all of Rome — best enjoyed at sunset.",
+        es: "En lo alto de la colina del Aventino se encuentra el Parco Savello, conocido por todos como el Giardino degli Aranci (Jardín de los Naranjos): un lugar escondido y un poco misterioso, pero sobre todo único, desde donde se disfruta de una vista espectacular de toda Roma — ideal al atardecer.",
+        fr: "Au sommet de la colline de l'Aventin se trouve le Parco Savello, connu de tous sous le nom de Giardino degli Aranci (Jardin des Orangers) : un lieu caché et un peu mystérieux, mais surtout unique, offrant une vue spectaculaire sur tout Rome — idéal au coucher du soleil."
       },
-      gettingThere: {
-        it: "Con la Metro C da Alessandrino, zona raggiungibile direttamente.",
-        en: "Take Metro C from Alessandrino — it reaches this area directly.",
-        es: "En Metro C desde Alessandrino, zona alcanzable directamente.",
-        fr: "En Métro C depuis Alessandrino, zone accessible directement."
-      },
-      mapsQuery: "Colosseo, Roma",
-      image: "images/roma-colosseo.jpg"
+      badge: { it: "795 persone del luogo lo consigliano", en: "Recommended by 795 locals", es: "Recomendado por 795 personas del lugar", fr: "Recommandé par 795 habitants" },
+      mapsQuery: "Giardino degli Aranci (Parco Savello), Roma",
+      image: "/images/giardino-aranci.jpg"
     },
     {
-      id: "trevi",
-      name: { it: "Fontana di Trevi", en: "Trevi Fountain", es: "Fontana di Trevi", fr: "Fontaine de Trevi" },
+      id: "alberto-sordi",
+      name: { it: "Galleria Alberto Sordi", en: "Alberto Sordi Gallery", es: "Galería Alberto Sordi", fr: "Galerie Alberto Sordi" },
       description: {
-        it: "La fontana barocca più famosa al mondo, nel cuore del centro storico.",
-        en: "The world-famous baroque fountain, in the heart of the historic centre.",
-        es: "La fontana barroca más famosa del mundo, en el corazón del centro histórico.",
-        fr: "La fontaine baroque la plus célèbre au monde, au cœur du centre historique."
+        it: "Una delle passeggiate più eleganti del centro storico: a due passi da Piazza Colonna e da Via del Corso, questa elegante galleria in stile liberty ospita negozi, un cinema e caffè sotto una splendida cupola in vetro e ferro battuto. Il nome è un omaggio al grande attore romano Alberto Sordi. Perfetta per una sosta all'ombra, magari dopo una visita alla Fontana di Trevi, a pochi minuti a piedi.",
+        en: "One of the most elegant walks in the historic centre: just steps from Piazza Colonna and Via del Corso, this beautiful Art Nouveau shopping arcade houses boutiques, a cinema and cafés beneath a stunning glass-and-iron dome. It's named after the beloved Roman actor Alberto Sordi. A perfect shady stop, especially after a visit to the Trevi Fountain just a few minutes' walk away.",
+        es: "Uno de los paseos más elegantes del centro histórico: a pocos pasos de Piazza Colonna y Via del Corso, esta preciosa galería de estilo modernista alberga tiendas, un cine y cafés bajo una espléndida cúpula de hierro y cristal. Su nombre rinde homenaje al querido actor romano Alberto Sordi. Una parada perfecta a la sombra, sobre todo después de visitar la Fontana di Trevi, a pocos minutos a pie.",
+        fr: "L'une des plus belles promenades du centre historique : à quelques pas de la Piazza Colonna et de la Via del Corso, cette élégante galerie Art nouveau abrite des boutiques, un cinéma et des cafés sous une magnifique verrière en fer et verre. Son nom rend hommage au grand acteur romain Alberto Sordi. Une halte parfaite à l'ombre, notamment après une visite à la Fontaine de Trevi, à quelques minutes à pied."
       },
-      gettingThere: {
-        it: "Consigliati mezzi pubblici o taxi verso il centro storico.",
-        en: "Public transport or a taxi to the historic centre is recommended.",
-        es: "Se recomienda transporte público o taxi hacia el centro histórico.",
-        fr: "Transports en commun ou taxi vers le centre historique recommandés."
-      },
-      mapsQuery: "Fontana di Trevi, Roma",
-      image: "images/roma-trevi.jpg"
+      badge: null,
+      mapsQuery: "Galleria Alberto Sordi, Roma",
+      image: "/images/alberto-sordi.jpg"
     },
     {
-      id: "pantheon",
-      name: { it: "Pantheon", en: "Pantheon", es: "Panteón", fr: "Panthéon" },
+      id: "portico-ottavia",
+      name: { it: "Portico d'Ottavia", en: "Portico d'Ottavia", es: "Portico d'Ottavia", fr: "Portico d'Ottavia" },
       description: {
-        it: "Il tempio romano meglio conservato al mondo, oggi basilica.",
-        en: "The best-preserved Roman temple in the world, today a basilica.",
-        es: "El templo romano mejor conservado del mundo, hoy basílica.",
-        fr: "Le temple romain le mieux conservé au monde, aujourd'hui basilique."
+        it: "Il simbolo del Quartiere ebraico, tanto da dare il nome alla sua via principale: fu costruito nel II secolo a.C. in sostituzione del più antico Portico di Metello, con il suo imponente doppio colonnato a circondare l'area centrale su cui sorgevano i templi di Giunone Regina e di Giove Statore. Un tempo era ornato da magnifiche statue equestri di bronzo.",
+        en: "The symbol of the Jewish Quarter, which lends its name to the neighbourhood's main street: built in the 2nd century BC to replace the older Portico of Metellus, its imposing double colonnade once enclosed the temples of Juno Regina and Jupiter Stator. It was originally adorned with magnificent bronze equestrian statues.",
+        es: "El símbolo del Barrio Judío, que da nombre a su calle principal: construido en el siglo II a.C. para sustituir al más antiguo Pórtico de Metelo, su imponente doble columnata rodeaba antiguamente los templos de Juno Regina y Júpiter Estátor. En origen estaba decorado con magníficas estatuas ecuestres de bronce.",
+        fr: "Le symbole du Quartier juif, qui donne son nom à sa rue principale : construit au IIe siècle av. J.-C. pour remplacer l'ancien Portique de Metellus, son imposante double colonnade entourait autrefois les temples de Junon Regina et de Jupiter Stator. Il était à l'origine orné de magnifiques statues équestres en bronze."
       },
-      gettingThere: {
-        it: "A pochi passi dalla Fontana di Trevi: si visitano bene insieme.",
-        en: "A short walk from the Trevi Fountain — easy to combine in one visit.",
-        es: "A pocos pasos de la Fontana di Trevi: se visitan bien juntos.",
-        fr: "À deux pas de la Fontaine de Trevi : facile à combiner en une visite."
-      },
-      mapsQuery: "Pantheon, Roma",
-      image: "images/roma-pantheon.jpg"
+      badge: null,
+      mapsQuery: "Portico d'Ottavia, Roma",
+      image: "/images/portico-ottavia.jpg"
     },
     {
-      id: "navona",
-      name: { it: "Piazza Navona", en: "Piazza Navona", es: "Piazza Navona", fr: "Piazza Navona" },
+      id: "monte-testaccio",
+      name: { it: "Monte Testaccio", en: "Monte Testaccio", es: "Monte Testaccio", fr: "Monte Testaccio" },
       description: {
-        it: "Una delle piazze più belle di Roma, con la Fontana dei Quattro Fiumi del Bernini.",
-        en: "One of Rome's most beautiful squares, home to Bernini's Fountain of the Four Rivers.",
-        es: "Una de las plazas más bellas de Roma, con la Fontana dei Quattro Fiumi de Bernini.",
-        fr: "L'une des plus belles places de Rome, avec la fontaine des Quatre-Fleuves du Bernin."
+        it: "Un quartiere molto carino per la vita notturna, con tanti locali dove cenare e trascorrere una piacevole serata romana. Di giorno vale la pena visitare anche il celebre mercato di Testaccio.",
+        en: "A lovely neighbourhood for nightlife, full of places to have dinner and spend a pleasant Roman evening. By day, it's also worth visiting the famous Testaccio Market.",
+        es: "Un barrio muy agradable para la vida nocturna, con muchos locales donde cenar y pasar una velada romana agradable. De día también merece la pena visitar el famoso mercado de Testaccio.",
+        fr: "Un quartier très agréable pour la vie nocturne, avec de nombreux endroits où dîner et passer une belle soirée romaine. De jour, le célèbre marché de Testaccio vaut également le détour."
       },
-      gettingThere: {
-        it: "Zona pedonale del centro storico, ben collegata con il Pantheon.",
-        en: "A pedestrian area in the historic centre, close to the Pantheon.",
-        es: "Zona peatonal del centro histórico, bien conectada con el Panteón.",
-        fr: "Zone piétonne du centre historique, bien reliée au Panthéon."
-      },
-      mapsQuery: "Piazza Navona, Roma",
-      image: "images/roma-navona.jpg"
+      badge: { it: "374 persone del luogo lo consigliano", en: "Recommended by 374 locals", es: "Recomendado por 374 personas del lugar", fr: "Recommandé par 374 habitants" },
+      mapsQuery: "Mercato di Testaccio, Roma",
+      image: "/images/mercato-testaccio.jpg"
     },
     {
-      id: "vaticano",
-      name: { it: "Musei Vaticani e San Pietro", en: "Vatican Museums & St. Peter's", es: "Museos Vaticanos y San Pedro", fr: "Musées du Vatican et Saint-Pierre" },
+      id: "castel-gandolfo",
+      name: { it: "Castel Gandolfo (gita fuori Roma)", en: "Castel Gandolfo (day trip)", es: "Castel Gandolfo (excursión)", fr: "Castel Gandolfo (excursion)" },
       description: {
-        it: "La Cappella Sistina, i Musei Vaticani e la Basilica di San Pietro.",
-        en: "The Sistine Chapel, the Vatican Museums and St. Peter's Basilica.",
-        es: "La Capilla Sixtina, los Museos Vaticanos y la Basílica de San Pedro.",
-        fr: "La Chapelle Sixtine, les Musées du Vatican et la Basilique Saint-Pierre."
+        it: "Il più bello dei Castelli Romani, non solo per la bellezza della natura che lo circonda ma anche per l'eleganza del centro storico. La residenza estiva dei Pontefici lo ha reso famoso in tutto il mondo, con i giardini che ospitano i resti della Villa di Domiziano. Il borgo regala punti panoramici sul lago Albano, tra botteghe e ottimi ristoranti: una visita al lago, passeggiando sul lungolago o in battello, è d'obbligo se avete un giorno in più.",
+        en: "The most beautiful of the Castelli Romani — not only for the natural beauty that surrounds it, but also for the elegance of its historic centre. As the Pope's former summer residence, it is famous the world over, its gardens holding the remains of Domitian's Villa. The village offers viewpoints over Lake Albano, dotted with shops and excellent restaurants: a visit to the lake, on foot along the lakefront or by boat, is a must if you have an extra day.",
+        es: "El más bello de los Castelli Romani, no solo por la belleza natural que lo rodea sino también por la elegancia de su centro histórico. Antigua residencia de verano de los Papas, es famosa en todo el mundo, con jardines que albergan los restos de la Villa de Domiciano. El pueblo ofrece miradores sobre el lago Albano, entre tiendas y excelentes restaurantes: una visita al lago, paseando por el lungolago o en barco, es imprescindible si tenéis un día más.",
+        fr: "Le plus beau des Castelli Romani, non seulement pour la beauté naturelle qui l'entoure, mais aussi pour l'élégance de son centre historique. Ancienne résidence d'été des papes, célèbre dans le monde entier, ses jardins abritent les vestiges de la Villa de Domitien. Le village offre des points de vue sur le lac Albano, parmi les boutiques et les excellents restaurants : une visite au lac, à pied le long des rives ou en bateau, s'impose si vous avez un jour de plus."
       },
-      gettingThere: {
-        it: "Si consiglia di prenotare i biglietti online in anticipo.",
-        en: "Booking tickets online in advance is recommended.",
-        es: "Se recomienda reservar las entradas online con antelación.",
-        fr: "Il est conseillé de réserver les billets en ligne à l'avance."
-      },
-      mapsQuery: "Musei Vaticani, Roma",
-      image: "images/roma-vaticano.jpg"
-    },
-    {
-      id: "trastevere",
-      name: { it: "Trastevere", en: "Trastevere", es: "Trastevere", fr: "Trastevere" },
-      description: {
-        it: "Il quartiere più caratteristico di Roma: vicoli, trattorie e vita serale.",
-        en: "Rome's most charming neighbourhood: cobbled lanes, trattorias and evening life.",
-        es: "El barrio más pintoresco de Roma: callejuelas, trattorias y vida nocturna.",
-        fr: "Le quartier le plus pittoresque de Rome : ruelles, trattorias et vie nocturne."
-      },
-      gettingThere: {
-        it: "Ideale per una passeggiata serale o una cena informale.",
-        en: "Perfect for an evening stroll or a casual dinner.",
-        es: "Ideal para un paseo por la tarde o una cena informal.",
-        fr: "Idéal pour une promenade en soirée ou un dîner informel."
-      },
-      mapsQuery: "Trastevere, Roma",
-      image: "images/roma-trastevere.jpg"
+      badge: { it: "154 persone del luogo lo consigliano", en: "Recommended by 154 locals", es: "Recomendado por 154 personas del lugar", fr: "Recommandé par 154 habitants" },
+      mapsQuery: "Castel Gandolfo, Roma",
+      image: "/images/castel-gandolfo.jpg"
     }
   ],
 

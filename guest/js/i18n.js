@@ -115,7 +115,8 @@ window.GUEST_I18N = {
         wifi: "Wi-Fi",
         waste: "Raccolta rifiuti"
       },
-      genericComingSoon: "Dettagli in arrivo."
+      genericComingSoon: "Dettagli in arrivo.",
+      askHostPrefix: "Ciao Mario, avrei una domanda su: "
     },
     rules: {
       title: "Regole della casa",
@@ -123,7 +124,7 @@ window.GUEST_I18N = {
     },
     eat: {
       title: "Mangiare vicino",
-      subtitle: "I locali che consigliamo verranno aggiunti presto qui.",
+      subtitle: "I consigli sinceri di Mario: i locali dove porta davvero amici e famiglia in visita a Roma.",
       empty: "Questa sezione è pronta ad accogliere ristoranti, pizzerie, bar e colazione consigliati da Mario.",
       directions: "Indicazioni",
       call: "Chiama"
@@ -278,7 +279,8 @@ window.GUEST_I18N = {
         wifi: "Wi-Fi",
         waste: "Waste disposal"
       },
-      genericComingSoon: "Details coming soon."
+      genericComingSoon: "Details coming soon.",
+      askHostPrefix: "Hi Mario, I'd have a question about: "
     },
     rules: {
       title: "House rules",
@@ -286,7 +288,7 @@ window.GUEST_I18N = {
     },
     eat: {
       title: "Eat nearby",
-      subtitle: "Our recommended places will be added here soon.",
+      subtitle: "Mario's honest picks: the places he genuinely takes friends and family to when they visit Rome.",
       empty: "This section is ready to host Mario's favourite restaurants, pizzerias, bars and breakfast spots.",
       directions: "Directions",
       call: "Call"
@@ -441,7 +443,8 @@ window.GUEST_I18N = {
         wifi: "Wi-Fi",
         waste: "Recogida de basura"
       },
-      genericComingSoon: "Detalles próximamente."
+      genericComingSoon: "Detalles próximamente.",
+      askHostPrefix: "Hola Mario, tendría una pregunta sobre: "
     },
     rules: {
       title: "Normas de la casa",
@@ -449,7 +452,7 @@ window.GUEST_I18N = {
     },
     eat: {
       title: "Dónde comer",
-      subtitle: "Los locales recomendados se añadirán aquí próximamente.",
+      subtitle: "Las recomendaciones sinceras de Mario: los locales a los que lleva de verdad a sus amigos y familia cuando visitan Roma.",
       empty: "Esta sección está lista para acoger los restaurantes, pizzerías, bares y desayunos que recomienda Mario.",
       directions: "Cómo llegar",
       call: "Llamar"
@@ -604,7 +607,8 @@ window.GUEST_I18N = {
         wifi: "Wi-Fi",
         waste: "Tri des déchets"
       },
-      genericComingSoon: "Détails à venir."
+      genericComingSoon: "Détails à venir.",
+      askHostPrefix: "Bonjour Mario, j'aurais une question sur : "
     },
     rules: {
       title: "Règles du logement",
@@ -612,7 +616,7 @@ window.GUEST_I18N = {
     },
     eat: {
       title: "Manger à proximité",
-      subtitle: "Les adresses recommandées seront ajoutées ici prochainement.",
+      subtitle: "Les conseils sincères de Mario : les adresses où il emmène vraiment ses amis et sa famille en visite à Rome.",
       empty: "Cette section est prête à accueillir les restaurants, pizzerias, bars et adresses petit-déjeuner recommandés par Mario.",
       directions: "Itinéraire",
       call: "Appeler"
