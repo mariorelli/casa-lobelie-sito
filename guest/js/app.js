@@ -1,7 +1,7 @@
 /* ============================================================================
-   CASA LOBELIE â GUEST GUIDE â LOGICA APPLICAZIONE
+   CASA LOBELIE — GUEST GUIDE — LOGICA APPLICAZIONE
    Router leggero via hash (#/lingua/sezione), rendering e interazioni.
-   Non Ã¨ necessario modificare questo file per aggiornare i contenuti:
+   Non è necessario modificare questo file per aggiornare i contenuti:
    per quello usate content.js (dati) e i18n.js (testi di interfaccia).
    ============================================================================ */
 (function () {
@@ -369,7 +369,7 @@
     // Avviso molto evidente ma non aggressivo.
     html += '<div class="relax-warning"><span class="icon-wrap">' + icon("powerOff") + '</span><div><span class="relax-warning-label">' + esc(t.warningLabel) + '</span><p>' + esc(tr(r.bigWarning, lang)) + "</p></div></div>";
 
-    // Problemi o dubbi? -> WhatsApp (stesso numero giÃ  configurato nel sito).
+    // Problemi o dubbi? -> WhatsApp (stesso numero già configurato nel sito).
     html += '<div class="panel" style="text-align:center;margin-top:20px;">';
     html += '<h3 style="font-size:1rem;color:var(--terracotta-deep);margin-bottom:14px;">' + esc(t.problemsTitle) + "</h3>";
     html += '<a class="btn btn-primary" href="' + waUrl(DATA.property.whatsappNumber, tr(r.whatsappProblemMessage, lang)) + '" target="_blank" rel="noopener">' + icon("whatsapp") + t.whatsappButton + "</a>";
@@ -388,7 +388,7 @@
       if (key === "bedroom") {
         body = esc(tr(DATA.house.bedroom.config, lang)) + " " + esc(tr(DATA.house.bedroom.mattress, lang));
       } else if (key === "wifi") {
-        body = I18N[lang].wifi.network + ": " + esc(DATA.wifi.ssid) + '. <a href="' + buildHash(lang, "wifi") + '" style="color:var(--terracotta-deep);font-weight:700;">' + I18N[lang].wifi.title + " â</a>";
+        body = I18N[lang].wifi.network + ": " + esc(DATA.wifi.ssid) + '. <a href="' + buildHash(lang, "wifi") + '" style="color:var(--terracotta-deep);font-weight:700;">' + I18N[lang].wifi.title + " →</a>";
       } else {
         body = esc(t.genericComingSoon);
       }
@@ -519,7 +519,7 @@
     } else {
       html += '<ul class="mini-list">';
       DATA.property.otherContacts.forEach(function (c) {
-        html += '<li>' + icon("phone") + '<span>' + esc(tr(c.label, state.lang)) + ' â <a href="tel:' + esc(c.phone) + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(c.phone) + "</a></span></li>";
+        html += '<li>' + icon("phone") + '<span>' + esc(tr(c.label, state.lang)) + ' — <a href="tel:' + esc(c.phone) + '" style="color:var(--terracotta-deep);font-weight:700;">' + esc(c.phone) + "</a></span></li>";
       });
       html += "</ul>";
     }

@@ -1,9 +1,9 @@
 /* ============================================================================
-   CASA LOBELIE â GUEST GUIDE â TESTI DI INTERFACCIA (4 lingue)
+   CASA LOBELIE — GUEST GUIDE — TESTI DI INTERFACCIA (4 lingue)
    ============================================================================
    Questo file contiene le etichette fisse dell'app (pulsanti, titoli di
    sezione, messaggi). Per aggiungere contenuti (ristoranti, orari, ecc.)
-   modificate invece content.js â questo file normalmente non serve toccarlo.
+   modificate invece content.js — questo file normalmente non serve toccarlo.
    ============================================================================ */
 
 window.GUEST_I18N = {
@@ -12,7 +12,7 @@ window.GUEST_I18N = {
     tagline: "ROMA",
     appTitle: "Casa Lobelie",
     welcomeTitle: "Benvenuto a Casa Lobelie",
-    welcomeSubtitle: "Tutto ciÃ² che ti serve per vivere il tuo soggiorno a Roma in modo semplice e rilassante.",
+    welcomeSubtitle: "Tutto ciò che ti serve per vivere il tuo soggiorno a Roma in modo semplice e rilassante.",
     quickAccess: "Accesso rapido",
     allSections: "Esplora la guida",
     duringStayTitle: "Durante il tuo soggiorno",
@@ -45,8 +45,8 @@ window.GUEST_I18N = {
       parking: "Dove lasciare l'auto",
       eat: "I consigli di Mario",
       shopping: "Supermercati e servizi utili",
-      rome: "Le mete piÃ¹ belle",
-      stay: "Qualcosa in piÃ¹ per voi",
+      rome: "Le mete più belle",
+      stay: "Qualcosa in più per voi",
       rules: "Poche regole semplici",
       emergency: "Numero unico 112",
       contact: "Scrivi a Mario"
@@ -59,13 +59,13 @@ window.GUEST_I18N = {
       password: "Password",
       copy: "Copia password",
       copied: "Copiata!",
-      notSet: "Password non ancora configurata â chiedete a Mario su WhatsApp.",
+      notSet: "Password non ancora configurata — chiedete a Mario su WhatsApp.",
       qrHint: "Oppure inquadrate il codice con la fotocamera del telefono."
     },
     checkin: {
       title: "Check-in",
       hoursLabel: "Orario di check-in",
-      text: "L'accoglienza viene concordata direttamente con Mario prima del vostro arrivo, cosÃ¬ troviamo insieme l'orario piÃ¹ comodo per voi. Come richiesto dalla normativa italiana sulla pubblica sicurezza, all'arrivo sarÃ  necessario un documento d'identitÃ  valido per ciascun ospite."
+      text: "L'accoglienza viene concordata direttamente con Mario prima del vostro arrivo, così troviamo insieme l'orario più comodo per voi. Come richiesto dalla normativa italiana sulla pubblica sicurezza, all'arrivo sarà necessario un documento d'identità valido per ciascun ospite."
     },
     checkout: {
       title: "Check-out",
@@ -92,7 +92,7 @@ window.GUEST_I18N = {
       title: "Come muoversi",
       subtitle: "Casa Lobelie si trova nel quartiere Alessandrino, Roma.",
       busTitle: "Bus 213",
-      metroTitle: "Metro C â Alessandrino",
+      metroTitle: "Metro C — Alessandrino",
       openRoute: "Apri percorso",
       metro: "Metro",
       bus: "Bus",
@@ -101,7 +101,7 @@ window.GUEST_I18N = {
     parking: {
       title: "Parcheggio",
       free: "Parcheggio gratuito su strada",
-      noPrivate: "Non Ã¨ disponibile un posto auto privato o riservato."
+      noPrivate: "Non è disponibile un posto auto privato o riservato."
     },
     house: {
       title: "La casa",
@@ -124,25 +124,25 @@ window.GUEST_I18N = {
     eat: {
       title: "Mangiare vicino",
       subtitle: "I locali che consigliamo verranno aggiunti presto qui.",
-      empty: "Questa sezione Ã¨ pronta ad accogliere ristoranti, pizzerie, bar e colazione consigliati da Mario.",
+      empty: "Questa sezione è pronta ad accogliere ristoranti, pizzerie, bar e colazione consigliati da Mario.",
       directions: "Indicazioni",
       call: "Chiama"
     },
     shopping: {
       title: "Shopping e servizi",
       subtitle: "Supermercati, farmacie, tabacchi e altri servizi utili verranno aggiunti presto qui.",
-      empty: "Questa sezione Ã¨ pronta ad accogliere le attivitÃ  utili nei dintorni.",
+      empty: "Questa sezione è pronta ad accogliere le attività utili nei dintorni.",
       directions: "Indicazioni",
       call: "Chiama"
     },
     rome: {
       title: "Scopri Roma",
-      subtitle: "Le mete piÃ¹ belle, viste da Casa Lobelie.",
+      subtitle: "Le mete più belle, viste da Casa Lobelie.",
       openRoute: "Apri percorso"
     },
     stay: {
       title: "Per il tuo soggiorno",
-      subtitle: "Qualche servizio in piÃ¹ per rendere il soggiorno ancora piÃ¹ speciale.",
+      subtitle: "Qualche servizio in più per rendere il soggiorno ancora più speciale.",
       request: "Richiedi su WhatsApp",
       priceOnRequest: "Prezzo su richiesta"
     },
@@ -155,7 +155,7 @@ window.GUEST_I18N = {
     },
     contact: {
       title: "Contatta l'host",
-      subtitle: "Mario ti accoglie a Casa Lobelie: scrivi su WhatsApp per qualsiasi necessitÃ .",
+      subtitle: "Mario ti accoglie a Casa Lobelie: scrivi su WhatsApp per qualsiasi necessità.",
       whatsappButton: "Scrivi su WhatsApp",
       hostSince: "Il tuo host dal 2023"
     },
@@ -167,7 +167,7 @@ window.GUEST_I18N = {
       download: "Scarica PNG",
       print: "Stampa"
     },
-    installApp: "Aggiungi questa guida alla schermata Home del telefono per aprirla piÃ¹ velocemente."
+    installApp: "Aggiungi questa guida alla schermata Home del telefono per aprirla più velocemente."
   },
 
   en: {
@@ -222,7 +222,7 @@ window.GUEST_I18N = {
       password: "Password",
       copy: "Copy password",
       copied: "Copied!",
-      notSet: "Password not set yet â ask Mario on WhatsApp.",
+      notSet: "Password not set yet — ask Mario on WhatsApp.",
       qrHint: "Or scan the code with your phone's camera."
     },
     checkin: {
@@ -255,7 +255,7 @@ window.GUEST_I18N = {
       title: "Getting around",
       subtitle: "Casa Lobelie is located in the Alessandrino neighbourhood, Rome.",
       busTitle: "Bus 213",
-      metroTitle: "Metro C â Alessandrino",
+      metroTitle: "Metro C — Alessandrino",
       openRoute: "Open route",
       metro: "Metro",
       bus: "Bus",
@@ -334,72 +334,72 @@ window.GUEST_I18N = {
   },
 
   es: {
-    langName: "EspaÃ±ol",
+    langName: "Español",
     tagline: "ROMA",
     appTitle: "Casa Lobelie",
     welcomeTitle: "Bienvenidos a Casa Lobelie",
-    welcomeSubtitle: "Todo lo que necesitÃ¡is para vivir vuestra estancia en Roma de forma sencilla y relajada.",
-    quickAccess: "Acceso rÃ¡pido",
-    allSections: "Explorar la guÃ­a",
+    welcomeSubtitle: "Todo lo que necesitáis para vivir vuestra estancia en Roma de forma sencilla y relajada.",
+    quickAccess: "Acceso rápido",
+    allSections: "Explorar la guía",
     duringStayTitle: "Durante vuestra estancia",
-    needSomethingTitle: "Â¿NecesitÃ¡is algo?",
-    back: "AtrÃ¡s",
+    needSomethingTitle: "¿Necesitáis algo?",
+    back: "Atrás",
     home: "Inicio",
     nav: {
       wifi: "Wi-Fi",
       checkin: "Check-in",
       checkout: "Check-out",
-      transport: "CÃ³mo moveros",
+      transport: "Cómo moveros",
       relax: "Zona de relax",
       house: "La casa",
       parking: "Aparcamiento",
-      eat: "DÃ³nde comer",
+      eat: "Dónde comer",
       shopping: "Compras y servicios",
       rome: "Descubrir Roma",
       stay: "Para vuestra estancia",
       rules: "Normas de la casa",
       emergency: "Emergencias",
-      contact: "Contactar con el anfitriÃ³n"
+      contact: "Contactar con el anfitrión"
     },
     navDesc: {
       wifi: "Conectaos en un momento",
       checkin: "Horarios y documentos",
-      checkout: "CÃ³mo dejar la casa",
-      transport: "AutobÃºs, metro y alrededores",
+      checkout: "Cómo dejar la casa",
+      transport: "Autobús, metro y alrededores",
       relax: "El jacuzzi",
       house: "Aire acondicionado, cocina y confort",
-      parking: "DÃ³nde dejar el coche",
+      parking: "Dónde dejar el coche",
       eat: "Las recomendaciones de Mario",
-      shopping: "Supermercados y servicios Ãºtiles",
-      rome: "Los lugares mÃ¡s bonitos",
+      shopping: "Supermercados y servicios útiles",
+      rome: "Los lugares más bonitos",
       stay: "Un extra para vosotros",
       rules: "Unas pocas normas sencillas",
-      emergency: "NÃºmero Ãºnico 112",
+      emergency: "Número único 112",
       contact: "Escribid a Mario"
     },
-    quickAccessArrival: "CÃ³mo llegar",
+    quickAccessArrival: "Cómo llegar",
     wifi: {
       title: "Wi-Fi",
       subtitle: "Conectaos en un momento.",
       network: "Red Wi-Fi",
-      password: "ContraseÃ±a",
-      copy: "Copiar contraseÃ±a",
-      copied: "Â¡Copiada!",
-      notSet: "ContraseÃ±a aÃºn no configurada â preguntad a Mario por WhatsApp.",
-      qrHint: "O escaneadlo con la cÃ¡mara del telÃ©fono."
+      password: "Contraseña",
+      copy: "Copiar contraseña",
+      copied: "¡Copiada!",
+      notSet: "Contraseña aún no configurada — preguntad a Mario por WhatsApp.",
+      qrHint: "O escaneadlo con la cámara del teléfono."
     },
     checkin: {
       title: "Check-in",
       hoursLabel: "Horario de check-in",
-      text: "La llegada se acuerda directamente con Mario antes de vuestra estancia, para encontrar juntos el horario mÃ¡s cÃ³modo. SegÃºn la normativa italiana de seguridad pÃºblica, a la llegada serÃ¡ necesario un documento de identidad vÃ¡lido para cada huÃ©sped."
+      text: "La llegada se acuerda directamente con Mario antes de vuestra estancia, para encontrar juntos el horario más cómodo. Según la normativa italiana de seguridad pública, a la llegada será necesario un documento de identidad válido para cada huésped."
     },
     checkout: {
       title: "Check-out",
       hoursLabel: "Horario de check-out",
       steps: [
-        "Comprobad que no olvidÃ¡is objetos personales",
+        "Comprobad que no olvidáis objetos personales",
         "Dejad el apartamento en condiciones decorosas",
-        "Comunicad cualquier problema que hayÃ¡is encontrado",
+        "Comunicad cualquier problema que hayáis encontrado",
         "Seguid las instrucciones de Mario para la entrega de las llaves"
       ]
     },
@@ -408,20 +408,20 @@ window.GUEST_I18N = {
       hoursLabel: "Horario del jacuzzi",
       beforeEntering: "Antes de entrar",
       duringUse: "Durante el uso",
-      afterUse: "DespuÃ©s del uso",
+      afterUse: "Después del uso",
       importantRules: "Normas importantes",
       warningLabel: "Aviso importante",
-      problemsTitle: "Â¿Problemas o dudas?",
+      problemsTitle: "¿Problemas o dudas?",
       whatsappButton: "Escribidnos por WhatsApp"
     },
     transport: {
-      title: "CÃ³mo moveros",
+      title: "Cómo moveros",
       subtitle: "Casa Lobelie se encuentra en el barrio Alessandrino, Roma.",
-      busTitle: "AutobÃºs 213",
-      metroTitle: "Metro C â Alessandrino",
+      busTitle: "Autobús 213",
+      metroTitle: "Metro C — Alessandrino",
       openRoute: "Abrir ruta",
       metro: "Metro",
-      bus: "AutobÃºs",
+      bus: "Autobús",
       taxi: "Taxi"
     },
     parking: {
@@ -433,164 +433,164 @@ window.GUEST_I18N = {
       title: "La casa",
       sections: {
         aircon: "Aire acondicionado",
-        heating: "CalefacciÃ³n",
+        heating: "Calefacción",
         kitchen: "Cocina",
         espresso: "Cafetera espresso",
-        bathroom: "BaÃ±o",
-        bedroom: "HabitaciÃ³n",
+        bathroom: "Baño",
+        bedroom: "Habitación",
         wifi: "Wi-Fi",
         waste: "Recogida de basura"
       },
-      genericComingSoon: "Detalles prÃ³ximamente."
+      genericComingSoon: "Detalles próximamente."
     },
     rules: {
       title: "Normas de la casa",
-      subtitle: "Unas pocas normas sencillas, para una convivencia tranquila con los vecinos y otros huÃ©spedes."
+      subtitle: "Unas pocas normas sencillas, para una convivencia tranquila con los vecinos y otros huéspedes."
     },
     eat: {
-      title: "DÃ³nde comer",
-      subtitle: "Los locales recomendados se aÃ±adirÃ¡n aquÃ­ prÃ³ximamente.",
-      empty: "Esta secciÃ³n estÃ¡ lista para acoger los restaurantes, pizzerÃ­as, bares y desayunos que recomienda Mario.",
-      directions: "CÃ³mo llegar",
+      title: "Dónde comer",
+      subtitle: "Los locales recomendados se añadirán aquí próximamente.",
+      empty: "Esta sección está lista para acoger los restaurantes, pizzerías, bares y desayunos que recomienda Mario.",
+      directions: "Cómo llegar",
       call: "Llamar"
     },
     shopping: {
       title: "Compras y servicios",
-      subtitle: "Supermercados, farmacias, estancos y otros servicios Ãºtiles se aÃ±adirÃ¡n aquÃ­ prÃ³ximamente.",
-      empty: "Esta secciÃ³n estÃ¡ lista para acoger los negocios Ãºtiles de la zona.",
-      directions: "CÃ³mo llegar",
+      subtitle: "Supermercados, farmacias, estancos y otros servicios útiles se añadirán aquí próximamente.",
+      empty: "Esta sección está lista para acoger los negocios útiles de la zona.",
+      directions: "Cómo llegar",
       call: "Llamar"
     },
     rome: {
       title: "Descubrir Roma",
-      subtitle: "Los lugares mÃ¡s bonitos, vistos desde Casa Lobelie.",
+      subtitle: "Los lugares más bonitos, vistos desde Casa Lobelie.",
       openRoute: "Abrir ruta"
     },
     stay: {
       title: "Para vuestra estancia",
-      subtitle: "Algunos servicios extra para hacer vuestra estancia aÃºn mÃ¡s especial.",
+      subtitle: "Algunos servicios extra para hacer vuestra estancia aún más especial.",
       request: "Solicitar por WhatsApp",
       priceOnRequest: "Precio a consultar"
     },
     emergency: {
       title: "Emergencias",
-      numberLabel: "NÃºmero Ãºnico de emergencias",
+      numberLabel: "Número único de emergencias",
       call: "Llamar",
-      otherTitle: "Otros contactos Ãºtiles",
+      otherTitle: "Otros contactos útiles",
       otherEmpty: "No hay otros contactos configurados por el momento."
     },
     contact: {
-      title: "Contactar con el anfitriÃ³n",
-      subtitle: "Mario os recibe en Casa Lobelie: escribidle por WhatsApp para cualquier cosa que necesitÃ©is.",
+      title: "Contactar con el anfitrión",
+      subtitle: "Mario os recibe en Casa Lobelie: escribidle por WhatsApp para cualquier cosa que necesitéis.",
       whatsappButton: "Escribir por WhatsApp",
-      hostSince: "Vuestro anfitriÃ³n desde 2023"
+      hostSince: "Vuestro anfitrión desde 2023"
     },
-    whatsappFloating: "Â¿NecesitÃ¡is ayuda? Escribidnos por WhatsApp",
-    whatsappDefaultMessage: "Hola, soy huÃ©sped de Casa Lobelie y necesitarÃ­a una informaciÃ³n.",
+    whatsappFloating: "¿Necesitáis ayuda? Escribidnos por WhatsApp",
+    whatsappDefaultMessage: "Hola, soy huésped de Casa Lobelie y necesitaría una información.",
     qr: {
-      title: "CÃ³digo QR de la guÃ­a",
+      title: "Código QR de la guía",
       subtitle: "Para imprimir y exponer en el apartamento.",
       download: "Descargar PNG",
       print: "Imprimir"
     },
-    installApp: "AÃ±adid esta guÃ­a a la pantalla de inicio del mÃ³vil para abrirla mÃ¡s rÃ¡pido."
+    installApp: "Añadid esta guía a la pantalla de inicio del móvil para abrirla más rápido."
   },
 
   fr: {
-    langName: "FranÃ§ais",
+    langName: "Français",
     tagline: "ROME",
     appTitle: "Casa Lobelie",
-    welcomeTitle: "Bienvenue Ã  Casa Lobelie",
-    welcomeSubtitle: "Tout ce qu'il vous faut pour vivre votre sÃ©jour Ã  Rome simplement et sereinement.",
-    quickAccess: "AccÃ¨s rapide",
+    welcomeTitle: "Bienvenue à Casa Lobelie",
+    welcomeSubtitle: "Tout ce qu'il vous faut pour vivre votre séjour à Rome simplement et sereinement.",
+    quickAccess: "Accès rapide",
     allSections: "Explorer le guide",
-    duringStayTitle: "Pendant votre sÃ©jour",
+    duringStayTitle: "Pendant votre séjour",
     needSomethingTitle: "Besoin de quelque chose ?",
     back: "Retour",
     home: "Accueil",
     nav: {
       wifi: "Wi-Fi",
-      checkin: "ArrivÃ©e",
-      checkout: "DÃ©part",
-      transport: "Se dÃ©placer",
-      relax: "Espace dÃ©tente",
+      checkin: "Arrivée",
+      checkout: "Départ",
+      transport: "Se déplacer",
+      relax: "Espace détente",
       house: "Le logement",
       parking: "Stationnement",
-      eat: "Manger Ã  proximitÃ©",
+      eat: "Manger à proximité",
       shopping: "Shopping et services",
-      rome: "DÃ©couvrir Rome",
-      stay: "Pour votre sÃ©jour",
-      rules: "RÃ¨gles du logement",
+      rome: "Découvrir Rome",
+      stay: "Pour votre séjour",
+      rules: "Règles du logement",
       emergency: "Urgences",
-      contact: "Contacter l'hÃ´te"
+      contact: "Contacter l'hôte"
     },
     navDesc: {
       wifi: "Connectez-vous en un instant",
       checkin: "Horaires et documents",
       checkout: "Comment quitter le logement",
-      transport: "Bus, mÃ©tro et alentours",
+      transport: "Bus, métro et alentours",
       relax: "Le jacuzzi",
       house: "Climatisation, cuisine et confort",
-      parking: "OÃ¹ laisser la voiture",
+      parking: "Où laisser la voiture",
       eat: "Les recommandations de Mario",
-      shopping: "SupermarchÃ©s et services utiles",
+      shopping: "Supermarchés et services utiles",
       rome: "Les plus beaux lieux",
       stay: "Un petit plus pour vous",
-      rules: "Quelques rÃ¨gles simples",
-      emergency: "NumÃ©ro unique 112",
-      contact: "Ãcrivez Ã  Mario"
+      rules: "Quelques règles simples",
+      emergency: "Numéro unique 112",
+      contact: "Écrivez à Mario"
     },
     quickAccessArrival: "Comment venir",
     wifi: {
       title: "Wi-Fi",
       subtitle: "Connectez-vous en un instant.",
-      network: "RÃ©seau Wi-Fi",
+      network: "Réseau Wi-Fi",
       password: "Mot de passe",
       copy: "Copier le mot de passe",
-      copied: "CopiÃ© !",
-      notSet: "Mot de passe pas encore configurÃ© â demandez Ã  Mario sur WhatsApp.",
-      qrHint: "Ou scannez le code avec l'appareil photo du tÃ©lÃ©phone."
+      copied: "Copié !",
+      notSet: "Mot de passe pas encore configuré — demandez à Mario sur WhatsApp.",
+      qrHint: "Ou scannez le code avec l'appareil photo du téléphone."
     },
     checkin: {
-      title: "ArrivÃ©e",
-      hoursLabel: "Horaire d'arrivÃ©e",
-      text: "L'accueil est convenu directement avec Mario avant votre sÃ©jour, afin de trouver ensemble l'horaire le plus pratique. ConformÃ©ment Ã  la rÃ©glementation italienne sur la sÃ©curitÃ© publique, une piÃ¨ce d'identitÃ© valide sera nÃ©cessaire pour chaque hÃ´te Ã  l'arrivÃ©e."
+      title: "Arrivée",
+      hoursLabel: "Horaire d'arrivée",
+      text: "L'accueil est convenu directement avec Mario avant votre séjour, afin de trouver ensemble l'horaire le plus pratique. Conformément à la réglementation italienne sur la sécurité publique, une pièce d'identité valide sera nécessaire pour chaque hôte à l'arrivée."
     },
     checkout: {
-      title: "DÃ©part",
-      hoursLabel: "Horaire de dÃ©part",
+      title: "Départ",
+      hoursLabel: "Horaire de départ",
       steps: [
-        "VÃ©rifiez que vous n'avez rien oubliÃ©",
-        "Laissez l'appartement dans un Ã©tat correct",
-        "Signalez tout problÃ¨me Ã©ventuel",
-        "Suivez les instructions de Mario pour la remise des clÃ©s"
+        "Vérifiez que vous n'avez rien oublié",
+        "Laissez l'appartement dans un état correct",
+        "Signalez tout problème éventuel",
+        "Suivez les instructions de Mario pour la remise des clés"
       ]
     },
     relax: {
-      title: "Votre moment dÃ©tente",
+      title: "Votre moment détente",
       hoursLabel: "Horaires du jacuzzi",
       beforeEntering: "Avant d'entrer",
       duringUse: "Pendant l'utilisation",
-      afterUse: "AprÃ¨s l'utilisation",
-      importantRules: "RÃ¨gles importantes",
+      afterUse: "Après l'utilisation",
+      importantRules: "Règles importantes",
       warningLabel: "Avis important",
-      problemsTitle: "Des questions ou un problÃ¨me ?",
-      whatsappButton: "Ãcrivez-nous sur WhatsApp"
+      problemsTitle: "Des questions ou un problème ?",
+      whatsappButton: "Écrivez-nous sur WhatsApp"
     },
     transport: {
-      title: "Se dÃ©placer",
-      subtitle: "Casa Lobelie se trouve dans le quartier Alessandrino, Ã  Rome.",
+      title: "Se déplacer",
+      subtitle: "Casa Lobelie se trouve dans le quartier Alessandrino, à Rome.",
       busTitle: "Bus 213",
-      metroTitle: "MÃ©tro C â Alessandrino",
-      openRoute: "Ouvrir l'itinÃ©raire",
-      metro: "MÃ©tro",
+      metroTitle: "Métro C — Alessandrino",
+      openRoute: "Ouvrir l'itinéraire",
+      metro: "Métro",
       bus: "Bus",
       taxi: "Taxi"
     },
     parking: {
       title: "Stationnement",
       free: "Stationnement gratuit dans la rue",
-      noPrivate: "Aucune place de parking privÃ©e ou rÃ©servÃ©e n'est disponible."
+      noPrivate: "Aucune place de parking privée ou réservée n'est disponible."
     },
     house: {
       title: "Le logement",
@@ -598,65 +598,65 @@ window.GUEST_I18N = {
         aircon: "Climatisation",
         heating: "Chauffage",
         kitchen: "Cuisine",
-        espresso: "Machine Ã  espresso",
+        espresso: "Machine à espresso",
         bathroom: "Salle de bain",
         bedroom: "Chambre",
         wifi: "Wi-Fi",
-        waste: "Tri des dÃ©chets"
+        waste: "Tri des déchets"
       },
-      genericComingSoon: "DÃ©tails Ã  venir."
+      genericComingSoon: "Détails à venir."
     },
     rules: {
-      title: "RÃ¨gles du logement",
-      subtitle: "Quelques rÃ¨gles simples, pour une cohabitation sereine avec les voisins et les autres hÃ´tes."
+      title: "Règles du logement",
+      subtitle: "Quelques règles simples, pour une cohabitation sereine avec les voisins et les autres hôtes."
     },
     eat: {
-      title: "Manger Ã  proximitÃ©",
-      subtitle: "Les adresses recommandÃ©es seront ajoutÃ©es ici prochainement.",
-      empty: "Cette section est prÃªte Ã  accueillir les restaurants, pizzerias, bars et adresses petit-dÃ©jeuner recommandÃ©s par Mario.",
-      directions: "ItinÃ©raire",
+      title: "Manger à proximité",
+      subtitle: "Les adresses recommandées seront ajoutées ici prochainement.",
+      empty: "Cette section est prête à accueillir les restaurants, pizzerias, bars et adresses petit-déjeuner recommandés par Mario.",
+      directions: "Itinéraire",
       call: "Appeler"
     },
     shopping: {
       title: "Shopping et services",
-      subtitle: "SupermarchÃ©s, pharmacies, bureaux de tabac et autres services utiles seront ajoutÃ©s ici prochainement.",
-      empty: "Cette section est prÃªte Ã  accueillir les adresses utiles du quartier.",
-      directions: "ItinÃ©raire",
+      subtitle: "Supermarchés, pharmacies, bureaux de tabac et autres services utiles seront ajoutés ici prochainement.",
+      empty: "Cette section est prête à accueillir les adresses utiles du quartier.",
+      directions: "Itinéraire",
       call: "Appeler"
     },
     rome: {
-      title: "DÃ©couvrir Roma",
+      title: "Découvrir Roma",
       subtitle: "Les plus beaux lieux, vus depuis Casa Lobelie.",
-      openRoute: "Ouvrir l'itinÃ©raire"
+      openRoute: "Ouvrir l'itinéraire"
     },
     stay: {
-      title: "Pour votre sÃ©jour",
-      subtitle: "Quelques attentions en plus pour rendre votre sÃ©jour encore plus spÃ©cial.",
+      title: "Pour votre séjour",
+      subtitle: "Quelques attentions en plus pour rendre votre séjour encore plus spécial.",
       request: "Demander sur WhatsApp",
       priceOnRequest: "Prix sur demande"
     },
     emergency: {
       title: "Urgences",
-      numberLabel: "NumÃ©ro d'urgence unique",
+      numberLabel: "Numéro d'urgence unique",
       call: "Appeler",
       otherTitle: "Autres contacts utiles",
-      otherEmpty: "Aucun autre contact configurÃ© pour le moment."
+      otherEmpty: "Aucun autre contact configuré pour le moment."
     },
     contact: {
-      title: "Contacter l'hÃ´te",
-      subtitle: "Mario vous accueille Ã  Casa Lobelie : Ã©crivez-lui sur WhatsApp pour toute question.",
-      whatsappButton: "Ãcrire sur WhatsApp",
-      hostSince: "Votre hÃ´te depuis 2023"
+      title: "Contacter l'hôte",
+      subtitle: "Mario vous accueille à Casa Lobelie : écrivez-lui sur WhatsApp pour toute question.",
+      whatsappButton: "Écrire sur WhatsApp",
+      hostSince: "Votre hôte depuis 2023"
     },
-    whatsappFloating: "Besoin d'aide ? Ãcrivez-nous sur WhatsApp",
-    whatsappDefaultMessage: "Bonjour, je suis un hÃ´te de Casa Lobelie et j'aurais besoin d'une information.",
+    whatsappFloating: "Besoin d'aide ? Écrivez-nous sur WhatsApp",
+    whatsappDefaultMessage: "Bonjour, je suis un hôte de Casa Lobelie et j'aurais besoin d'une information.",
     qr: {
       title: "QR code du guide",
-      subtitle: "Ã imprimer et Ã  afficher dans l'appartement.",
-      download: "TÃ©lÃ©charger en PNG",
+      subtitle: "À imprimer et à afficher dans l'appartement.",
+      download: "Télécharger en PNG",
       print: "Imprimer"
     },
-    installApp: "Ajoutez ce guide Ã  l'Ã©cran d'accueil de votre tÃ©lÃ©phone pour l'ouvrir plus vite."
+    installApp: "Ajoutez ce guide à l'écran d'accueil de votre téléphone pour l'ouvrir plus vite."
   }
 };
 
