@@ -201,7 +201,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('consent', 'default', { 'analytics_storage': 'denied' });
   gtag('js', new Date());
-  gtag('config', 'G-1PVZ9RM2ME');
+  gtag('config', 'G-1PVZ9RM2ME', { send_page_view: false });
 </script>
 <!-- GA4 event: click_prenota (site-wide, delegated) -->
 <script>
@@ -294,6 +294,19 @@
     return !!(c && c.analytics === true);
   }
 
+  var clAnalyticsPageViewSent = false;
+  function sendAnalyticsPageViewOnce(){
+    if (clAnalyticsPageViewSent) return;
+    clAnalyticsPageViewSent = true;
+    if (window.gtag) {
+      gtag('event', 'page_view', {
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     var banner = document.getElementById('clCookieBanner');
     var prefs = document.getElementById('clCookiePrefs');
@@ -317,6 +330,7 @@
     }
     if (consent && consent.analytics === true && window.gtag) {
       gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      sendAnalyticsPageViewOnce();
     }
 
     var btnAccept = document.getElementById('clCookieAccept');
@@ -332,6 +346,7 @@
       hidePrefs();
       loadMetaPixel();
       if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      sendAnalyticsPageViewOnce();
     });
     if (btnReject) btnReject.addEventListener('click', function(){
       setConsent(false, false);
@@ -348,6 +363,7 @@
       hideBanner();
       if (marketing) loadMetaPixel();
       if (window.gtag) gtag('consent', 'update', { 'analytics_storage': analytics ? 'granted' : 'denied' });
+      if (analytics) sendAnalyticsPageViewOnce();
     });
     if (overlay) overlay.addEventListener('click', function(){ hidePrefs(); });
     if (reopen) reopen.addEventListener('click', function(e){
