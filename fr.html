@@ -344,6 +344,7 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
   gtag('js', new Date());
   gtag('config', 'G-1PVZ9RM2ME');
 </script>
@@ -409,8 +410,8 @@
       return raw ? JSON.parse(raw) : null;
     } catch(e){ return null; }
   }
-  function setConsent(marketing){
-    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ marketing: !!marketing, ts: Date.now() })); } catch(e){}
+  function setConsent(marketing, analytics){
+    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ marketing: !!marketing, analytics: !!analytics, ts: Date.now() })); } catch(e){}
   }
 
   function loadMetaPixel(){
@@ -433,15 +434,22 @@
     return !!(c && c.marketing === true);
   }
 
+  function hasAnalyticsConsent(){
+    var c = getConsent();
+    return !!(c && c.analytics === true);
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     var banner = document.getElementById('clCookieBanner');
     var prefs = document.getElementById('clCookiePrefs');
     var toggle = document.getElementById('clCookieMarketingToggle');
+    var analyticsToggle = document.getElementById('clCookieAnalyticsToggle');
 
     function showBanner(){ if (banner) { banner.hidden = false; document.body.classList.add('cl-has-banner'); } }
     function hideBanner(){ if (banner) { banner.hidden = true; document.body.classList.remove('cl-has-banner'); } }
     function showPrefs(){
       if (toggle) toggle.checked = hasMarketingConsent();
+      if (analyticsToggle) analyticsToggle.checked = hasAnalyticsConsent();
       if (prefs) prefs.hidden = false;
     }
     function hidePrefs(){ if (prefs) prefs.hidden = true; }
@@ -452,6 +460,9 @@
     } else if (!consent) {
       showBanner();
     }
+    if (consent && consent.analytics === true && window.gtag) {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
 
     var btnAccept = document.getElementById('clCookieAccept');
     var btnReject = document.getElementById('clCookieReject');
@@ -461,23 +472,27 @@
     var reopen = document.getElementById('clCookiePrefsReopen');
 
     if (btnAccept) btnAccept.addEventListener('click', function(){
-      setConsent(true);
+      setConsent(true, true);
       hideBanner();
       hidePrefs();
       loadMetaPixel();
+      if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'granted' });
     });
     if (btnReject) btnReject.addEventListener('click', function(){
-      setConsent(false);
+      setConsent(false, false);
       hideBanner();
       hidePrefs();
+      if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'denied' });
     });
     if (btnManage) btnManage.addEventListener('click', function(){ showPrefs(); });
     if (btnSave) btnSave.addEventListener('click', function(){
       var marketing = !!(toggle && toggle.checked);
-      setConsent(marketing);
+      var analytics = !!(analyticsToggle && analyticsToggle.checked);
+      setConsent(marketing, analytics);
       hidePrefs();
       hideBanner();
       if (marketing) loadMetaPixel();
+      if (window.gtag) gtag('consent', 'update', { 'analytics_storage': analytics ? 'granted' : 'denied' });
     });
     if (overlay) overlay.addEventListener('click', function(){ hidePrefs(); });
     if (reopen) reopen.addEventListener('click', function(e){
@@ -511,7 +526,7 @@
 <body>
 <div id="clCookieBanner" class="cl-cookie-banner" role="dialog" aria-live="polite" aria-label="Bandeau cookies" hidden>
   <div class="cl-cookie-banner__inner">
-    <p class="cl-cookie-banner__text">Nous utilisons des cookies techniques nécessaires au fonctionnement du site. Avec votre consentement, nous utilisons également des cookies marketing (Meta Pixel) pour mesurer et améliorer nos campagnes publicitaires.</p>
+    <p class="cl-cookie-banner__text">Nous utilisons des cookies techniques nécessaires au fonctionnement du site. Avec votre consentement, nous utilisons également des cookies d'analyse (Google Analytics) et des cookies marketing (Meta Pixel) pour améliorer le site et nos campagnes publicitaires.</p>
     <div class="cl-cookie-banner__actions">
       <button type="button" id="clCookieManage" class="cl-cookie-btn cl-cookie-btn--ghost">Gérer les préférences</button>
       <button type="button" id="clCookieReject" class="cl-cookie-btn cl-cookie-btn--ghost">Refuser</button>
@@ -524,6 +539,16 @@
   <div class="cl-cookie-prefs__box">
     <h2 class="cl-cookie-prefs__title">Préférences relatives aux cookies</h2>
     <p class="cl-cookie-prefs__body">Vous pouvez choisir quels cookies activer. Les cookies techniques sont toujours actifs car nécessaires au fonctionnement du site.</p>
+    <div class="cl-cookie-prefs__row">
+      <div class="cl-cookie-prefs__row-text">
+        <strong>Cookies d'analyse (Google Analytics)</strong>
+        <span>Utilisés de façon agrégée pour comprendre comment le site est utilisé et l'améliorer.</span>
+      </div>
+      <label class="cl-cookie-switch">
+        <input type="checkbox" id="clCookieAnalyticsToggle">
+        <span class="cl-cookie-switch__slider" aria-hidden="true"></span>
+      </label>
+    </div>
     <div class="cl-cookie-prefs__row">
       <div class="cl-cookie-prefs__row-text">
         <strong>Cookies marketing (Meta Pixel)</strong>
