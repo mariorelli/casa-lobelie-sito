@@ -156,6 +156,29 @@
   .extra-price{display:inline-block;font-size:.78rem;font-weight:800;color:var(--terracotta-deep);background:var(--cream-deep);padding:6px 14px;border-radius:20px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.04em;width:fit-content;}
   .btn-block{width:100%;justify-content:center;}
   .btn-block svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+  /* ROMANTIC WELCOME - included direct-booking perk (not a paid extra) */
+  .featured-perk{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;margin-bottom:28px;display:flex;flex-direction:column;}
+  .featured-perk .icon-wrap{width:48px;height:48px;border-radius:50%;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 12px -4px rgba(58,32,20,.18);}
+  .featured-perk .icon-wrap svg{width:24px;height:24px;stroke:var(--terracotta-deep);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .perk-badge{display:inline-block;font-size:.78rem;font-weight:800;color:#fff;background:var(--green);padding:6px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em;width:fit-content;}
+  .featured-perk h3{font-size:1.4rem;margin-bottom:6px;}
+  .perk-subtitle{font-weight:700;color:var(--ink);font-size:1.02rem;margin:0 0 12px;}
+  .featured-perk > p{color:var(--ink-soft);font-size:.95rem;max-width:640px;margin:0 0 24px;}
+  .perk-actions{display:flex;flex-wrap:wrap;gap:14px;}
+  .btn-ghost{background:transparent;color:var(--terracotta-deep);border:1.5px solid var(--line);cursor:pointer;font-family:inherit;}
+  .btn-ghost:hover{background:var(--cream-deep);}
+
+  .perk-modal{position:fixed;inset:0;z-index:120;}
+  .perk-modal[hidden]{display:none;}
+  .perk-modal__overlay{position:absolute;inset:0;background:rgba(20,12,8,.5);}
+  .perk-modal__box{position:relative;max-width:440px;margin:10vh auto 0;background:#fff;border-radius:var(--radius);padding:36px 32px;box-shadow:0 30px 70px rgba(0,0,0,.3);max-height:78vh;overflow:auto;}
+  .perk-modal__box h3{font-size:1.25rem;margin-bottom:14px;}
+  .perk-modal__box ul{margin:0 0 20px;padding-left:20px;color:var(--ink-soft);font-size:.95rem;}
+  .perk-modal__box ul li{margin-bottom:8px;}
+  .perk-modal__closing{color:var(--ink-soft);font-size:.92rem;font-style:italic;margin:0;}
+  .perk-modal__close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--ink-soft);padding:4px;}
+  .perk-modal__close:hover{color:var(--ink);}
   @media (max-width:900px){
     .extra-hero h1{font-size:2.05rem;}
     .extra-grid{grid-template-columns:1fr 1fr;}
@@ -163,6 +186,9 @@
   @media (max-width:560px){
     .extra-grid{grid-template-columns:1fr;}
     .extra-hero{padding:44px 0 4px;}
+    .featured-perk{padding:28px 22px;}
+    .perk-actions{flex-direction:column;align-items:stretch;}
+    .perk-actions .btn{width:100%;justify-content:center;}
   }
 
   footer{background:var(--ink);color:#c9bcae;padding:60px 0 30px;font-size:.9rem;}
@@ -483,6 +509,18 @@
 
 <section class="extra-section">
   <div class="wrap">
+    <div class="featured-perk">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0L8 3z"/><path d="M12 14v5"/><path d="M9 21h6"/></svg></div>
+      <span class="perk-badge">Inclus avec la réservation directe</span>
+      <h3>Romantic Welcome</h3>
+      <p class="perk-subtitle">Un accueil spécial pensé pour deux.</p>
+      <p>Réservez directement sur le site officiel et laissez-vous accueillir par une attention en plus : Prosecco, quelques amuse-bouches, un bouquet de fleurs et notre welcome kit vous attendent dans l'appartement à votre arrivée.</p>
+      <div class="perk-actions">
+        <a class="btn btn-primary" href="/reserver/">Réserver maintenant</a>
+        <button type="button" class="btn btn-ghost" id="romanticWelcomeInfoBtn" aria-haspopup="dialog" aria-controls="romanticWelcomeModal">Découvrir ce qui est inclus</button>
+      </div>
+    </div>
+
     <div class="extra-grid">
       <div class="extra-card">
         <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><path d="M3 16v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3"/><circle cx="7" cy="17" r="1.5"/><circle cx="17" cy="17" r="1.5"/></svg></div>
@@ -490,20 +528,6 @@
         <p>Vous souhaitez arriver à Casa Lobelie l'esprit tranquille ? Nous pouvons organiser le transfert depuis et vers les aéroports de Fiumicino et Ciampino.</p>
         <span class="extra-price">Prix sur demande</span>
         <a class="btn btn-primary btn-block" href="https://wa.me/393335638730?text=Bonjour%2C%20je%20souhaiterais%20des%20informations%20sur%20le%20transfert%20a%C3%A9roport%20pour%20notre%20s%C3%A9jour%20%C3%A0%20Casa%20Lobelie." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 19.4L4 20z"/><path d="M8.5 10.5c.3 2 2 3.7 4 4"/></svg>Demander sur WhatsApp</a>
-      </div>
-      <div class="extra-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0L8 3z"/><path d="M12 14v5"/><path d="M9 21h6"/></svg></div>
-        <h3>Welcome Experience</h3>
-        <p>Un accueil spécial directement dans l'appartement avec une bouteille de Prosecco ou de vin, quelques amuse-bouches et un bouquet de fleurs prêts pour votre arrivée.</p>
-        <span class="extra-price">Prix sur demande</span>
-        <a class="btn btn-primary btn-block" href="https://wa.me/393335638730?text=Bonjour%2C%20je%20souhaiterais%20des%20informations%20sur%20la%20Welcome%20Experience%20pour%20notre%20s%C3%A9jour%20%C3%A0%20Casa%20Lobelie." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 19.4L4 20z"/><path d="M8.5 10.5c.3 2 2 3.7 4 4"/></svg>Demander sur WhatsApp</a>
-      </div>
-      <div class="extra-card">
-        <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 5c-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
-        <h3>Mise en scène romantique</h3>
-        <p>Pour un anniversaire, une occasion spéciale ou une surprise. Nous pouvons préparer la chambre ou la véranda avec des pétales décoratifs, des ballons, un message personnalisé et de petites attentions romantiques pour rendre l'arrivée encore plus spéciale.</p>
-        <span class="extra-price">Prix sur demande</span>
-        <a class="btn btn-primary btn-block" href="https://wa.me/393335638730?text=Bonjour%2C%20je%20souhaiterais%20des%20informations%20sur%20la%20mise%20en%20sc%C3%A8ne%20romantique%20pour%20notre%20s%C3%A9jour%20%C3%A0%20Casa%20Lobelie." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 19.4L4 20z"/><path d="M8.5 10.5c.3 2 2 3.7 4 4"/></svg>Demander sur WhatsApp</a>
       </div>
       <div class="extra-card">
         <div class="icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
@@ -522,6 +546,36 @@
     </div>
   </div>
 </section>
+
+<div class="perk-modal" id="romanticWelcomeModal" role="dialog" aria-modal="true" aria-label="Romantic Welcome inclut :" hidden>
+  <div class="perk-modal__overlay" id="romanticWelcomeModalOverlay"></div>
+  <div class="perk-modal__box">
+    <button type="button" class="perk-modal__close" id="romanticWelcomeModalClose" aria-label="Fermer">&times;</button>
+    <h3>Romantic Welcome inclut :</h3>
+    <ul>
+        <li>une bouteille de Prosecco ou de vin</li>
+        <li>quelques amuse-bouches</li>
+        <li>un bouquet de fleurs</li>
+        <li>welcome kit Casa Lobelie</li>
+    </ul>
+    <p class="perk-modal__closing">Une petite attention pour rendre votre arrivée encore plus spéciale.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('romanticWelcomeInfoBtn');
+  var modal = document.getElementById('romanticWelcomeModal');
+  var overlay = document.getElementById('romanticWelcomeModalOverlay');
+  var closeBtn = document.getElementById('romanticWelcomeModalClose');
+  if (!btn || !modal) return;
+  function open(){ modal.hidden = false; }
+  function close(){ modal.hidden = true; }
+  btn.addEventListener('click', open);
+  if (overlay) overlay.addEventListener('click', close);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) close(); });
+})();
+</script>
 
 <footer>
   <div class="wrap">
