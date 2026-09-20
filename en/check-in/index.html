@@ -428,7 +428,7 @@
     </nav>
     <div class="nav-right">
       <div class="lang-switch">
-        <a href="/check-in/">IT</a> <a href="/en/check-in/" class="active">EN</a> <a href="/es/check-in/">ES</a> <a href="/fr/check-in/">FR</a>
+        <a href="/check-in/" data-lang-switch>IT</a> <a href="/en/check-in/" data-lang-switch class="active">EN</a> <a href="/es/check-in/" data-lang-switch>ES</a> <a href="/fr/check-in/" data-lang-switch>FR</a>
       </div>
       <a class="nav-cta" href="/book/">Book</a>
       <button id="menuToggle" aria-label="Open menu" onclick="document.getElementById('mobileLinks').classList.toggle('open')">
@@ -446,7 +446,7 @@
     <a href="/servizi-extra-en.html">Extra Services</a>
     <a href="/book/" class="mobile-cta">Book</a>
     <div style="display:flex;gap:8px;padding-top:14px;align-items:center;">
-      <a href="/check-in/" style="font-weight:700;color:var(--ink-soft);">IT</a> <a href="/en/check-in/" style="font-weight:800;color:var(--terracotta-deep);">EN</a> <a href="/es/check-in/" style="font-weight:700;color:var(--ink-soft);">ES</a> <a href="/fr/check-in/" style="font-weight:700;color:var(--ink-soft);">FR</a>
+      <a href="/check-in/" data-lang-switch style="font-weight:700;color:var(--ink-soft);">IT</a> <a href="/en/check-in/" data-lang-switch style="font-weight:800;color:var(--terracotta-deep);">EN</a> <a href="/es/check-in/" data-lang-switch style="font-weight:700;color:var(--ink-soft);">ES</a> <a href="/fr/check-in/" data-lang-switch style="font-weight:700;color:var(--ink-soft);">FR</a>
     </div>
   </div>
 </header>
@@ -590,6 +590,24 @@
       });
     } else if (errorBox) {
       errorBox.hidden = false;
+    }
+
+    // Language switcher: carry the ?url= parameter over to whichever
+    // language the guest picks, so IT/EN/ES/FR never drops their personal
+    // Smoobu link. We reuse the exact same RAW string extracted above (not
+    // the decoded/validated one) and reattach it verbatim — never decoding
+    // or re-encoding it — so the value cannot be altered in the process.
+    // If there is no ?url= on the current page, the lang-switch links are
+    // left completely untouched (existing behavior).
+    if (raw) {
+      var langLinks = document.querySelectorAll('[data-lang-switch]');
+      for (var i = 0; i < langLinks.length; i++) {
+        var a = langLinks[i];
+        var base = a.getAttribute('href');
+        if (!base) continue;
+        var sep = base.indexOf('?') === -1 ? '?' : '&';
+        a.setAttribute('href', base + sep + 'url=' + raw);
+      }
     }
   }
 
