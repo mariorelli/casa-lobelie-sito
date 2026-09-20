@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check-in en ligne — Casa Lobelie</title>
+<meta name="description" content="Complétez votre check-in en ligne avant votre arrivée à Casa Lobelie.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://casalobelie.it/fr/check-in/">
+<link rel="alternate" hreflang="it" href="https://casalobelie.it/check-in/">
+<link rel="alternate" hreflang="en" href="https://casalobelie.it/en/check-in/">
+<link rel="alternate" hreflang="es" href="https://casalobelie.it/es/check-in/">
+<link rel="alternate" hreflang="fr" href="https://casalobelie.it/fr/check-in/">
+<link rel="alternate" hreflang="x-default" href="https://casalobelie.it/check-in/">
+<meta name="theme-color" content="#0d4a78">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Alex+Brush&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3a2a20;
+    --ink-soft:#6b5c4d;
+    --cream:#fbf3e6;
+    --cream-deep:#f3e6d2;
+    --line:#ecdcc4;
+    --terracotta:#0d4a78;
+    --terracotta-deep:#08395d;
+    --green:#3f6b4f;
+    --gold:#a37830;
+    --berry:#a83246;
+    --radius:18px;
+    --radius-sm:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',Georgia,serif;
+    font-optical-sizing:auto;
+    font-weight:500;
+    margin:0 0 .5em 0;
+    line-height:1.15;
+    letter-spacing:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+  section{padding:80px 0;}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;}
+  .logo-mark{display:flex;flex-direction:column;line-height:1;flex-shrink:0;text-decoration:none;}
+  .logo-mark img{height:80px;width:auto;display:block;}
+  .logo-mark .casa{font-family:'Nunito Sans',sans-serif;font-weight:800;color:var(--terracotta-deep);font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;display:block;}
+  .logo-mark .script{font-family:'Alex Brush',cursive;font-size:2.35rem;color:var(--terracotta-deep);line-height:1;display:block;margin-top:-2px;}
+  .logo-mark .tag{font-size:.63rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-top:2px;font-weight:700;}
+  .logo-mark .tag::before{content:"\2022\00a0";}
+  .logo-mark .tag::after{content:"\00a0\2022";}
+  nav.links{display:flex;gap:22px;font-size:.97rem;font-weight:600;}
+  nav.links a{text-decoration:none;color:var(--ink-soft);transition:color .2s;white-space:nowrap;}
+  nav.links a:hover{color:var(--terracotta-deep);}
+  nav.links a.active{color:var(--terracotta-deep);}
+  .nav-cta{background:var(--terracotta);color:#fff;padding:13px 28px;border-radius:30px;font-size:.92rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:all .25s;box-shadow:0 6px 16px -4px rgba(13,74,120,.45);}
+  .nav-cta:hover{background:var(--terracotta-deep);transform:translateY(-1px);}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .lang-switch{display:flex;border:1.5px solid var(--line);border-radius:20px;overflow:hidden;font-size:.82rem;font-weight:800;}
+  .lang-switch a{padding:9px 15px;text-decoration:none;color:var(--ink-soft);}
+  .lang-switch a.active{background:var(--terracotta);color:#fff;}
+  .lang-switch a:hover:not(.active){background:var(--cream-deep);}
+  #menuToggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:14px;}
+  #menuToggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:all .25s;}
+  .mobile-links{display:none;flex-direction:column;padding:8px 32px 26px;border-top:1px solid var(--line);background:var(--cream);}
+  .mobile-links.open{display:flex;}
+  .mobile-links a{padding:15px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);font-size:.95rem;font-weight:700;}
+  .mobile-links a.mobile-cta{color:var(--terracotta-deep);}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;text-decoration:none;font-size:.9rem;font-weight:700;border-radius:30px;transition:all .25s ease;border:1.5px solid transparent;cursor:pointer;font-family:inherit;}
+  .btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -6px rgba(13,74,120,.5);}
+  .btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
+  .btn-outline-dark{border-color:var(--ink);color:var(--ink);}
+  .btn-outline-dark:hover{background:var(--ink);color:var(--cream);}
+
+  footer{background:var(--ink);color:#c9bcae;padding:60px 0 30px;font-size:.9rem;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:36px;}
+  footer .col-title{margin-bottom:12px;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#ffd9a8;font-weight:700;}
+  footer a{text-decoration:none;color:#c9bcae;}
+  footer a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:.8rem;opacity:.7;}
+  .footer-bottom a{text-decoration:underline;color:#c9bcae;}
+  .footer-bottom a:hover{color:#fff;}
+
+  /* CHECK-IN PAGE — hero */
+  .checkin-hero{background:var(--terracotta);color:#fff;padding:56px 0 46px;text-align:center;}
+  .checkin-hero h1{color:#fff;font-size:2.4rem;margin-bottom:.3em;}
+  .checkin-hero .subtitle{color:#fbeee0;max-width:560px;margin:0 auto;font-size:1.05rem;}
+
+  /* CHECK-IN PAGE — main card */
+  .checkin-main{background:#fff;padding:56px 0 80px;}
+  .checkin-card{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:44px 40px;box-shadow:0 20px 50px -20px rgba(58,32,20,.15);}
+  .checkin-card h2{font-size:1.5rem;margin-bottom:.4em;text-align:center;}
+  .checkin-card > p.intro{color:var(--ink-soft);font-size:1rem;text-align:center;margin:0 0 34px;}
+
+  .checkin-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:0;}
+  .checkin-step{text-align:center;}
+  .checkin-step .num{width:44px;height:44px;border-radius:50%;background:var(--cream-deep);color:var(--terracotta-deep);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;box-shadow:0 4px 12px -4px rgba(58,32,20,.18);}
+  .checkin-step h3{font-size:1rem;margin-bottom:6px;}
+  .checkin-step p{color:var(--ink-soft);font-size:.87rem;margin:0;line-height:1.5;}
+
+  /* Primary CTA: placed right after the intro text (before the 3-step
+     explanation) so it is the first, unmissable action in the card. Only
+     ONE instance exists in the markup — no duplicate CTA lower down. */
+  .checkin-cta-wrap{text-align:center;margin:0 0 34px;padding-bottom:34px;border-bottom:1px solid var(--line);}
+  .btn-checkin{width:100%;justify-content:center;padding:19px 30px;font-size:1.05rem;}
+  .btn-checkin:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;transform:none;}
+  .checkin-cta-note{color:var(--ink-soft);font-size:.85rem;margin:16px 0 0;}
+  .checkin-cta-personal{color:var(--ink-soft);font-size:.8rem;margin:6px 0 0;font-style:italic;}
+
+  .checkin-error{background:var(--cream-deep);border:1px solid var(--line);border-radius:var(--radius-sm);padding:26px 24px;text-align:center;}
+  .checkin-error p{color:var(--ink);font-size:.95rem;margin:0;}
+  .checkin-error a{color:var(--terracotta-deep);font-weight:700;text-decoration:underline;}
+  /* The [hidden] attribute is toggled by JS to show only ONE of: the CTA
+     button, its notes, or the fallback error message. Because .btn and
+     .checkin-error already set an explicit "display" value, the browser's
+     default "[hidden]{display:none}" rule would otherwise be overridden by
+     those same-specificity author rules — these ID-scoped overrides (higher
+     specificity) restore correct hide/show behavior. */
+  #checkinBtn[hidden],
+  #checkinNote[hidden],
+  #checkinPersonal[hidden],
+  #checkinError[hidden]{display:none;}
+
+  @media (max-width: 900px){
+    nav.links{display:none;}
+    .nav-cta{display:none;}
+    #menuToggle{display:block;}
+    .logo-mark .script{font-size:1.7rem;}
+    .logo-mark .casa{font-size:.85rem;}
+    .logo-mark .tag{display:none;}
+    .logo-mark img{height:55px;}
+    section{padding:56px 0;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 22px;}
+  }
+  @media (min-width:901px) and (max-width:1199px){
+    nav.links{display:none;}
+    .nav-cta{display:none;}
+    #menuToggle{display:block;}
+  }
+  @media (max-width:340px){
+    .nav-inner{padding-left:16px;padding-right:16px;}
+  }
+  @media (max-width:700px){
+    .checkin-steps{grid-template-columns:1fr;gap:24px;}
+    .checkin-card{padding:34px 24px;}
+  }
+  @media (max-width:560px){
+    .checkin-hero{padding:40px 0 34px;}
+    .checkin-hero h1{font-size:1.7rem;}
+    .checkin-hero .subtitle{font-size:.92rem;}
+    .checkin-main{padding:36px 0 56px;}
+    .checkin-card{padding:28px 20px;border-radius:var(--radius-sm);}
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PVZ9RM2ME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  gtag('js', new Date());
+  gtag('config', 'G-1PVZ9RM2ME', { send_page_view: false });
+</script>
+<style id="clCookieStyles">
+  .cl-cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--cream,#fbf3e6);border-top:1px solid var(--line,#ecdcc4);box-shadow:0 -8px 30px -12px rgba(58,32,20,.25);padding:18px 24px;}
+  .cl-cookie-banner[hidden]{display:none;}
+  .cl-cookie-banner__inner{max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;justify-content:space-between;}
+  .cl-cookie-banner__text{margin:0;font-size:.9rem;color:var(--ink,#3a2a20);line-height:1.5;flex:1 1 380px;}
+  .cl-cookie-banner__actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  .cl-cookie-btn{font-family:inherit;font-size:.85rem;font-weight:700;border-radius:30px;padding:10px 20px;cursor:pointer;border:1.5px solid transparent;transition:all .2s ease;white-space:nowrap;}
+  .cl-cookie-btn--primary{background:var(--terracotta,#0d4a78);color:#fff;}
+  .cl-cookie-btn--primary:hover{background:var(--terracotta-deep,#08395d);}
+  .cl-cookie-btn--ghost{background:transparent;color:var(--ink,#3a2a20);border-color:var(--line,#ecdcc4);}
+  .cl-cookie-btn--ghost:hover{background:var(--cream-deep,#f3e6d2);}
+  .cl-cookie-prefs{position:fixed;inset:0;z-index:210;}
+  .cl-cookie-prefs[hidden]{display:none;}
+  .cl-cookie-prefs__overlay{position:absolute;inset:0;background:rgba(20,12,8,.5);}
+  .cl-cookie-prefs__box{position:relative;max-width:480px;margin:8vh auto 0;background:#fff;border-radius:var(--radius,18px);padding:28px 26px;box-shadow:0 30px 70px rgba(0,0,0,.3);max-height:82vh;overflow:auto;}
+  .cl-cookie-prefs__title{margin:0 0 10px;font-family:'Fraunces',serif;font-size:1.3rem;color:var(--ink,#3a2a20);}
+  .cl-cookie-prefs__body{margin:0 0 20px;font-size:.88rem;color:var(--ink-soft,#6b5c4d);line-height:1.5;}
+  .cl-cookie-prefs__row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line,#ecdcc4);}
+  .cl-cookie-prefs__row-text{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--ink,#3a2a20);}
+  .cl-cookie-prefs__row-text span{color:var(--ink-soft,#6b5c4d);font-size:.8rem;font-weight:400;}
+  .cl-cookie-tag{font-size:.72rem;font-weight:700;color:var(--ink-soft,#6b5c4d);background:var(--cream-deep,#f3e6d2);padding:4px 10px;border-radius:20px;white-space:nowrap;height:fit-content;}
+  .cl-cookie-switch{position:relative;display:inline-block;width:44px;height:26px;flex-shrink:0;}
+  .cl-cookie-switch input{opacity:0;width:0;height:0;}
+  .cl-cookie-switch__slider{position:absolute;cursor:pointer;inset:0;background:var(--line,#ecdcc4);border-radius:30px;transition:.2s;}
+  .cl-cookie-switch__slider::before{content:"";position:absolute;height:20px;width:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;}
+  .cl-cookie-switch input:checked + .cl-cookie-switch__slider{background:var(--terracotta,#0d4a78);}
+  .cl-cookie-switch input:checked + .cl-cookie-switch__slider::before{transform:translateX(18px);}
+  .cl-cookie-switch input:focus-visible + .cl-cookie-switch__slider{outline:2px solid var(--gold,#a37830);outline-offset:2px;}
+  .cl-cookie-prefs__actions{margin-top:20px;display:flex;justify-content:flex-end;}
+  body.cl-has-banner .sticky-book{display:none!important;}
+  .cl-cookie-footer-link{display:block;margin-top:10px;}
+  .cl-cookie-footer-link a{color:#c9bcae;text-decoration:underline;font-size:.8rem;background:none;border:none;padding:0;cursor:pointer;font-family:inherit;}
+  @media (max-width:560px){
+    .cl-cookie-banner{padding:16px;}
+    .cl-cookie-banner__actions{width:100%;justify-content:stretch;}
+    .cl-cookie-btn{flex:1;text-align:center;}
+    .cl-cookie-prefs__box{margin:0;max-height:100vh;border-radius:0;height:100%;}
+  }
+</style>
+<script id="clCookieConsentScript">
+(function(){
+  var CONSENT_KEY = 'cl_cookie_consent';
+  var PIXEL_ID = '28376685878607339';
+
+  function getConsent(){
+    try {
+      var raw = localStorage.getItem(CONSENT_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch(e){ return null; }
+  }
+  function setConsent(marketing, analytics){
+    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ marketing: !!marketing, analytics: !!analytics, ts: Date.now() })); } catch(e){}
+  }
+
+  function loadMetaPixel(){
+    if (window._clPixelLoaded) return;
+    window._clPixelLoaded = true;
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+
+  function hasMarketingConsent(){
+    var c = getConsent();
+    return !!(c && c.marketing === true);
+  }
+
+  function hasAnalyticsConsent(){
+    var c = getConsent();
+    return !!(c && c.analytics === true);
+  }
+
+  var clAnalyticsPageViewSent = false;
+  function sendAnalyticsPageViewOnce(){
+    if (clAnalyticsPageViewSent) return;
+    clAnalyticsPageViewSent = true;
+    if (window.gtag) {
+      // Privacy note: this page receives a personal Smoobu link via ?url=.
+      // We deliberately send a CLEAN location (no query string) so that
+      // value is never transmitted to GA4.
+      var cleanLocation = window.location.origin + window.location.pathname;
+      gtag('event', 'page_view', {
+        page_location: cleanLocation,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var banner = document.getElementById('clCookieBanner');
+    var prefs = document.getElementById('clCookiePrefs');
+    var toggle = document.getElementById('clCookieMarketingToggle');
+    var analyticsToggle = document.getElementById('clCookieAnalyticsToggle');
+
+    function showBanner(){ if (banner) { banner.hidden = false; document.body.classList.add('cl-has-banner'); } }
+    function hideBanner(){ if (banner) { banner.hidden = true; document.body.classList.remove('cl-has-banner'); } }
+    function showPrefs(){
+      if (toggle) toggle.checked = hasMarketingConsent();
+      if (analyticsToggle) analyticsToggle.checked = hasAnalyticsConsent();
+      if (prefs) prefs.hidden = false;
+    }
+    function hidePrefs(){ if (prefs) prefs.hidden = true; }
+
+    var consent = getConsent();
+    if (consent && consent.marketing === true) {
+      loadMetaPixel();
+    } else if (!consent) {
+      showBanner();
+    }
+    if (consent && consent.analytics === true && window.gtag) {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      sendAnalyticsPageViewOnce();
+    }
+
+    var btnAccept = document.getElementById('clCookieAccept');
+    var btnReject = document.getElementById('clCookieReject');
+    var btnManage = document.getElementById('clCookieManage');
+    var btnSave = document.getElementById('clCookieSavePrefs');
+    var overlay = document.getElementById('clCookiePrefsOverlay');
+    var reopen = document.getElementById('clCookiePrefsReopen');
+
+    if (btnAccept) btnAccept.addEventListener('click', function(){
+      setConsent(true, true);
+      hideBanner();
+      hidePrefs();
+      loadMetaPixel();
+      if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      sendAnalyticsPageViewOnce();
+    });
+    if (btnReject) btnReject.addEventListener('click', function(){
+      setConsent(false, false);
+      hideBanner();
+      hidePrefs();
+      if (window.gtag) gtag('consent', 'update', { 'analytics_storage': 'denied' });
+    });
+    if (btnManage) btnManage.addEventListener('click', function(){ showPrefs(); });
+    if (btnSave) btnSave.addEventListener('click', function(){
+      var marketing = !!(toggle && toggle.checked);
+      var analytics = !!(analyticsToggle && analyticsToggle.checked);
+      setConsent(marketing, analytics);
+      hidePrefs();
+      hideBanner();
+      if (marketing) loadMetaPixel();
+      if (window.gtag) gtag('consent', 'update', { 'analytics_storage': analytics ? 'granted' : 'denied' });
+      if (analytics) sendAnalyticsPageViewOnce();
+    });
+    if (overlay) overlay.addEventListener('click', function(){ hidePrefs(); });
+    if (reopen) reopen.addEventListener('click', function(e){
+      e.preventDefault();
+      showBanner();
+      showPrefs();
+    });
+  });
+
+  // Meta Pixel event: InitiateCheckout on booking CTAs (Prenota/Book/Reservar/Réserver).
+  // Fires only with marketing consent. No page parameters (incl. ?url=) are ever attached.
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="/prenota/"], a[href*="/book/"], a[href*="/reservar/"], a[href*="/reserver/"]');
+    if (!link) return;
+    if (window.fbq && hasMarketingConsent()) {
+      fbq('track', 'InitiateCheckout');
+    }
+  }, true);
+
+  // Meta Pixel event: Contact on WhatsApp links. Fires only with marketing consent.
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (!link) return;
+    if (window.fbq && hasMarketingConsent()) {
+      fbq('track', 'Contact');
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<div id="clCookieBanner" class="cl-cookie-banner" role="dialog" aria-live="polite" aria-label="Bandeau cookies" hidden>
+  <div class="cl-cookie-banner__inner">
+    <p class="cl-cookie-banner__text">Nous utilisons des cookies techniques nécessaires au fonctionnement du site. Avec votre consentement, nous utilisons également des cookies d'analyse (Google Analytics) et des cookies marketing (Meta Pixel) pour améliorer le site et nos campagnes publicitaires.</p>
+    <div class="cl-cookie-banner__actions">
+      <button type="button" id="clCookieManage" class="cl-cookie-btn cl-cookie-btn--ghost">Gérer les préférences</button>
+      <button type="button" id="clCookieReject" class="cl-cookie-btn cl-cookie-btn--ghost">Refuser</button>
+      <button type="button" id="clCookieAccept" class="cl-cookie-btn cl-cookie-btn--primary">Tout accepter</button>
+    </div>
+  </div>
+</div>
+<div id="clCookiePrefs" class="cl-cookie-prefs" role="dialog" aria-modal="true" aria-label="Préférences relatives aux cookies" hidden>
+  <div class="cl-cookie-prefs__overlay" id="clCookiePrefsOverlay"></div>
+  <div class="cl-cookie-prefs__box">
+    <h2 class="cl-cookie-prefs__title">Préférences relatives aux cookies</h2>
+    <p class="cl-cookie-prefs__body">Vous pouvez choisir quels cookies activer. Les cookies techniques sont toujours actifs car nécessaires au fonctionnement du site.</p>
+    <div class="cl-cookie-prefs__row">
+      <div class="cl-cookie-prefs__row-text">
+        <strong>Cookies d'analyse (Google Analytics)</strong>
+        <span>Utilisés de façon agrégée pour comprendre comment le site est utilisé et l'améliorer.</span>
+      </div>
+      <label class="cl-cookie-switch">
+        <input type="checkbox" id="clCookieAnalyticsToggle">
+        <span class="cl-cookie-switch__slider" aria-hidden="true"></span>
+      </label>
+    </div>
+    <div class="cl-cookie-prefs__row">
+      <div class="cl-cookie-prefs__row-text">
+        <strong>Cookies marketing (Meta Pixel)</strong>
+        <span>Utilisés pour mesurer et améliorer l'efficacité de nos campagnes publicitaires sur Meta (Facebook et Instagram).</span>
+      </div>
+      <label class="cl-cookie-switch">
+        <input type="checkbox" id="clCookieMarketingToggle">
+        <span class="cl-cookie-switch__slider" aria-hidden="true"></span>
+      </label>
+    </div>
+    <div class="cl-cookie-prefs__row">
+      <div class="cl-cookie-prefs__row-text">
+        <strong>Cookies techniques</strong>
+        <span>Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.</span>
+      </div>
+      <span class="cl-cookie-tag">Toujours actifs</span>
+    </div>
+    <div class="cl-cookie-prefs__actions">
+      <button type="button" id="clCookieSavePrefs" class="cl-cookie-btn cl-cookie-btn--primary">Enregistrer les préférences</button>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/fr.html" class="logo-mark"><img src="/images/logo.png" alt="Casa Lobelie">
+    </a>
+    <nav class="links">
+      <a href="/fr.html#benvenuti">Bienvenue</a>
+      <a href="/fr.html#spazi">L'Espace</a>
+      <a href="/fr.html#servizi">Services</a>
+      <a href="/fr.html#zona">Le Quartier</a>
+      <a href="/fr.html#recensioni">Avis</a>
+      <a href="/guida-fr.html">Notre Guide</a>
+      <a href="/servizi-extra-fr.html">Services Extra</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <a href="/check-in/">IT</a> <a href="/en/check-in/">EN</a> <a href="/es/check-in/">ES</a> <a href="/fr/check-in/" class="active">FR</a>
+      </div>
+      <a class="nav-cta" href="/reserver/">Réserver</a>
+      <button id="menuToggle" aria-label="Ouvrir le menu" onclick="document.getElementById('mobileLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-links" id="mobileLinks">
+    <a href="/fr.html#benvenuti">Bienvenue</a>
+    <a href="/fr.html#spazi">L'Espace</a>
+    <a href="/fr.html#servizi">Services</a>
+    <a href="/fr.html#zona">Le Quartier</a>
+    <a href="/fr.html#recensioni">Avis</a>
+    <a href="/guida-fr.html">Notre Guide</a>
+    <a href="/servizi-extra-fr.html">Services Extra</a>
+    <a href="/reserver/" class="mobile-cta">Réserver</a>
+    <div style="display:flex;gap:8px;padding-top:14px;align-items:center;">
+      <a href="/check-in/" style="font-weight:700;color:var(--ink-soft);">IT</a> <a href="/en/check-in/" style="font-weight:700;color:var(--ink-soft);">EN</a> <a href="/es/check-in/" style="font-weight:700;color:var(--ink-soft);">ES</a> <a href="/fr/check-in/" style="font-weight:800;color:var(--terracotta-deep);">FR</a>
+    </div>
+  </div>
+</header>
+
+<section class="checkin-hero">
+  <div class="wrap">
+    <h1>Check-in en ligne</h1>
+    <p class="subtitle">Complétez vos informations avant votre arrivée pour un check-in plus simple et plus rapide.</p>
+  </div>
+</section>
+
+<section class="checkin-main">
+  <div class="wrap">
+    <div class="checkin-card">
+      <h2>Avant votre séjour</h2>
+      <p class="intro">Pour préparer au mieux votre arrivée à Casa Lobelie, nous vous demandons de compléter le check-in en ligne avant votre séjour. Le formulaire vous demandera les informations nécessaires sur les voyageurs et l'heure d'arrivée prévue, afin que nous puissions organiser au mieux votre accueil.</p>
+
+      <div class="checkin-cta-wrap" id="checkinCtaWrap">
+        <button type="button" id="checkinBtn" class="btn btn-primary btn-checkin" hidden>Compléter le check-in</button>
+        <p class="checkin-cta-note" id="checkinNote" hidden>Le formulaire de check-in est géré via Smoobu, le système utilisé par Casa Lobelie pour la gestion des réservations.</p>
+        <p class="checkin-cta-personal" id="checkinPersonal" hidden>Ce lien est personnel et associé à votre réservation.</p>
+        <div class="checkin-error" id="checkinError" hidden>
+          <p>Le lien pour le check-in n'est pas disponible. <a href="https://wa.me/393335638730" target="_blank" rel="noopener">Contactez-nous</a> pour obtenir de l'aide.</p>
+        </div>
+        <noscript>
+          <div class="checkin-error">
+            <p>Pour compléter le check-in, veuillez activer JavaScript dans votre navigateur ou nous contacter pour obtenir de l'aide.</p>
+          </div>
+        </noscript>
+      </div>
+
+      <div class="checkin-steps">
+        <div class="checkin-step">
+          <div class="num">1</div>
+          <h3>Ouvrez le formulaire</h3>
+          <p>Complétez les informations demandées.</p>
+        </div>
+        <div class="checkin-step">
+          <div class="num">2</div>
+          <h3>Ajoutez tous les voyageurs</h3>
+          <p>Si la réservation le requiert, ajoutez aussi les autres voyageurs.</p>
+        </div>
+        <div class="checkin-step">
+          <div class="num">3</div>
+          <h3>Envoyez le check-in</h3>
+          <p>Les informations seront directement associées à votre réservation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div style="font-family:'Nunito Sans',sans-serif;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;color:#fff;">Casa</div><div style="font-family:'Alex Brush',cursive;font-size:2rem;line-height:1;color:#ffd9a8;margin-top:-2px;margin-bottom:12px;">Lobelie</div>
+        <div>Via delle Lobelie, 20 — Rome, Italie</div>
+        <div style="margin-top:4px;font-size:.78rem;opacity:.75;">CIN: IT058091C2ODNCG79B</div>
+      </div>
+      <div>
+        <div class="col-title">Nous Sommes Aussi Sur</div>
+        <div><a href="https://www.airbnb.it/rooms/985939346272066975" target="_blank" rel="noopener">Airbnb</a></div>
+        <div><a href="https://www.booking.com/hotel/it/grazioso-appartamento-a-roma-roma1.it.html" target="_blank" rel="noopener">Booking.com</a></div>
+        <div><a href="https://wa.me/393335638730?text=Bonjour%2C%20je%20souhaiterais%20conna%C3%AEtre%20la%20disponibilit%C3%A9%20et%20le%20tarif%20direct%20pour%20Casa%20Lobelie." target="_blank" rel="noopener">WhatsApp</a></div>
+      </div>
+      <div>
+        <div class="col-title">Votre Hôte</div>
+        <div>Mario — vous accueille à Casa Lobelie depuis 2023</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span class="yr"></span> Casa Lobelie. Site indépendant, non affilié à Airbnb ou Booking.com. — <a href="/servizi-extra-fr.html">Services Extra</a> · <a href="/termini-fr.html">Conditions Générales</a> · <a href="/privacy-fr.html">Politique de Confidentialité</a>
+    </div>
+  <div class="cl-cookie-footer-link"><a href="#" id="clCookiePrefsReopen">Préférences Cookies</a></div>
+</div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var yearEls = document.querySelectorAll('.yr');
+    for (var k=0;k<yearEls.length;k++){ yearEls[k].textContent = new Date().getFullYear(); }
+  });
+</script>
+<script id="checkinLogic">
+(function(){
+  // Extract everything after "url=" verbatim (no splitting on further
+  // "&" or "?"), since the Smoobu link itself may contain those characters.
+  function extractRawUrlParam(search){
+    if (!search) return null;
+    var qs = search.charAt(0) === '?' ? search.slice(1) : search;
+    if (!qs) return null;
+    var idx = qs.indexOf('url=');
+    while (idx !== -1) {
+      if (idx === 0 || qs.charAt(idx - 1) === '&') {
+        return qs.slice(idx + 4);
+      }
+      idx = qs.indexOf('url=', idx + 1);
+    }
+    return null;
+  }
+
+  function safeDecode(raw){
+    try { return decodeURIComponent(raw); }
+    catch (e) { return null; }
+  }
+
+  // Accepts only https:// links whose hostname is exactly "smoobu.com" or
+  // ends with ".smoobu.com" (e.g. login.smoobu.com). Uses the URL parser's
+  // own hostname field rather than a substring/includes() check, so a
+  // lookalike domain (e.g. "smoobu.com.evil.example" or "evilsmoobu.com")
+  // is correctly rejected.
+  function validateSmoobuUrl(str){
+    if (!str) return null;
+    var parsed;
+    try { parsed = new URL(str); }
+    catch (e) { return null; }
+    if (parsed.protocol !== 'https:') return null;
+    var host = parsed.hostname.toLowerCase();
+    var isSmoobu = (host === 'smoobu.com') || host.slice(-11) === '.smoobu.com';
+    if (!isSmoobu) return null;
+    return parsed.href;
+  }
+
+  function init(){
+    var btn = document.getElementById('checkinBtn');
+    var note = document.getElementById('checkinNote');
+    var personal = document.getElementById('checkinPersonal');
+    var errorBox = document.getElementById('checkinError');
+
+    var raw = extractRawUrlParam(window.location.search);
+    var decoded = raw ? safeDecode(raw) : null;
+    var validUrl = decoded ? validateSmoobuUrl(decoded) : null;
+
+    if (validUrl && btn) {
+      btn.hidden = false;
+      btn.disabled = false;
+      if (note) note.hidden = false;
+      if (personal) personal.hidden = false;
+      btn.addEventListener('click', function(){
+        window.location.href = validUrl;
+      });
+    } else if (errorBox) {
+      errorBox.hidden = false;
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
