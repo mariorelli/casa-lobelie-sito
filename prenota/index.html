@@ -112,22 +112,6 @@
   .avail-check-head{text-align:center;max-width:520px;margin:0 auto 8px;}
   .avail-check-head h2{font-size:1.3rem;margin-bottom:.1em;}
   .avail-check-head p{color:var(--ink-soft);font-size:.88rem;margin:0;}
-  .avail-check-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px;max-width:620px;margin:0 auto;box-shadow:0 4px 14px -10px rgba(58,32,20,.14);overflow:hidden;text-align:center;}
-  #smoobuCalendarIframe{max-width:100%;}
-  #smoobuCalendarIframe iframe{max-width:100%;border:0;vertical-align:middle;}
-  /* Desktop only: Smoobu's own stylesheet sets .bigDevices to 60% of its
-     container; Mario asked for a snugger ~85-100% fill on desktop, so this
-     overrides just the width (not display, not the mobile .smallDevices
-     rule) via higher specificity. Scoped to Smoobu's own >=768px breakpoint.
-     Height is also overridden: the iframe's own height="600" attribute is
-     far taller than the real rendered calendar (~331-364px measured live,
-     including the rare 6-row month), which left a large empty gap in the
-     card. 380px hugs the real content with a small safety margin and no
-     internal scrollbar. */
-  @media (min-width:768px){
-    #smoobuCalendarIframe .bigDevices{width:92%;height:380px;}
-  }
-
   .book-widget{background:#fff;padding:22px 0 56px;}
   .smoobu-wrap{width:100%;}
   .smoobu-wrap #apartmentIframeAll{width:100%;}
@@ -165,7 +149,6 @@
     .avail-check-head{margin-bottom:6px;}
     .avail-check-head h2{font-size:1.05rem;}
     .avail-check-head p{font-size:.82rem;}
-    .avail-check-box{padding:6px;border-radius:var(--radius-sm);box-shadow:0 3px 10px -8px rgba(58,32,20,.14);}
     section{padding:56px 0;}
     .benefits-strip{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:10px 18px;padding:16px 18px;margin-top:20px;}
     .benefits-strip .item{font-size:.85rem;white-space:normal;}
@@ -186,30 +169,6 @@
 
 @media (max-width:340px){
   .nav-inner{padding-left:16px;padding-right:16px;}
-}
-
-/* AVAILABILITY CALENDAR (Smoobu) -- mobile width fix, <768px only.
-   Previously the smallDevices iframe kept its native 280px width (only
-   max-width:100% was set), which looked too narrow/small on real phones
-   and made the weekday letters and day numbers look cramped. Widening it
-   to fill the card (no transform:scale, which would compress the text)
-   makes Smoobu render everything at full, readable size -- the tradeoff is
-   that the stacked 2-month layout also needs more vertical room as it gets
-   wider, so height is re-measured and set per width band below, live
-   against the real widget, each with a small safety margin for the rare
-   6-row month. Desktop/tablet (>=768px) is completely untouched. */
-@media (max-width:767px){
-  .avail-check-box{padding:6px 4px;}
-  #smoobuCalendarIframe{width:100%;}
-  #smoobuCalendarIframe .smallDevices{width:100%;max-width:100%;height:800px;}
-}
-/* ~375-430px devices (iframe ~320-380px wide once card padding is subtracted) */
-@media (max-width:400px){
-  #smoobuCalendarIframe .smallDevices{height:740px;}
-}
-/* ~320-340px devices (iframe ~260-280px wide once card padding is subtracted) */
-@media (max-width:340px){
-  #smoobuCalendarIframe .smallDevices{height:610px;}
 }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -517,13 +476,6 @@
     <div class="avail-check-head">
       <h2>Verifica la disponibilità</h2>
       <p>Scegli le date del tuo soggiorno.</p>
-    </div>
-    <div class="avail-check-box">
-<div id="smoobuCalendarIframe">
-  <link rel="stylesheet" type="text/css" href="https://login.smoobu.com/css/singleCalendarWidgetIframe.css">
-  <iframe class="smallDevices" height="540px" width="280px" src="https://login.smoobu.com/it/cockpit/widget/show-calendar-iframe/3501156/e561943a0dfe5924a8840ebd76a0619ed74410eced2dd36fe5a98d3123aa3a8f"></iframe>
-  <iframe class="bigDevices" height="600px" width="1000px" src="https://login.smoobu.com/it/cockpit/widget/show-calendar-iframe/3501156/e561943a0dfe5924a8840ebd76a0619ed74410eced2dd36fe5a98d3123aa3a8f"></iframe>
-</div>
     </div>
   </div>
 </section>
