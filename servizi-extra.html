@@ -160,13 +160,16 @@
   .btn-block svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
   /* ROMANTIC WELCOME - included direct-booking perk (not a paid extra) */
-  .featured-perk{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;margin-bottom:28px;display:flex;flex-direction:column;}
+  .featured-perk{background:#fff;border:1px solid var(--line);border-radius:var(--radius);margin-bottom:28px;display:grid;grid-template-columns:1.05fr 1fr;align-items:stretch;overflow:hidden;}
+  .featured-perk__media{order:2;position:relative;min-height:260px;}
+  .featured-perk__media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .featured-perk__content{order:1;padding:36px 32px;display:flex;flex-direction:column;justify-content:center;}
   .featured-perk .icon-wrap{width:48px;height:48px;border-radius:50%;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 12px -4px rgba(58,32,20,.18);}
   .featured-perk .icon-wrap svg{width:24px;height:24px;stroke:var(--terracotta-deep);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   .perk-badge{display:inline-block;font-size:.78rem;font-weight:800;color:#fff;background:var(--green);padding:6px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em;width:fit-content;}
   .featured-perk h3{font-size:1.4rem;margin-bottom:6px;}
   .perk-subtitle{font-weight:700;color:var(--ink);font-size:1.02rem;margin:0 0 12px;}
-  .featured-perk > p{color:var(--ink-soft);font-size:.95rem;max-width:640px;margin:0 0 24px;}
+  .featured-perk__content > p{color:var(--ink-soft);font-size:.95rem;max-width:640px;margin:0 0 24px;}
   .perk-actions{display:flex;flex-wrap:wrap;gap:14px;}
   .btn-ghost{background:transparent;color:var(--terracotta-deep);border:1.5px solid var(--line);cursor:pointer;font-family:inherit;}
   .btn-ghost:hover{background:var(--cream-deep);}
@@ -184,11 +187,15 @@
   @media (max-width:900px){
     .extra-hero h1{font-size:2.05rem;}
     .extra-grid{grid-template-columns:1fr 1fr;}
+    .featured-perk{grid-template-columns:1fr;}
+    .featured-perk__media{order:0;min-height:220px;}
+    .featured-perk__content{order:1;justify-content:flex-start;}
   }
   @media (max-width:560px){
     .extra-grid{grid-template-columns:1fr;}
     .extra-hero{padding:44px 0 4px;}
-    .featured-perk{padding:28px 22px;}
+    .featured-perk__content{padding:26px 22px;}
+    .featured-perk__media{min-height:190px;}
     .perk-actions{flex-direction:column;align-items:stretch;}
     .perk-actions .btn{width:100%;justify-content:center;}
     .extra-card .extra-photo{height:158px;object-position:50% 30%;}
@@ -554,14 +561,17 @@
 <section class="extra-section">
   <div class="wrap">
     <div class="featured-perk" id="romantic-welcome">
-      <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0L8 3z"/><path d="M12 14v5"/><path d="M9 21h6"/></svg></div>
-      <span class="perk-badge">Solo sul sito ufficiale</span>
-      <h3>Romantic Welcome</h3>
-      <p class="perk-subtitle">Un'accoglienza speciale pensata per due.</p>
-      <p>Prenota dal sito ufficiale e lasciati accogliere da Prosecco, piccoli stuzzichini, un bouquet di fiori e il nostro welcome kit.</p>
-      <div class="perk-actions">
-        <a class="btn btn-primary" href="/prenota/">Prenota ora</a>
-        <button type="button" class="btn btn-ghost" id="romanticWelcomeInfoBtn" aria-haspopup="dialog" aria-controls="romanticWelcomeModal">Scopri cosa include</button>
+      <div class="featured-perk__media"><img src="images/romantic-welcome.jpg" alt="Vasca idromassaggio in veranda con Prosecco, flûte e rose rosse al tramonto" loading="lazy"></div>
+      <div class="featured-perk__content">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0L8 3z"/><path d="M12 14v5"/><path d="M9 21h6"/></svg></div>
+        <span class="perk-badge">Solo sul sito ufficiale</span>
+        <h3>Romantic Welcome</h3>
+        <p class="perk-subtitle">Un'accoglienza speciale pensata per due.</p>
+        <p>Prenota dal sito ufficiale e lasciati accogliere da Prosecco, piccoli stuzzichini, un bouquet di fiori e il nostro welcome kit.</p>
+        <div class="perk-actions">
+          <a class="btn btn-primary" href="/prenota/">Prenota ora</a>
+          <button type="button" class="btn btn-ghost" id="romanticWelcomeInfoBtn" aria-haspopup="dialog" aria-controls="romanticWelcomeModal">Scopri cosa include</button>
+        </div>
       </div>
     </div>
 
