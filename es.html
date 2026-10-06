@@ -316,17 +316,9 @@
     .amenity-grid{grid-template-columns:1fr 1fr;}
     .cat-grid{grid-template-columns:repeat(3,1fr);}
     .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(150px,40vw,190px);gap:14px;}
-    /* Mobile-only: show the people-free veranda photo (7th figure) first instead of the couple photo (1st figure); desktop is untouched */
-    .gallery figure:first-child{grid-column:span 1;grid-row:span 1;order:6;}
-    .gallery figure:nth-child(2){order:1;}
-    .gallery figure:nth-child(3){order:2;}
-    .gallery figure:nth-child(4){order:3;}
-    .gallery figure:nth-child(5){order:4;}
-    .gallery figure:nth-child(6){order:5;}
-    .gallery figure:nth-child(7){grid-column:span 2;grid-row:span 2;order:0;}
-    .gallery figure:nth-child(8){order:8;}
-    .gallery figure:nth-child(9){order:9;}
-    .gallery figure:nth-child(10){order:7;}
+    /* Mobile-only: show the people-free veranda photo first instead of whichever figure is first in the DOM; desktop is untouched. Content-addressed so it keeps working regardless of how many figures the gallery has. */
+    .gallery figure:first-child{grid-column:span 1;grid-row:span 1;}
+    .gallery figure[onclick*="veranda-relax.jpg"]{grid-column:span 2;grid-row:span 2;order:-1;}
     .gallery figure:nth-child(11){order:10;}
     .hero-content h1{font-size:2.6rem;}
     section{padding:56px 0;}
@@ -756,41 +748,65 @@
         <img src="images/veranda-giorno-colazione.jpg" alt="La veranda con el jacuzzi, de día">
         <figcaption>Veranda y jacuzzi</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/camera-matrimoniale.jpg','Confort y tranquilidad en la configuración de cama de matrimonio.')">
-        <img src="images/camera-matrimoniale.jpg" alt="Dormitorio configurado como matrimonio">
+      <figure onclick="openLightbox('images/camera-arancio-1.jpg','El dormitorio en configuración de matrimonio, luminoso y acogedor.')">
+        <img src="images/camera-arancio-1.jpg" alt="Dormitorio en configuración de matrimonio con cabecero naranja">
         <figcaption>Dormitorio — matrimonio</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/cucina-tavolo.jpg','Cocina comedor con zona de mesa')">
-        <img src="images/cucina-tavolo.jpg" alt="Cocina comedor con mesa">
-        <figcaption>Cocina comedor</figcaption>
+      <figure onclick="openLightbox('images/cucina-moderna-1.jpg','La cocina, equipada y funcional.')">
+        <img src="images/cucina-moderna-1.jpg" alt="Cocina moderna con muebles color crema">
+        <figcaption>La cocina</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/camera-doppia.jpg','La habitación en configuración con dos camas individuales.')">
-        <img src="images/camera-doppia.jpg" alt="Dormitorio con dos camas individuales">
-        <figcaption>Dormitorio — dos individuales</figcaption>
+      <figure onclick="openLightbox('images/camera-gemelle-1.jpg','La habitación en configuración con dos camas individuales.')">
+        <img src="images/camera-gemelle-1.jpg" alt="Dormitorio con dos camas individuales y colcha roja">
+        <figcaption>Dormitorio — camas individuales</figcaption>
       </figure>
       <figure class="tall" onclick="openLightbox('images/veranda-te.jpg','El jacuzzi, al final del día')">
         <img src="images/veranda-te.jpg" alt="El jacuzzi iluminado, por la noche">
         <figcaption>El jacuzzi, de noche</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/bagno-lavabo.jpg','El baño, con lavabo de madera clara')">
-        <img src="images/bagno-lavabo.jpg" alt="Baño con lavabo de madera">
-        <figcaption>El baño</figcaption>
+      <figure onclick="openLightbox('images/bagno-legno-1.jpg','El baño con ducha y revestimiento efecto madera.')">
+        <img src="images/bagno-legno-1.jpg" alt="Baño con ducha y revestimiento efecto madera">
+        <figcaption>El baño, con ducha</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/cucina-pere-1.jpg','La cocina con zona de comedor, con vistas al jardín.')">
+        <img src="images/cucina-pere-1.jpg" alt="Cocina con zona de comedor y vistas al jardín">
+        <figcaption>Cocina y comedor</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/camera-arancio-2.jpg','Otra vista del dormitorio matrimonio.')">
+        <img src="images/camera-arancio-2.jpg" alt="Dormitorio matrimonio con armario y escritorio">
+        <figcaption>Dormitorio matrimonio, vista general</figcaption>
       </figure>
       <figure onclick="openLightbox('images/veranda-relax.jpg','El salón y el jacuzzi en la veranda')">
         <img src="images/veranda-relax.jpg" alt="Salón y jacuzzi en la veranda">
         <figcaption>Salón y jacuzzi</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/cucina-fuochi.jpg','Detalle de la placa de cocina')">
-        <img src="images/cucina-fuochi.jpg" alt="Placa de cocina">
-        <figcaption>Cocina, en detalle</figcaption>
+      <figure onclick="openLightbox('images/bagno-legno-2.jpg','Un detalle del baño, cuidado en cada detalle.')">
+        <img src="images/bagno-legno-2.jpg" alt="Baño con sanitarios y librería al fondo">
+        <figcaption>El baño, en detalle</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/bagno-doccia.jpg','El baño, con ducha y mampara de cristal')">
-        <img src="images/bagno-doccia.jpg" alt="Baño con ducha">
-        <figcaption>Ducha</figcaption>
+      <figure onclick="openLightbox('images/cucina-moderna-2.jpg','Un detalle de la cocina, con placa y campana extractora.')">
+        <img src="images/cucina-moderna-2.jpg" alt="Detalle de la cocina con placa de cocina">
+        <figcaption>La cocina, en detalle</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/camera-gemelle-2.jpg','Otra vista del dormitorio con dos camas individuales.')">
+        <img src="images/camera-gemelle-2.jpg" alt="Dormitorio con dos camas individuales, vista desde la entrada">
+        <figcaption>Dormitorio dos camas, vista general</figcaption>
       </figure>
       <figure onclick="openLightbox('images/allestimento-romantico.jpg','Ambientación romántica disponible bajo petición para ocasiones especiales.')">
         <img src="images/allestimento-romantico.jpg" alt="Ambientación romántica en la veranda con jacuzzi, globos con forma de corazón y pétalos de rosa">
         <figcaption>Ambientación romántica (a petición)</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/bagno-legno-3.jpg','El lavabo del baño, con espejo y secador de pelo.')">
+        <img src="images/bagno-legno-3.jpg" alt="Baño con lavabo, espejo y secador de pelo">
+        <figcaption>El baño, con lavabo</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/cucina-soggiorno-1.jpg','Un rincón de cocina luminoso, con zona de comedor y cuadros en las paredes.')">
+        <img src="images/cucina-soggiorno-1.jpg" alt="Cocina con zona de comedor y cuadros en las paredes">
+        <figcaption>Cocina y comedor</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/cucina-pere-2.jpg','Otra vista de la zona de comedor, luminosa y acogedora.')">
+        <img src="images/cucina-pere-2.jpg" alt="Zona de comedor con mesa y vistas al jardín">
+        <figcaption>Zona de comedor, vista general</figcaption>
       </figure>
       <figure onclick="openLightbox('images/esterno-casa-lobelie.jpg','Exterior de Casa Lobelie')">
         <img src="images/esterno-casa-lobelie.jpg" alt="Exterior de Casa Lobelie en Roma">
