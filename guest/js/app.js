@@ -609,15 +609,56 @@
     });
   }
 
+  /* ---------------- language gate ----------------
+     Shown only when the guest opens the bare main link (no hash yet,
+     e.g. https://casalobelie.it/guest/ from the printed/shared QR code).
+     Any link that already specifies a language/section (a bookmark, a
+     deep link, or a click from inside the guide) skips straight past
+     this and goes to render() as before. */
+  var GATE_LANGS = [
+    { code: "it", flag: "🇮🇹", label: "Italiano" },
+    { code: "en", flag: "🇬🇧", label: "English" },
+    { code: "es", flag: "🇪🇸", label: "Español" },
+    { code: "fr", flag: "🇫🇷", label: "Français" }
+  ];
+
+  function renderGate() {
+    document.body.classList.add("lang-gate-active");
+    var html = '<div class="lang-gate">';
+    html += '<div class="lang-gate-logo"><img src="/guest/images/logo.png" alt="Casa Lobelie"></div>';
+    html += '<h1 class="lang-gate-title">Guest Guide</h1>';
+    html += '<p class="lang-gate-subtitle">Scegli la tua lingua</p>';
+    html += '<div class="lang-gate-buttons">';
+    GATE_LANGS.forEach(function (l) {
+      html += '<button type="button" class="lang-gate-btn" data-lang="' + l.code + '">' +
+        '<span class="flag" aria-hidden="true">' + l.flag + '</span><span>' + esc(l.label) + '</span></button>';
+    });
+    html += '</div></div>';
+    appEl.innerHTML = html;
+
+    Array.prototype.forEach.call(appEl.querySelectorAll(".lang-gate-btn"), function (btn) {
+      btn.addEventListener("click", function () {
+        var lang = btn.getAttribute("data-lang");
+        try { localStorage.setItem(STORAGE_LANG_KEY, lang); } catch (e) {}
+        document.body.classList.remove("lang-gate-active");
+        state.lang = lang;
+        state.section = "home";
+        navigate(lang, "home", true);
+        render();
+      });
+    });
+  }
+
   /* ---------------- init ---------------- */
   function init() {
-    var parsed = parseHash();
-    state.lang = parsed.lang;
-    state.section = parsed.section;
     if (!window.location.hash) {
-      navigate(state.lang, "home", true);
+      renderGate();
+    } else {
+      var parsed = parseHash();
+      state.lang = parsed.lang;
+      state.section = parsed.section;
+      render();
     }
-    render();
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {

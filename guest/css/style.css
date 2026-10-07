@@ -420,3 +420,43 @@ svg.icon{width:22px;height:22px;flex-shrink:0;stroke:currentColor;stroke-width:1
   .card-grid{gap:9px;}
   .home-logo{max-width:160px;}
 }
+
+/* ---------------- LANGUAGE GATE ----------------
+   First-visit screen shown when the guest opens the main /guest/ link
+   with no language chosen yet. Hides the normal header/WhatsApp FAB
+   (toggled via body.lang-gate-active) so it reads as one clean, branded
+   screen rather than an app page. */
+body.lang-gate-active header.app-header,
+body.lang-gate-active .wa-floating{display:none;}
+body.lang-gate-active main{min-height:0;padding-bottom:0;}
+
+.lang-gate{
+  min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 24px calc(40px + var(--safe-bottom));
+  text-align:center;
+}
+.lang-gate-logo{width:100%;max-width:170px;margin:0 auto 18px;}
+.lang-gate-logo img{width:100%;height:auto;display:block;}
+.lang-gate-title{font-size:1.9rem;color:var(--terracotta-deep);margin-bottom:4px;}
+.lang-gate-subtitle{color:var(--ink-soft);font-size:1rem;margin:0 0 36px;}
+.lang-gate-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:360px;}
+.lang-gate-btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;padding:18px 22px;border-radius:30px;
+  background:var(--terracotta);color:#fff;border:1.5px solid transparent;cursor:pointer;
+  font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-weight:700;font-size:1.05rem;
+  box-shadow:0 10px 24px -6px rgba(13,74,120,.5);
+  transition:transform .15s ease, background .2s ease;
+}
+.lang-gate-btn:active{transform:scale(.97);}
+@media (hover:hover){
+  .lang-gate-btn:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
+}
+.lang-gate-btn .flag{font-size:1.5rem;line-height:1;}
+
+@media (min-width:720px){
+  .lang-gate-logo{max-width:200px;}
+  .lang-gate-title{font-size:2.2rem;}
+}
