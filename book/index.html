@@ -120,8 +120,13 @@
 
   /* BENEFITS STRIP (compact row, directly below the widget) */
   .benefits-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin:26px 0 0;padding:16px 22px;background:var(--cream-deep);border-radius:var(--radius-sm);}
-  .benefits-strip .item{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;color:var(--ink);white-space:nowrap;}
+  .benefits-strip .item{display:flex;align-items:flex-start;gap:8px;font-weight:700;font-size:.85rem;color:var(--ink);white-space:nowrap;}
   .benefits-strip .item svg{width:16px;height:16px;stroke:var(--green);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+  /* Compact cancellation note, directly under the benefits box */
+  .cancel-note{margin:12px 0 0;text-align:center;font-size:.85rem;color:var(--ink-soft);}
+  .cancel-note .wa-link{color:var(--terracotta-deep);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;}
+  .cancel-note .wa-link:hover{color:var(--terracotta);}
 
   /* VALUE STRIP (compact, dot-separated — same pattern as the home page trust-bar) */
   .value-strip{margin:14px 0 0;text-align:center;font-size:.8rem;font-weight:700;color:var(--ink-soft);}
@@ -154,6 +159,7 @@
     section{padding:56px 0;}
     .benefits-strip{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:10px 18px;padding:16px 18px;margin-top:20px;}
     .benefits-strip .item{font-size:.85rem;white-space:normal;}
+    .cancel-note{font-size:.82rem;padding:0 6px;}
     .value-strip{display:flex;flex-direction:column;gap:6px;}
     .value-strip .dot{display:none;}
     .payment-methods{margin-top:24px;padding-top:20px;}
@@ -492,13 +498,13 @@
 </div>
     </div>
     <div class="benefits-strip">
-      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Free cancellation up to 5 days before arrival</span>
-      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Exclusive benefit for direct booking</span>
-      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Secure online payment</span>
-      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Immediate confirmation</span>
-      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Tourist tax: €6 per person/night</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Romantic Welcome included</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Private wellness area for exclusive use</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Private veranda for exclusive use</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Secure online payment, including installments with PayPal and Klarna</span>
+      <span class="item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Free cancellation up to 5 days before arrival, with full refund</span>
     </div>
-    <p class="value-strip"><span class="ti">Entire apartment</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Private veranda</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Private wellness area</span> <span class="dot" aria-hidden="true">•</span> <span class="ti">Direct contact with the host</span></p>
+    <p class="cancel-note">Want to cancel a reservation? <a class="wa-link" href="https://wa.me/393335638730?text=Hello%2C%20I%20would%20like%20to%20request%20the%20cancellation%20of%20my%20reservation%20at%20Casa%20Lobelie.%0AFull%20name%3A%0ABooking%20number%3A%0AArrival%20date%3A" target="_blank" rel="noopener" aria-label="Request cancellation via WhatsApp">Click here</a></p>
 
     <div class="payment-methods">
       <p class="payment-eyebrow">Secure payments</p>
