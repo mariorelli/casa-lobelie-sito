@@ -1,0 +1,75 @@
+/* ============================================================================
+   CASA LOBELIE — AREA OSPITE — STILI DEDICATI
+   Le variabili di colore/font (--terracotta, --cream, --radius, ecc.) sono
+   definite nel blocco <style> condiviso in testa a index.html (le stesse
+   usate in tutto il resto del sito), per questo qui non vengono ridefinite.
+   ============================================================================ */
+
+.ao-hero{background:var(--terracotta);color:#fff;padding:60px 0 50px;text-align:center;}
+.ao-hero .badge{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.ao-hero .badge svg{width:30px;height:30px;stroke:#fff;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.ao-hero h1{color:#fff;font-size:2.1rem;margin:0 0 10px;}
+.ao-hero p{color:#f3ddc2;margin:0 auto;font-size:1rem;max-width:460px;}
+.ao-content{background:#fff;padding:52px 0 72px;}
+.ao-content .wrap{max-width:460px;}
+.ao-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:38px 34px;box-shadow:0 16px 36px -22px rgba(58,42,32,.22);}
+.ao-field{margin-bottom:18px;}
+.ao-field label{display:block;font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:7px;}
+.ao-field input{width:100%;box-sizing:border-box;padding:13px 15px;border:1.5px solid var(--line);border-radius:var(--radius-sm);background:#fff;font-family:inherit;font-size:.95rem;color:var(--ink);transition:border-color .2s;}
+.ao-field input:focus{outline:none;border-color:var(--terracotta);}
+.ao-field input.otp-input{letter-spacing:.5em;font-size:1.3rem;font-weight:700;text-align:center;}
+.ao-submit{width:100%;justify-content:center;border:none;cursor:pointer;font-family:inherit;}
+.ao-submit.is-loading{opacity:.65;pointer-events:none;}
+.ao-note{font-size:.8rem;color:var(--ink-soft);text-align:center;margin:16px 0 0;line-height:1.5;}
+.ao-resend{display:block;width:100%;text-align:center;font-size:.85rem;font-weight:700;color:var(--terracotta-deep);text-decoration:underline;text-underline-offset:3px;margin-top:16px;background:none;border:none;cursor:pointer;font-family:inherit;}
+.ao-countdown{display:block;text-align:center;font-size:.8rem;color:var(--ink-soft);margin-top:16px;}
+.ao-back{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--ink-soft);text-decoration:none;margin-bottom:18px;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;}
+.ao-error{background:#fdeceb;border:1px solid #f3b9b4;color:#9a2f27;font-size:.85rem;border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:18px;}
+
+[data-ao-screen]{display:none;}
+[data-ao-screen].is-active{display:block;}
+
+/* DASHBOARD */
+.ao-dash-wrap{max-width:760px;}
+.ao-dash-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+.ao-dash-head h2{margin:0;font-size:1.3rem;}
+.ao-logout{font-size:.82rem;font-weight:700;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;}
+.ao-res-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;margin-bottom:24px;}
+.ao-res-name{font-family:'Fraunces',serif;font-size:1.3rem;margin:0 0 4px;}
+.ao-res-sub{color:var(--ink-soft);font-size:.88rem;margin:0 0 22px;}
+.ao-res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;list-style:none;margin:0;padding:0;}
+.ao-res-item dt{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin:0 0 4px;}
+.ao-res-item dd{font-size:.98rem;font-weight:700;color:var(--ink);margin:0;}
+.ao-status-pill{display:inline-block;font-size:.76rem;font-weight:800;padding:4px 12px;border-radius:20px;background:var(--gold);color:#fff;}
+.ao-status-pill.paid{background:var(--green);}
+.ao-status-pill.cancelled{background:var(--berry);}
+.ao-actions-head{font-size:1.02rem;margin:34px 0 14px;}
+.ao-action-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.ao-action-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:all .2s;cursor:pointer;text-align:left;font-family:inherit;}
+.ao-action-card:hover{border-color:var(--terracotta);transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(58,32,20,.3);}
+.ao-action-card .icon-wrap{width:38px;height:38px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;}
+.ao-action-card .icon-wrap svg{width:19px;height:19px;stroke:var(--terracotta-deep);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.ao-action-card h4{margin:0;font-size:.92rem;}
+.ao-action-card p{margin:0;font-size:.8rem;color:var(--ink-soft);line-height:1.4;}
+.ao-action-card.cancel h4{color:var(--berry);}
+.ao-cancel-note{font-size:.78rem;color:var(--ink-soft);margin-top:18px;text-align:center;line-height:1.5;}
+.ao-loading{text-align:center;color:var(--ink-soft);font-size:.9rem;padding:40px 0;}
+
+/* GUIDA (iframe verso /guest/) */
+.ao-guide-panel{margin-top:30px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;}
+.ao-guide-panel[hidden]{display:none;}
+.ao-guide-panel-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--cream);border-bottom:1px solid var(--line);}
+.ao-guide-panel-head h4{margin:0;font-size:.92rem;}
+.ao-guide-panel-head button{background:none;border:none;cursor:pointer;color:var(--ink-soft);font-size:.82rem;font-weight:700;font-family:inherit;}
+.ao-guide-panel iframe{display:block;width:100%;height:70vh;border:0;}
+
+@media (max-width:600px){
+  .ao-hero{padding:44px 0 36px;}
+  .ao-hero h1{font-size:1.6rem;}
+  .ao-card{padding:28px 22px;}
+  .ao-content{padding:36px 0 56px;}
+  .ao-res-grid{grid-template-columns:1fr;}
+  .ao-action-grid{grid-template-columns:1fr;}
+  .ao-dash-wrap{padding:0 4px;}
+  .ao-guide-panel iframe{height:80vh;}
+}
