@@ -462,6 +462,13 @@
   @media (min-width:901px){
     .guide-section{padding:58px 0;}
   }
+
+  /* Grid item safety: without this, a grid item containing a percentage-
+     width <img> can refuse to shrink below the image's natural pixel
+     size (classic CSS Grid "blowout"), which only becomes visible once a
+     row holds fewer, wider cards — exactly what happens on this page's
+     photo section after removing one photo (3 cols → 2 cols). */
+  .place-grid .place-card{min-width:0;}
 </style>
 
 <body>
@@ -596,11 +603,7 @@
       <h2>Véranda privée et espace bien-être</h2>
       <p class="lead">La véranda est l'un des espaces les plus caractéristiques de Casa Lobelie. Les hôtes peuvent s'y détendre dans le bain à remous, profiter de quelques instants en plein air et vivre leur séjour avec plus d'intimité et de tranquillité.</p>
     </div>
-    <div class="place-grid">
-      <div class="place-card no-photo" style="padding-top:0;">
-        <img class="place-photo" src="/images/veranda-giorno-colazione.jpg" alt="La véranda avec le bain à remous, de jour">
-        <h3>Véranda et bain à remous</h3>
-      </div>
+    <div class="place-grid cols-2">
       <div class="place-card no-photo" style="padding-top:0;">
         <img class="place-photo" src="/images/veranda-te.jpg" alt="Le bain à remous illuminé, en soirée">
         <h3>Le bain à remous, le soir</h3>

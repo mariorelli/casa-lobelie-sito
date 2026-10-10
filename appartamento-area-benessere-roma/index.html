@@ -462,6 +462,13 @@
   @media (min-width:901px){
     .guide-section{padding:58px 0;}
   }
+
+  /* Grid item safety: without this, a grid item containing a percentage-
+     width <img> can refuse to shrink below the image's natural pixel
+     size (classic CSS Grid "blowout"), which only becomes visible once a
+     row holds fewer, wider cards — exactly what happens on this page's
+     photo section after removing one photo (3 cols → 2 cols). */
+  .place-grid .place-card{min-width:0;}
 </style>
 
 <body>
@@ -596,11 +603,7 @@
       <h2>Veranda privata e area benessere</h2>
       <p class="lead">La veranda è uno degli spazi più caratteristici di Casa Lobelie. Qui gli ospiti possono rilassarsi nella vasca idromassaggio, godersi qualche momento all'aperto e vivere il soggiorno con maggiore privacy e tranquillità.</p>
     </div>
-    <div class="place-grid">
-      <div class="place-card no-photo" style="padding-top:0;">
-        <img class="place-photo" src="/images/veranda-giorno-colazione.jpg" alt="La veranda con la vasca idromassaggio, di giorno">
-        <h3>Veranda e vasca idromassaggio</h3>
-      </div>
+    <div class="place-grid cols-2">
       <div class="place-card no-photo" style="padding-top:0;">
         <img class="place-photo" src="/images/veranda-te.jpg" alt="La vasca idromassaggio illuminata, di sera">
         <h3>La vasca idromassaggio, di sera</h3>
