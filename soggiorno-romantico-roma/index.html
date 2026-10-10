@@ -116,6 +116,9 @@
   .ben .ic-wrap{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--cream);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;}
   .ben h3{font-size:1.12rem;margin:2px 0 4px;}
   .ben p{margin:0;font-size:.93rem;color:var(--ink-soft);line-height:1.45;}
+  .ast{color:var(--gold);font-weight:600;margin-left:1px;}
+  .ben-note{margin:16px 4px 0;font-size:.78rem;line-height:1.5;color:var(--ink-soft);}
+  .ben-note .ast{margin:0 3px 0 0;}
   .ben-tag{display:inline-block;margin-top:8px;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);}
 
   /* 3. EMOZIONALE */
@@ -223,6 +226,11 @@
   .js .reveal.in{opacity:1;transform:none;}
   @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}.btn{transition:none;}}
 
+  @media (max-width:360px){
+    .sc-trio{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
+    .sc-item{padding:14px 4px 12px;}
+    .sc-item .l{font-size:.6rem;letter-spacing:.01em;}
+  }
   /* ≥ 380px */
   @media (min-width:380px){
     .wrap{padding:0 22px;}
@@ -243,6 +251,7 @@
     .hero-micro::before{display:block;}
     .benefits{padding:0 0 56px;}
     .ben-grid{grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-38px;position:relative;z-index:3;}
+    .ben-note{text-align:center;max-width:640px;margin:20px auto 0;font-size:.8rem;}
     .ben{flex-direction:column;padding:24px 22px;box-shadow:0 20px 40px -30px rgba(58,32,20,.5);}
     .emotion,.imagine,.welcome,.reviews{padding:84px 0;}
     .emo-grid{grid-template-columns:1fr 1fr;gap:56px;}
@@ -533,7 +542,7 @@
   </picture>
   <div class="hero-content">
     <span class="eyebrow">Soggiorno romantico a Roma</span>
-    <h1>Non prenotate semplicemente una notte a Roma. <em>Regalatevi una sera che ricorderete.</em></h1>
+    <h1>Non scegliete semplicemente dove dormire a Roma. <em>Regalatevi un soggiorno da ricordare.</em></h1>
     <p class="hero-sub">Una veranda privata, l’area benessere tutta per voi e un’atmosfera pensata per due.</p>
     <p class="hero-small">Casa Lobelie è per chi non vuole che un’occasione speciale sembri un soggiorno qualunque.</p>
     <a class="btn btn-primary" id="heroCta" href="/prenota/">Verifica le vostre date
@@ -556,9 +565,10 @@
       </div>
       <div class="ben reveal">
         <div class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0L8 3z"/><path d="M12 14v5"/><path d="M9 21h6"/></svg></div>
-        <div><h3>Romantic Welcome incluso</h3><p>Prenotando direttamente dal sito ufficiale.</p></div>
+        <div><h3>Romantic Welcome incluso<span class="ast">*</span></h3><p>Prenotando direttamente dal sito ufficiale.</p></div>
       </div>
     </div>
+    <p class="ben-note"><span class="ast">*</span>Incluso esclusivamente per le prenotazioni effettuate direttamente sul sito ufficiale di Casa Lobelie. Non incluso nelle prenotazioni tramite Booking.com, Airbnb o altre OTA.</p>
   </div>
 </section>
 
@@ -613,7 +623,7 @@
     <div class="sc-trio" aria-hidden="true">
       <div class="sc-item"><div class="n">1</div><span class="l">appartamento</span></div>
       <div class="sc-item"><div class="n">2</div><span class="l">ospiti al massimo</span></div>
-      <div class="sc-item"><div class="n">1</div><span class="l">coppia per sera</span></div>
+      <div class="sc-item"><div class="n">1</div><span class="l">coppia alla volta</span></div>
     </div>
     <p class="sc-close">Le date passano. Le occasioni anche.</p>
     <a class="btn btn-light" href="/prenota/">Controlla se è libera per voi
@@ -690,7 +700,7 @@
     <img src="/soggiorno-romantico-roma/img/veranda-reale-700.webp" srcset="/soggiorno-romantico-roma/img/veranda-reale-700.webp 700w, /soggiorno-romantico-roma/img/veranda-reale-1200.webp 1200w" sizes="100vw" alt="" loading="lazy" decoding="async" width="700" height="525">
   </picture>
   <div class="wrap reveal">
-    <h2>Forse sarà solo una notte. <em>Ma può diventare uno di quei ricordi che restano.</em></h2>
+    <h2>Forse sarà solo un breve soggiorno. <em>Ma può diventare uno di quei ricordi che restano.</em></h2>
     <p>Scoprite se Casa Lobelie è disponibile nelle vostre date.</p>
     <a class="btn btn-light" href="/prenota/">Verifica disponibilità
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
