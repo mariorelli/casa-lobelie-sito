@@ -132,7 +132,7 @@
   .place-card h3{font-family:'Fraunces',serif;font-size:1.2rem;margin-bottom:10px;}
   .place-card p{color:var(--ink-soft);font-size:.92rem;margin:0 0 10px;}
   .place-card p:last-child{margin-bottom:0;}
-  .place-photo{width:calc(100% + 56px);max-width:none;margin:-30px -28px 20px;display:block;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;}
+  .place-photo{width:calc(100% + 56px);margin:-30px -28px 20px;display:block;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;}
   .place-card.no-photo{padding-top:30px;}
   .place-map{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:.82rem;font-weight:700;color:var(--terracotta-deep);text-decoration:none;}
   .place-map:hover{text-decoration:underline;}
@@ -162,7 +162,7 @@
     section{padding:56px 0;}
   }
   @media (max-width:560px){
-    .place-grid,.place-grid.cols-2{grid-template-columns:1fr;}
+    .place-grid{grid-template-columns:1fr;}
     .wrap{padding:0 22px;}
   }
 
@@ -393,7 +393,6 @@
   }, true);
 })();
 </script>
-<style id="clNavNarrow">@media (max-width:360px){.nav-right{gap:10px;}.lang-switch a{padding:8px 11px;}#menuToggle{margin-left:2px;padding:8px 4px;}}</style>
 </head>
 <body>
 <div id="clCookieBanner" class="cl-cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
