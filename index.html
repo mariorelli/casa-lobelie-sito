@@ -128,7 +128,7 @@
     display:flex;align-items:flex-end;
     color:#fff;overflow:hidden;
   }
-  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 78%;z-index:0;filter:saturate(1.05) contrast(1.02);}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;z-index:0;filter:saturate(1.05) contrast(1.02);}
   .hero::after{
     content:"";position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(20,12,8,.22) 0%, rgba(20,12,8,.58) 45%, rgba(15,9,6,.88) 100%);
@@ -318,13 +318,13 @@
     .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(150px,40vw,190px);gap:14px;}
     /* Mobile-only: show the people-free veranda photo first instead of whichever figure is first in the DOM; desktop is untouched. Content-addressed so it keeps working regardless of how many figures the gallery has. */
     .gallery figure:first-child{grid-column:span 1;grid-row:span 1;}
-    .gallery figure[onclick*="veranda-relax.jpg"]{grid-column:span 2;grid-row:span 2;order:-1;}
+    .gallery figure[onclick*="veranda-vasca-grande.jpg"]{grid-column:span 2;grid-row:span 2;order:-1;}
     .gallery figure:nth-child(11){order:10;}
     .hero-content h1{font-size:2.6rem;}
     section{padding:56px 0;}
     .hero{height:auto;min-height:80vh;min-height:80dvh;padding-top:32px;}
     .hero-content{padding-bottom:36px;}
-    .hero img{object-position:55% 55%;transform:scale(1.15);}
+    .hero img{object-position:50% 48%;transform:scale(1.15);}
   }
   @media (max-width:380px){
     .amenity-grid{grid-template-columns:1fr;}
@@ -659,7 +659,7 @@
 </header>
 
 <section class="hero">
-  <img src="images/veranda-hero.jpg" alt="Veranda privata di Casa Lobelie tra il verde">
+  <img src="images/veranda-vasca-salottino.jpg" alt="Veranda privata con vasca idromassaggio e salottino da esterno">
   <div class="hero-content">
     <span class="eyebrow">Appartamento — Roma</span>
     <h1>Un'oasi di pace nel cuore di Roma est</h1>
@@ -746,9 +746,9 @@
       <p class="lead" style="margin:0 auto;">Una camera luminosa, una cucina completa, un bagno curato e la veranda che rende Casa Lobelie speciale in ogni stagione. <a href="/appartamento-area-benessere-roma/" style="color:var(--terracotta-deep);font-weight:700;text-decoration:underline;">Scopri la nostra area benessere privata</a>.</p>
     </div>
     <div class="gallery">
-      <figure onclick="openLightbox('images/camera-arancio-1.jpg','La camera in configurazione matrimoniale, luminosa e accogliente.')">
-        <img src="images/camera-arancio-1.jpg" alt="Camera in configurazione matrimoniale con testiera arancione">
-        <figcaption>Camera — matrimoniale</figcaption>
+      <figure onclick="openLightbox('images/veranda-vasca-grande.jpg','Il salotto e la vasca idromassaggio in veranda')">
+        <img src="images/veranda-vasca-grande.jpg" alt="Veranda privata con vasca idromassaggio e salottino da esterno">
+        <figcaption>Salotto e vasca idromassaggio</figcaption>
       </figure>
       <figure onclick="openLightbox('images/cucina-moderna-1.jpg','La cucina, attrezzata e funzionale.')">
         <img src="images/cucina-moderna-1.jpg" alt="Cucina moderna con mobili color crema">
@@ -758,8 +758,8 @@
         <img src="images/camera-gemelle-1.jpg" alt="Camera con due letti singoli e copriletto rosso">
         <figcaption>Camera — letti singoli</figcaption>
       </figure>
-      <figure class="tall" onclick="openLightbox('images/veranda-te.jpg','La vasca idromassaggio, a fine giornata')">
-        <img src="images/veranda-te.jpg" alt="La vasca idromassaggio illuminata, di sera">
+      <figure class="tall" onclick="openLightbox('images/veranda-vasca-sera.jpg','La vasca idromassaggio, a fine giornata')">
+        <img src="images/veranda-vasca-sera.jpg" alt="La vasca idromassaggio illuminata, di sera">
         <figcaption>La vasca idromassaggio, di sera</figcaption>
       </figure>
       <figure onclick="openLightbox('images/bagno-legno-1.jpg','Il bagno con doccia e rivestimento effetto legno.')">
@@ -774,9 +774,9 @@
         <img src="images/camera-arancio-2.jpg" alt="Camera matrimoniale con armadio e scrivania">
         <figcaption>Camera matrimoniale, vista d'insieme</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/veranda-relax.jpg','Il salotto e la vasca idromassaggio in veranda')">
-        <img src="images/veranda-relax.jpg" alt="Salotto e vasca idromassaggio in veranda">
-        <figcaption>Salotto e vasca idromassaggio</figcaption>
+      <figure onclick="openLightbox('images/camera-arancio-1.jpg','La camera in configurazione matrimoniale, luminosa e accogliente.')">
+        <img src="images/camera-arancio-1.jpg" alt="Camera in configurazione matrimoniale con testiera arancione">
+        <figcaption>Camera — matrimoniale</figcaption>
       </figure>
       <figure onclick="openLightbox('images/bagno-legno-2.jpg','Un dettaglio del bagno, curato in ogni particolare.')">
         <img src="images/bagno-legno-2.jpg" alt="Bagno con sanitari e libreria sullo sfondo">
