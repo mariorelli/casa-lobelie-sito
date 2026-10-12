@@ -1,0 +1,284 @@
+/* ============================================================================
+   CASA LOBELIE — SELF CHECK-IN — STILE
+   Basato sul foglio di stile della Guest Guide (/guest/css/style.css):
+   stessi token colore, font (Fraunces + Nunito Sans), raggi, pulsanti,
+   header e schermata di selezione lingua. File autonomo: non dipende da
+   altri CSS del sito.
+   ============================================================================ */
+
+:root{
+  --ink:#3a2a20;
+  --ink-soft:#6b5c4d;
+  --cream:#fbf3e6;
+  --cream-deep:#f3e6d2;
+  --line:#ecdcc4;
+  --terracotta:#0d4a78;       /* nome storico della variabile: è il blu del brand */
+  --terracotta-deep:#08395d;
+  --gold:#a37830;
+  --radius:18px;
+  --radius-sm:10px;
+  --radius-lg:24px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:'Fraunces',Georgia,serif;
+  font-optical-sizing:auto;
+  font-weight:500;
+  margin:0 0 .4em 0;
+  line-height:1.15;
+}
+a{color:inherit;}
+button{font-family:inherit;}
+img{max-width:100%;display:block;}
+[hidden]{display:none !important;}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+svg.icon{width:22px;height:22px;flex-shrink:0;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ---------------- HEADER (come Guest Guide) ---------------- */
+header.app-header{
+  position:sticky;top:0;z-index:60;
+  background:var(--cream);
+  border-bottom:1px solid var(--line);
+  padding-top:var(--safe-top);
+}
+.app-header-inner{
+  max-width:640px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.header-left{display:flex;align-items:center;gap:10px;min-width:0;}
+.back-btn{
+  display:none;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:var(--cream-deep);border:none;cursor:pointer;color:var(--terracotta-deep);
+}
+.back-btn svg{width:19px;height:19px;}
+.back-btn.visible{display:flex;}
+.logo-mark{display:flex;align-items:center;flex-shrink:0;}
+.logo-mark img{height:40px;width:auto;}
+
+.lang-switch{display:flex;border:1.5px solid var(--line);border-radius:30px;overflow:hidden;font-size:.72rem;font-weight:800;flex-shrink:0;background:#fff;}
+.lang-switch button{padding:8px 11px;min-height:36px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;font-weight:800;}
+.lang-switch button[aria-current="true"]{background:var(--terracotta);color:#fff;}
+
+/* ---------------- PULSANTI E PANNELLI (come Guest Guide) ---------------- */
+.panel{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:24px 22px;margin-bottom:16px;
+}
+.icon-wrap{
+  width:44px;height:44px;border-radius:50%;background:var(--cream-deep);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:var(--terracotta-deep);
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 24px;border-radius:30px;font-weight:700;font-size:.9rem;
+  text-decoration:none;border:1.5px solid transparent;cursor:pointer;
+  transition:transform .15s ease, background .2s ease;width:100%;
+}
+.btn:active{transform:scale(.97);}
+.btn svg{width:18px;height:18px;flex-shrink:0;}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -6px rgba(13,74,120,.5);}
+.btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
+.btn-ghost{background:var(--cream-deep);color:var(--terracotta-deep);}
+.btn-ghost:hover{background:var(--line);}
+
+/* ---------------- LANGUAGE GATE (identico alla Guest Guide) ---------------- */
+body.lang-gate-active header.app-header,
+body.lang-gate-active #guide{display:none !important;}
+body:not(.lang-gate-active) .lang-gate,
+.sc-direct body.lang-gate-active .lang-gate{display:none;}
+
+.lang-gate{
+  min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 24px calc(40px + var(--safe-bottom));
+  text-align:center;
+  animation:fadeIn .28s ease;
+}
+.lang-gate-logo{width:100%;max-width:170px;margin:0 auto 18px;}
+.lang-gate-logo img{width:100%;height:auto;display:block;}
+.lang-gate-title{font-size:1.9rem;color:var(--terracotta-deep);margin-bottom:4px;}
+.lang-gate-subtitle{color:var(--ink-soft);font-size:1rem;margin:0 0 36px;}
+.lang-gate-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:360px;}
+.lang-gate-btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;padding:18px 22px;border-radius:30px;
+  background:var(--terracotta);color:#fff;border:1.5px solid transparent;cursor:pointer;
+  font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-weight:700;font-size:1.05rem;
+  box-shadow:0 10px 24px -6px rgba(13,74,120,.5);
+  transition:transform .15s ease, background .2s ease;
+}
+.lang-gate-btn:active{transform:scale(.97);}
+@media (hover:hover){
+  .lang-gate-btn:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
+}
+.lang-gate-btn .flag{font-size:1.5rem;line-height:1;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+/* ---------------- GUIDA ---------------- */
+main#guide{padding-bottom:calc(24px + var(--safe-bottom));}
+main#guide > .wrap{animation:fadeIn .28s ease;}
+
+.sc-intro{text-align:center;padding:22px 0 8px;}
+.home-logo-wrap{display:flex;justify-content:center;padding:4px 0 10px;}
+.home-logo{width:100%;max-width:150px;height:auto;}
+.sc-intro h1{font-size:1.7rem;color:var(--terracotta-deep);margin-bottom:6px;}
+.sc-subtitle{
+  margin:0 0 12px;font-size:.78rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--gold);
+}
+.sc-lead{color:var(--ink-soft);font-size:.98rem;margin:0 auto;max-width:44ch;}
+
+/* Passaggi numerati */
+.sc-steps{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:22px;}
+.sc-step{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
+}
+.sc-photo{
+  position:relative;display:block;background:var(--cream-deep);
+  aspect-ratio:3 / 4;overflow:hidden;
+}
+.sc-photo img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.sc-zoom{
+  position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.92);color:var(--terracotta-deep);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 16px -6px rgba(58,32,20,.45);
+}
+.sc-zoom svg{width:20px;height:20px;}
+/* Indicatore discreto sovrapposto alla foto (la foto resta originale) */
+.sc-marker{
+  position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;
+  border:3px solid #fff;box-shadow:0 0 0 3px var(--terracotta),0 6px 18px rgba(0,0,0,.35);
+  pointer-events:none;animation:scPulse 2.4s ease-in-out infinite;
+}
+@keyframes scPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.12);opacity:.75;}}
+@media (min-width:820px){.sc-marker{width:52px;height:52px;margin:-26px 0 0 -26px;}}
+@media (prefers-reduced-motion:reduce){.sc-marker{animation:none;}}
+/* Segnaposto se una foto non è ancora stata caricata */
+.sc-photo.is-missing img{display:none;}
+.sc-photo.is-missing .sc-zoom{display:none;}
+.sc-photo.is-missing::after{
+  content:attr(data-missing);
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:20px;text-align:center;color:var(--ink-soft);font-size:.85rem;font-weight:700;
+}
+
+.sc-step-body{padding:20px 22px 22px;}
+.sc-step-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.sc-num{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  background:var(--terracotta);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.15rem;
+  box-shadow:0 8px 18px -8px rgba(13,74,120,.6);
+}
+.sc-step-head h2{font-size:1.3rem;color:var(--terracotta-deep);margin:0;}
+.sc-step-body > p{margin:0 0 10px;font-size:.98rem;}
+.sc-step-body > p:last-child{margin-bottom:0;}
+
+/* Evidenza SMS (elegante, non invadente) */
+.sc-sms{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--cream-deep);border-radius:var(--radius);
+  padding:14px 16px;margin:4px 0 12px;
+}
+.sc-sms .icon-wrap{width:38px;height:38px;background:#fff;}
+.sc-sms .icon-wrap svg{width:20px;height:20px;}
+.sc-sms p{margin:0;font-size:.95rem;color:var(--ink);font-weight:600;line-height:1.5;}
+.sc-sms-label{
+  display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;
+  font-weight:800;color:var(--terracotta-deep);margin-bottom:2px;
+}
+
+/* Promemoria chiavi */
+.sc-keys{display:flex;gap:14px;align-items:flex-start;margin-top:22px;}
+.sc-keys h2{font-size:1.15rem;color:var(--terracotta-deep);margin:8px 0 8px;}
+.sc-keys p{margin:0 0 8px;color:var(--ink-soft);font-size:.94rem;}
+.sc-keys p:last-child{margin-bottom:0;}
+
+/* Assistenza */
+.sc-help{text-align:center;}
+.sc-help h2{font-size:1.15rem;color:var(--terracotta-deep);margin-bottom:6px;}
+.sc-help p{color:var(--ink-soft);font-size:.94rem;margin:0 auto 18px;max-width:40ch;}
+
+.sc-help .btn{max-width:380px;}
+.sc-change-lang{margin:6px 0 0;text-align:center;}
+.sc-change-lang .btn{width:auto;padding:12px 22px;font-size:.85rem;}
+
+/* Footer minimale */
+.sc-footer{
+  margin-top:36px;padding:26px 20px calc(26px + var(--safe-bottom));
+  border-top:1px solid var(--line);text-align:center;color:var(--ink-soft);font-size:.82rem;
+}
+.sc-footer img{width:56px;height:56px;margin:0 auto 8px;border-radius:50%;}
+.sc-footer-name{margin:0 0 4px;font-family:'Fraunces',Georgia,serif;font-size:1rem;color:var(--terracotta-deep);}
+.sc-footer a{color:var(--ink-soft);font-weight:700;}
+
+.sc-noscript{text-align:center;padding:0 24px 40px;color:var(--ink-soft);}
+
+/* ---------------- LIGHTBOX ---------------- */
+.sc-lightbox{
+  position:fixed;inset:0;border:none;padding:0;margin:0;background:rgba(20,14,10,.94);
+  width:100vw;height:100vh;height:100dvh;max-width:100vw;max-height:100vh;max-height:100dvh;
+}
+.sc-lightbox[open]{display:flex;align-items:center;justify-content:center;}
+.sc-lightbox::backdrop{background:rgba(20,14,10,.92);}
+.sc-lightbox img{
+  max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  padding:calc(56px + var(--safe-top)) 10px calc(16px + var(--safe-bottom));
+}
+.sc-lightbox-close{
+  position:absolute;top:calc(12px + var(--safe-top));right:12px;
+  width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(255,255,255,.95);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ---------------- TABLET / DESKTOP ---------------- */
+@media (min-width:720px){
+  .wrap,.app-header-inner{max-width:760px;}
+  .lang-gate-logo{max-width:200px;}
+  .lang-gate-title{font-size:2.2rem;}
+  .sc-intro h1{font-size:2rem;}
+}
+@media (min-width:820px){
+  /* Foto a sinistra e testo a destra: le istruzioni restano accanto all'immagine */
+  .sc-step{display:grid;grid-template-columns:minmax(0,42%) minmax(0,1fr);align-items:center;}
+  .sc-step-body{padding:30px 30px;align-self:center;}
+}
+@media (min-width:1000px){
+  .wrap,.app-header-inner{max-width:880px;}
+}
+
+/* ---------------- SMALL PHONES ---------------- */
+@media (max-width:360px){
+  .wrap{padding:0 14px;}
+  .app-header-inner{padding:10px 14px;}
+  .lang-switch button{padding:8px 8px;}
+  .logo-mark img{height:34px;}
+  .sc-step-body{padding:18px 16px 20px;}
+  .panel{padding:20px 16px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .lang-gate, main#guide > .wrap{animation:none;}
+  .btn,.lang-gate-btn{transition:none;}
+}
