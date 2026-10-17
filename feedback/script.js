@@ -667,7 +667,12 @@
         var data = null;
         try { data = txt ? JSON.parse(txt) : null; } catch (e) {}
         var explicitFail = data && (data.ok === false || data.success === false);
-        if (res.ok && !explicitFail) { onSuccess(); return; }
+        // Se l'ospite ha scritto una nota, il server deve confermare di averla
+        // salvata (notes_saved: true). Senza conferma non si mostra il
+        // ringraziamento: nessun falso messaggio di successo.
+        var notesUnconfirmed = payload.additional_notes !== null && !(data && data.notes_saved === true);
+        if (res.ok && !explicitFail && !notesUnconfirmed) { onSuccess(); return; }
+        if (res.ok && notesUnconfirmed) { onFailure(500); return; }
         onFailure(res.status);
       });
     }).catch(function () {
