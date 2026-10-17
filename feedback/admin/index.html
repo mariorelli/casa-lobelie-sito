@@ -35,32 +35,6 @@
   </div>
 </main>
 
-<!-- ======================= VERIFICA IN DUE PASSAGGI ======================= -->
-<main class="auth" id="viewMfa" hidden>
-  <div class="auth-card">
-    <img class="auth-logo" src="../images/logo.jpg" alt="Casa Lobelie" width="400" height="400">
-    <h1 id="mfaTitle">Verifica in due passaggi</h1>
-
-    <div id="mfaEnroll" hidden>
-      <p class="auth-text">Primo accesso: inquadra il codice QR con la tua app di autenticazione (Google Authenticator, Microsoft Authenticator, 1Password…), poi inserisci il codice a 6 cifre che compare.</p>
-      <img class="qr" id="mfaQr" alt="Codice QR per l'app di autenticazione" width="200" height="200">
-      <details class="secret"><summary>Non riesci a inquadrare il QR?</summary>
-        <p>Inserisci manualmente questa chiave nell'app:</p><code id="mfaSecret"></code>
-      </details>
-    </div>
-    <p class="auth-text" id="mfaPrompt" hidden>Apri la tua app di autenticazione e inserisci il codice a 6 cifre di Casa Lobelie.</p>
-
-    <form id="mfaForm" novalidate>
-      <label class="field"><span>Codice a 6 cifre</span>
-        <input type="text" id="mfaCode" inputmode="numeric" autocomplete="one-time-code" required class="code-input">
-      </label>
-      <p class="form-error" id="mfaError" role="alert" hidden></p>
-      <button type="submit" class="btn btn-primary" id="mfaBtn"><span class="spinner" aria-hidden="true"></span><span>Verifica</span></button>
-    </form>
-    <button type="button" class="link-btn" id="mfaCancel">Esci</button>
-  </div>
-</main>
-
 <!-- ============================ DASHBOARD ============================ -->
 <div id="viewDash" hidden>
   <header class="top">
@@ -125,6 +99,13 @@
           <p class="scroll-hint" aria-hidden="true">Scorri la tabella lateralmente →</p>
           <div class="matrix-wrap" id="chMatrix"></div>
           <ul class="insights" id="matrixInsights"></ul>
+        </section>
+        <section class="card card-wide" aria-labelledby="notesHeading">
+          <h2 id="notesHeading">Note degli ospiti</h2>
+          <p class="card-note" id="notesNote">Testi facoltativi lasciati alla fine del questionario, dal più recente</p>
+          <ul class="notes-list" id="notesList"></ul>
+          <p class="notes-empty" id="notesEmpty" hidden>Nessuna nota nel periodo selezionato.</p>
+          <button type="button" class="btn btn-ghost btn-small notes-more" id="notesMore" hidden>Mostra altre note</button>
         </section>
         <section class="card"><h2>Lingua del questionario</h2><p class="card-note">Una risposta per questionario</p><div class="bars" id="chLanguage"></div></section>
       </div>

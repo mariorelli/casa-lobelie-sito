@@ -24,7 +24,8 @@
     turnstileSiteKey: "0x4AAAAAAFYqv0Dgn7sd0lgC",
     turnstileAction: "guest_feedback",
     ga4Id: "G-1PVZ9RM2ME",
-    requestTimeoutMs: 20000
+    requestTimeoutMs: 20000,
+    notesMaxLength: 500
   };
 
   var LANGS = ["it", "en", "es", "fr"];
@@ -83,6 +84,12 @@
       privacyNote: "Questionario anonimo. Per proteggere il modulo dallo spam utilizziamo Cloudflare Turnstile.",
       privacyLink: "Privacy Policy",
       changeLanguage: "Cambia lingua",
+      notesKicker: "Facoltativo",
+      notesTitle: "Vuoi aggiungere qualcosa sulla tua esperienza?",
+      notesHelp: "Un suggerimento, qualcosa che hai apprezzato o che possiamo migliorare. Ogni opinione è preziosa!",
+      notesPrivacy: "Ti chiediamo di non inserire nomi, email o numeri di telefono.",
+      notesLeft: "Restano {n} caratteri",
+      notesFull: "Hai raggiunto il limite di 500 caratteri",
       thanksTitle: "Grazie per aver condiviso la tua esperienza!",
       thanksText: "La tua opinione è preziosa e ci aiuta a rendere Casa Lobelie sempre più accogliente.",
       thanksHope: "Speriamo di poterti ospitare nuovamente presto. ❤️",
@@ -133,6 +140,12 @@
       privacyNote: "Anonymous questionnaire. We use Cloudflare Turnstile to protect this form from spam.",
       privacyLink: "Privacy Policy",
       changeLanguage: "Change language",
+      notesKicker: "Optional",
+      notesTitle: "Would you like to add anything about your experience?",
+      notesHelp: "A suggestion, something you enjoyed or something we could improve. Every opinion matters!",
+      notesPrivacy: "Please do not include names, email addresses or phone numbers.",
+      notesLeft: "{n} characters left",
+      notesFull: "You have reached the 500-character limit",
       thanksTitle: "Thank you for sharing your experience!",
       thanksText: "Your feedback is invaluable and helps us make Casa Lobelie ever more welcoming.",
       thanksHope: "We hope to welcome you back again soon. ❤️",
@@ -183,6 +196,12 @@
       privacyNote: "Cuestionario anónimo. Utilizamos Cloudflare Turnstile para proteger el formulario del spam.",
       privacyLink: "Política de privacidad",
       changeLanguage: "Cambiar idioma",
+      notesKicker: "Opcional",
+      notesTitle: "¿Quieres añadir algo sobre tu experiencia?",
+      notesHelp: "Una sugerencia, algo que te haya gustado o que podamos mejorar. ¡Cada opinión es valiosa!",
+      notesPrivacy: "Te pedimos que no incluyas nombres, emails ni números de teléfono.",
+      notesLeft: "Quedan {n} caracteres",
+      notesFull: "Has alcanzado el límite de 500 caracteres",
       thanksTitle: "¡Gracias por compartir tu experiencia!",
       thanksText: "Tu opinión es muy valiosa y nos ayuda a que Casa Lobelie sea cada vez más acogedora.",
       thanksHope: "Esperamos poder recibirte de nuevo muy pronto. ❤️",
@@ -233,6 +252,12 @@
       privacyNote: "Questionnaire anonyme. Nous utilisons Cloudflare Turnstile pour protéger ce formulaire contre le spam.",
       privacyLink: "Politique de confidentialité",
       changeLanguage: "Changer de langue",
+      notesKicker: "Facultatif",
+      notesTitle: "Souhaitez-vous ajouter quelque chose sur votre expérience ?",
+      notesHelp: "Une suggestion, quelque chose que vous avez apprécié ou que nous pourrions améliorer. Chaque avis compte !",
+      notesPrivacy: "Merci de ne pas indiquer de nom, d'adresse e-mail ni de numéro de téléphone.",
+      notesLeft: "Il reste {n} caractères",
+      notesFull: "Vous avez atteint la limite de 500 caractères",
       thanksTitle: "Merci d'avoir partagé votre expérience !",
       thanksText: "Votre avis est précieux et nous aide à rendre Casa Lobelie toujours plus accueillante.",
       thanksHope: "Nous espérons avoir le plaisir de vous accueillir à nouveau très bientôt. ❤️",
@@ -266,6 +291,7 @@
   var tsWidgetEl = $("tsWidget"), tsStatusEl = $("tsStatus"), tsRetryBtn = $("tsRetry");
   var progressEl = $("progress"), progressBar = $("progressBar"), progressLabel = $("progressLabel");
   var changeLangBtns = [$("changeLangBtn"), $("changeLangBtn2")];
+  var notesEl = $("fbNotes"), notesCountEl = $("notesCount"), notesCountSrEl = $("notesCountSr");
 
   var currentLang = null;
   var submitAttempted = false;
@@ -426,12 +452,49 @@
 
   formEl.addEventListener("change", function (ev) {
     var t = ev.target;
-    if (!t || !t.name) return;
+    if (!t || !t.name || !qEls[t.name]) return;
     handleExclusive(t);
     if (!started) { started = true; track("feedback_started"); }
     if (submitAttempted) setQuestionError(t.name, !isAnswered(t.name));
     if (submitAttempted && answeredCount() === QUESTIONS.length) hideAlert();
     updateProgress();
+  });
+
+  /* =====================================================================
+     NOTE FACOLTATIVE (testo libero, max 500 caratteri)
+     ===================================================================== */
+  // Stessa normalizzazione applicata dal server: a capo uniformi, nessun
+  // carattere di controllo, spazi iniziali/finali rimossi. Vuoto → null.
+  function cleanNotes(v) {
+    var x = String(v || "").replace(/\r\n?/g, "\n")
+      .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+      .trim();
+    if (x.length > CONFIG.notesMaxLength) x = x.slice(0, CONFIG.notesMaxLength);
+    // Rimuove eventuali metà di emoji rimaste spezzate dal taglio
+    x = x.replace(/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(^|[^\uD800-\uDBFF])[\uDC00-\uDFFF]/g, "$1").trim();
+    return x ? x : null;
+  }
+
+  var lastSrBucket = -1;
+  function updateNotesCount() {
+    var n = notesEl.value.length;
+    var max = CONFIG.notesMaxLength;
+    notesCountEl.textContent = n + "/" + max;
+    notesCountEl.classList.toggle("is-near", n >= max - 50 && n < max);
+    notesCountEl.classList.toggle("is-full", n >= max);
+    // Annuncio per i lettori di schermo solo a soglie (non a ogni tasto)
+    var bucket = n >= max ? 3 : n >= max - 10 ? 2 : n >= max - 50 ? 1 : 0;
+    if (bucket !== lastSrBucket) {
+      lastSrBucket = bucket;
+      if (!currentLang || bucket === 0) { notesCountSrEl.textContent = ""; return; }
+      var t = T[currentLang];
+      notesCountSrEl.textContent = bucket === 3 ? t.notesFull : t.notesLeft.replace("{n}", String(max - n));
+    }
+  }
+  notesEl.addEventListener("input", function () {
+    if (notesEl.value.length > CONFIG.notesMaxLength) notesEl.value = notesEl.value.slice(0, CONFIG.notesMaxLength);
+    if (!started && notesEl.value) { started = true; track("feedback_started"); }
+    updateNotesCount();
   });
 
   /* =====================================================================
@@ -541,7 +604,7 @@
     submitBtn.disabled = on;
     submitBtn.setAttribute("aria-busy", on ? "true" : "false");
     submitLabel.textContent = T[currentLang][on ? "sending" : "submit"];
-    Array.prototype.forEach.call(formEl.querySelectorAll("input"), function (i) { i.disabled = on; });
+    Array.prototype.forEach.call(formEl.querySelectorAll("input, textarea"), function (i) { i.disabled = on; });
   }
 
   function buildPayload() {
@@ -552,6 +615,7 @@
       else if (q.numeric) p[q.id] = parseInt(v[0], 10);       // intero
       else p[q.id] = v[0];
     });
+    p.additional_notes = cleanNotes(notesEl.value);   // facoltativo: testo o null
     p.turnstileToken = ts.token;
     return p;
   }
@@ -631,6 +695,7 @@
     if (window.turnstile && ts.widgetId !== null) { try { window.turnstile.remove(ts.widgetId); } catch (e) {} }
     ts.widgetId = null; ts.token = null;
     formEl.reset();
+    updateNotesCount();
     showThanks(currentLang, true);
   }
 
@@ -661,6 +726,7 @@
       if (map[ts.state]) setTsStatus(map[ts.state], ts.state === "error");
     }
     $("privacyLink").href = PRIVACY[lang];
+    lastSrBucket = -1; updateNotesCount();
 
     changeLangBtns.forEach(function (b) { if (b) b.setAttribute("aria-label", t.changeLanguage); });
     $("changeLangBtn").setAttribute("title", t.changeLanguage);

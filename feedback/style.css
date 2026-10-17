@@ -222,6 +222,28 @@ main#survey > .wrap{animation:fadeIn .28s ease;}
 .fb-opt.is-exclusive .fb-opt-ui{border-style:dashed;}
 .fb-opt.is-exclusive input:checked + .fb-opt-ui{border-style:solid;}
 
+/* ---------------- NOTE FACOLTATIVE ---------------- */
+.fb-notes .fb-section-kicker{margin-bottom:10px;}
+.fb-notes-label{
+  display:block;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.14rem;line-height:1.3;
+  color:var(--terracotta-deep);
+}
+.fb-notes-input{
+  display:block;width:100%;min-height:118px;resize:vertical;margin:0;
+  padding:14px 16px;border:1.5px solid var(--line);border-radius:16px;background:var(--cream);
+  font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:1rem;line-height:1.5;color:var(--ink);
+  transition:border-color .15s ease, background .15s ease;
+}
+.fb-notes-input:focus{outline:none;border-color:var(--terracotta);background:#fff;box-shadow:0 0 0 3px rgba(13,74,120,.14);}
+.fb-notes-input:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.fb-notes-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:8px;}
+.fb-notes-privacy{font-size:.78rem;color:var(--ink-soft);line-height:1.4;}
+.fb-notes-count{font-size:.78rem;font-weight:800;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums;}
+.fb-notes-count.is-near{color:var(--gold-text);}
+.fb-notes-count.is-full{color:var(--error);}
+.fb-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
 /* ---------------- INVIO ---------------- */
 .fb-submit-area{margin-top:26px;text-align:center;}
 .fb-turnstile{display:flex;justify-content:center;min-height:0;}

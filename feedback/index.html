@@ -78,6 +78,21 @@
         <div id="sec2Questions"></div>
       </section>
 
+      <section class="fb-section fb-notes" aria-labelledby="notesTitle">
+        <p class="fb-section-kicker" data-i18n="notesKicker"></p>
+        <div class="fb-q fb-q-notes">
+          <label class="fb-notes-label" id="notesTitle" for="fbNotes" data-i18n="notesTitle"></label>
+          <p class="fb-hint fb-notes-help" id="notesHelp" data-i18n="notesHelp"></p>
+          <textarea class="fb-notes-input" id="fbNotes" name="additional_notes" rows="4" maxlength="500"
+                    autocomplete="off" spellcheck="true" aria-describedby="notesHelp notesPrivacy"></textarea>
+          <div class="fb-notes-foot">
+            <span class="fb-notes-privacy" id="notesPrivacy" data-i18n="notesPrivacy"></span>
+            <span class="fb-notes-count" id="notesCount" aria-hidden="true">0/500</span>
+          </div>
+          <span class="fb-sr-only" id="notesCountSr" aria-live="polite"></span>
+        </div>
+      </section>
+
       <div class="fb-submit-area">
         <div class="fb-turnstile" id="tsWidget"></div>
         <p class="fb-ts-status" id="tsStatus" aria-live="polite"></p>

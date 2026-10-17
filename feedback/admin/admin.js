@@ -1,10 +1,10 @@
 /* ============================================================================
    CASA LOBELIE — DASHBOARD QUESTIONARI (area riservata)
    Sicurezza:
-   - Accesso con Supabase Auth: email + password + codice TOTP a 6 cifre (MFA).
+   - Accesso con Supabase Auth: email + password.
    - Il browser NON legge mai la tabella: i dati arrivano solo dalla Edge
-     Function "feedback-admin", che verifica sul server il token, il livello
-     di sicurezza aal2 e l'ID dell'amministratore (secret ADMIN_USER_ID).
+     Function "feedback-admin", che verifica sul server il token (Supabase
+     Auth) e l'ID dell'amministratore (secret ADMIN_USER_ID).
    - In questo file c'è solo la chiave PUBBLICA del progetto (anon /
      publishable), che è fatta per stare nel browser. Mai la service_role.
    - Sessione salvata in sessionStorage (si chiude con la scheda) e
@@ -40,7 +40,7 @@
   }
 
   var $ = function (id) { return document.getElementById(id); };
-  var views = { login: $("viewLogin"), mfa: $("viewMfa"), dash: $("viewDash"), config: $("viewConfig") };
+  var views = { login: $("viewLogin"), dash: $("viewDash"), config: $("viewConfig") };
   function show(name) { Object.keys(views).forEach(function (k) { views[k].hidden = k !== name; }); }
 
   if (!window.supabase || !CONFIG.supabasePublicKey || CONFIG.supabasePublicKey.indexOf("INSERISCI") === 0) {
@@ -60,7 +60,6 @@
 
   var rows = [];
   var currentRange = null;
-  var mfaFactorId = null;
 
   function busy(btn, on) { btn.disabled = on; btn.setAttribute("aria-busy", on ? "true" : "false"); }
   function showErr(el, msg) { el.textContent = msg; el.hidden = !msg; }
@@ -95,55 +94,11 @@
   });
 
   async function afterPassword() {
-    var aal = await sb.auth.mfa.getAuthenticatorAssuranceLevel();
-    if (aal.data && aal.data.currentLevel === "aal2") { enterDashboard(); return; }
-    var f = await sb.auth.mfa.listFactors();
-    if (f.error) { await signOut("Sessione non valida. Accedi di nuovo."); return; }
-    var verified = (f.data.totp || []).filter(function (x) { return x.status === "verified"; });
-    $("mfaCode").value = ""; showErr($("mfaError"), "");
-    if (verified.length) {
-      mfaFactorId = verified[0].id;
-      $("mfaEnroll").hidden = true; $("mfaPrompt").hidden = false;
-      $("mfaTitle").textContent = "Verifica in due passaggi";
-    } else {
-      // Primo accesso: rimuove eventuali iscrizioni TOTP rimaste incomplete
-      var stale = (f.data.all || []).filter(function (x) { return x.factor_type === "totp" && x.status !== "verified"; });
-      for (var i = 0; i < stale.length; i++) { try { await sb.auth.mfa.unenroll({ factorId: stale[i].id }); } catch (e) {} }
-      var en = await sb.auth.mfa.enroll({ factorType: "totp", friendlyName: "Casa Lobelie " + new Date().toISOString().slice(0, 10) });
-      if (en.error) { await signOut("Impossibile attivare la verifica in due passaggi. Controlla che MFA (TOTP) sia attivo in Supabase."); return; }
-      mfaFactorId = en.data.id;
-      $("mfaQr").src = en.data.totp.qr_code;
-      $("mfaSecret").textContent = en.data.totp.secret;
-      $("mfaEnroll").hidden = false; $("mfaPrompt").hidden = true;
-      $("mfaTitle").textContent = "Attiva la verifica in due passaggi";
-    }
-    show("mfa");
-    $("mfaCode").focus();
+    // L'autorizzazione vera avviene sul server (feedback-admin): se l'utente
+    // non è l'amministratore, la funzione risponde 403 e i dati non arrivano.
+    enterDashboard();
   }
 
-  $("mfaCode").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 6); });
-
-  $("mfaForm").addEventListener("submit", async function (ev) {
-    ev.preventDefault();
-    var btn = $("mfaBtn"), err = $("mfaError");
-    showErr(err, "");
-    var code = $("mfaCode").value;
-    if (!/^\d{6}$/.test(code)) { showErr(err, "Inserisci il codice a 6 cifre."); return; }
-    busy(btn, true);
-    try {
-      var r = await sb.auth.mfa.challengeAndVerify({ factorId: mfaFactorId, code: code });
-      if (r.error) {
-        showErr(err, r.error.status === 429 ? "Troppi tentativi. Attendi qualche minuto." : "Codice non valido o scaduto. Riprova con il codice attuale.");
-        $("mfaCode").value = ""; $("mfaCode").focus();
-        return;
-      }
-      enterDashboard();
-    } catch (e) {
-      showErr(err, "Connessione non riuscita. Riprova.");
-    } finally { busy(btn, false); }
-  });
-
-  $("mfaCancel").addEventListener("click", function () { signOut(""); });
   $("logoutBtn").addEventListener("click", function () { signOut(""); });
 
   async function signOut(msg) {
@@ -232,7 +187,7 @@
       });
       if (seq !== loadSeq) return;
       if (res.status === 401) { await signOut("Sessione scaduta. Accedi di nuovo."); return; }
-      if (res.status === 403) { showErr(errEl, "Accesso negato: questo account non è autorizzato oppure manca la verifica in due passaggi."); $("content").hidden = true; return; }
+      if (res.status === 403) { showErr(errEl, "Accesso negato: questo account non è autorizzato."); $("content").hidden = true; return; }
       if (!res.ok) { showErr(errEl, "Impossibile caricare i dati (errore " + res.status + "). Riprova tra poco."); return; }
       var data = await res.json();
       rows = Array.isArray(data.rows) ? data.rows : [];
@@ -364,7 +319,8 @@
 
     $("kpiTotal").textContent = fmtNum(total);
     var first = total ? new Date(rows[0].created_at) : null, last = total ? new Date(rows[total - 1].created_at) : null;
-    $("kpiTotalSub").textContent = total ? ("dal " + fmtDate(first) + " al " + fmtDate(last)) : "";
+    var nNotes = rows.filter(function (r) { return typeof r.additional_notes === "string" && r.additional_notes.trim() !== ""; }).length;
+    $("kpiTotalSub").textContent = total ? ("dal " + fmtDate(first) + " al " + fmtDate(last) + " · " + nNotes + (nNotes === 1 ? " con nota" : " con note")) : "";
     var ratings = rows.map(function (r) { return Number(r.overall_rating); }).filter(function (n) { return n >= 1 && n <= 5; });
     var avg = ratings.length ? ratings.reduce(function (a, b) { return a + b; }, 0) / ratings.length : null;
     $("kpiAvg").textContent = avg == null ? "–" : fmtNum(avg, 1);
@@ -388,7 +344,47 @@
     bars("chHesitations", "booking_hesitations", countMulti("booking_hesitations"));
     bars("chLanguage", "language", countSingle("language"));
     matrix();
+    renderNotes(true);
   }
+
+  /* ---------------- Note degli ospiti ----------------
+     Mostrate SOLO come testo (textContent): eventuale HTML scritto
+     dall'ospite non viene mai interpretato. */
+  var NOTES_PAGE = 20;
+  var notesShown = 0;
+  function notesRows() {
+    return rows.filter(function (r) { return typeof r.additional_notes === "string" && r.additional_notes.trim() !== ""; })
+      .slice().sort(function (a, b) { return new Date(b.created_at) - new Date(a.created_at); });
+  }
+  function renderNotes(reset) {
+    var list = $("notesList"), withNotes = notesRows();
+    if (reset) { clear(list); notesShown = 0; }
+    var next = withNotes.slice(notesShown, notesShown + NOTES_PAGE);
+    next.forEach(function (r) {
+      var li = mk("li", "note-item");
+      var meta = mk("p", "note-meta");
+      meta.appendChild(mk("span", null, new Date(r.created_at).toLocaleString("it-IT", { timeZone: "Europe/Rome", day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })));
+      meta.appendChild(mk("span", null, label("language", r.language)));
+      var n = Number(r.overall_rating);
+      if (n >= 1 && n <= 5) {
+        var st = mk("span", "note-stars", "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n));
+        st.setAttribute("aria-label", "Valutazione " + n + " su 5");
+        meta.appendChild(st);
+      }
+      li.appendChild(meta);
+      li.appendChild(mk("p", "note-text", r.additional_notes));
+      list.appendChild(li);
+    });
+    notesShown += next.length;
+    $("notesEmpty").hidden = withNotes.length !== 0;
+    var rest = withNotes.length - notesShown;
+    $("notesMore").hidden = rest <= 0;
+    $("notesMore").textContent = "Mostra altre note (" + rest + ")";
+    $("notesNote").textContent = withNotes.length
+      ? withNotes.length + (withNotes.length === 1 ? " nota" : " note") + " nel periodo · testi facoltativi lasciati alla fine del questionario, dal più recente"
+      : "Testi facoltativi lasciati alla fine del questionario";
+  }
+  $("notesMore").addEventListener("click", function () { renderNotes(false); });
 
   /* ---------------- Esportazione CSV (Excel italiano: separatore ;) ---------------- */
   function csvCell(v) {
@@ -401,7 +397,7 @@
   function exportCsv() {
     if (!rows.length) return;
     var head = ["ID", "Data e ora", "Lingua", "Valutazione (1-5)", "Valutazione", "Più apprezzato", "Da migliorare",
-      "Canale di scoperta", "Canale di prenotazione", "Motivi della scelta", "Dubbi prima della prenotazione", "Consiglierebbe"];
+      "Canale di scoperta", "Canale di prenotazione", "Motivi della scelta", "Dubbi prima della prenotazione", "Consiglierebbe", "Note"];
     var lines = [head.map(csvCell).join(";")];
     rows.forEach(function (r) {
       var d = new Date(r.created_at);
@@ -417,7 +413,8 @@
         label("booking_channel", r.booking_channel),
         multi("booking_reasons", r.booking_reasons),
         multi("booking_hesitations", r.booking_hesitations),
-        label("recommendation", r.recommendation)
+        label("recommendation", r.recommendation),
+        r.additional_notes || ""
       ].map(csvCell).join(";"));
     });
     var blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
