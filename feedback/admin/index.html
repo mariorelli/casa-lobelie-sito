@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Questionari ospiti — Area riservata — Casa Lobelie</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src https://adusdmsraxbtytmtxdqe.supabase.co; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#0d4a78">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ============================ ACCESSO ============================ -->
+<main class="auth" id="viewLogin" hidden>
+  <div class="auth-card">
+    <img class="auth-logo" src="../images/logo.jpg" alt="Casa Lobelie" width="400" height="400">
+    <h1>Area riservata</h1>
+    <p class="auth-sub">Questionari ospiti</p>
+    <form id="loginForm" novalidate>
+      <label class="field"><span>Email</span>
+        <input type="email" id="loginEmail" autocomplete="username" required inputmode="email" autocapitalize="off" spellcheck="false">
+      </label>
+      <label class="field"><span>Password</span>
+        <input type="password" id="loginPassword" autocomplete="current-password" required>
+      </label>
+      <p class="form-error" id="loginError" role="alert" hidden></p>
+      <button type="submit" class="btn btn-primary" id="loginBtn"><span class="spinner" aria-hidden="true"></span><span>Accedi</span></button>
+    </form>
+  </div>
+</main>
+
+<!-- ======================= VERIFICA IN DUE PASSAGGI ======================= -->
+<main class="auth" id="viewMfa" hidden>
+  <div class="auth-card">
+    <img class="auth-logo" src="../images/logo.jpg" alt="Casa Lobelie" width="400" height="400">
+    <h1 id="mfaTitle">Verifica in due passaggi</h1>
+
+    <div id="mfaEnroll" hidden>
+      <p class="auth-text">Primo accesso: inquadra il codice QR con la tua app di autenticazione (Google Authenticator, Microsoft Authenticator, 1Password…), poi inserisci il codice a 6 cifre che compare.</p>
+      <img class="qr" id="mfaQr" alt="Codice QR per l'app di autenticazione" width="200" height="200">
+      <details class="secret"><summary>Non riesci a inquadrare il QR?</summary>
+        <p>Inserisci manualmente questa chiave nell'app:</p><code id="mfaSecret"></code>
+      </details>
+    </div>
+    <p class="auth-text" id="mfaPrompt" hidden>Apri la tua app di autenticazione e inserisci il codice a 6 cifre di Casa Lobelie.</p>
+
+    <form id="mfaForm" novalidate>
+      <label class="field"><span>Codice a 6 cifre</span>
+        <input type="text" id="mfaCode" inputmode="numeric" autocomplete="one-time-code" required class="code-input">
+      </label>
+      <p class="form-error" id="mfaError" role="alert" hidden></p>
+      <button type="submit" class="btn btn-primary" id="mfaBtn"><span class="spinner" aria-hidden="true"></span><span>Verifica</span></button>
+    </form>
+    <button type="button" class="link-btn" id="mfaCancel">Esci</button>
+  </div>
+</main>
+
+<!-- ============================ DASHBOARD ============================ -->
+<div id="viewDash" hidden>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <img src="../images/logo.jpg" alt="Casa Lobelie" width="400" height="400">
+        <div><p class="brand-kicker">Area riservata</p><h1>Questionari ospiti</h1></div>
+      </div>
+      <button type="button" class="btn btn-ghost btn-small" id="logoutBtn">Esci</button>
+    </div>
+  </header>
+
+  <main class="dash">
+    <section class="filters" aria-label="Filtri">
+      <label class="field field-inline"><span>Periodo</span>
+        <select id="period">
+          <option value="30">Ultimi 30 giorni</option>
+          <option value="90" selected>Ultimi 90 giorni</option>
+          <option value="365">Ultimi 12 mesi</option>
+          <option value="year">Anno in corso</option>
+          <option value="all">Tutto</option>
+          <option value="custom">Personalizzato…</option>
+        </select>
+      </label>
+      <div class="custom-range" id="customRange" hidden>
+        <label class="field field-inline"><span>Dal</span><input type="date" id="dateFrom"></label>
+        <label class="field field-inline"><span>Al</span><input type="date" id="dateTo"></label>
+        <button type="button" class="btn btn-ghost btn-small" id="applyRange">Applica</button>
+      </div>
+      <div class="filter-actions">
+        <button type="button" class="btn btn-ghost btn-small" id="refreshBtn">Aggiorna</button>
+        <button type="button" class="btn btn-primary btn-small" id="csvBtn" disabled>Esporta CSV</button>
+      </div>
+    </section>
+
+    <p class="period-label" id="periodLabel" aria-live="polite"></p>
+    <p class="dash-error" id="dashError" role="alert" hidden></p>
+    <div class="loading" id="loading" hidden><span class="spinner spinner-dark" aria-hidden="true"></span> Caricamento…</div>
+
+    <div id="content" hidden>
+      <section class="kpis" aria-label="Indicatori principali">
+        <div class="kpi"><p class="kpi-label">Questionari ricevuti</p><p class="kpi-value" id="kpiTotal">–</p><p class="kpi-sub" id="kpiTotalSub"></p></div>
+        <div class="kpi"><p class="kpi-label">Valutazione media</p><p class="kpi-value"><span id="kpiAvg">–</span><span class="kpi-unit"> / 5</span></p><p class="kpi-sub" id="kpiAvgSub"></p></div>
+        <div class="kpi"><p class="kpi-label">Consiglierebbero Casa Lobelie</p><p class="kpi-value" id="kpiRec">–</p><p class="kpi-sub" id="kpiRecSub"></p></div>
+        <div class="kpi"><p class="kpi-label">Prenotazioni dirette</p><p class="kpi-value" id="kpiDirect">–</p><p class="kpi-sub">Sito ufficiale + WhatsApp</p></div>
+      </section>
+
+      <p class="empty" id="emptyState" hidden>Nessun questionario nel periodo selezionato.</p>
+
+      <div class="grid" id="charts">
+        <section class="card"><h2>Valutazione del soggiorno</h2><p class="card-note">Una risposta per questionario</p><div class="bars" id="chRating"></div></section>
+        <section class="card"><h2>Consiglierebbero Casa Lobelie?</h2><p class="card-note">Una risposta per questionario</p><div class="bars" id="chRecommend"></div></section>
+        <section class="card"><h2>Cosa hanno apprezzato di più</h2><p class="card-note">% dei questionari · più risposte possibili</p><div class="bars" id="chAppreciated"></div></section>
+        <section class="card"><h2>Cosa migliorare</h2><p class="card-note">% dei questionari · più risposte possibili</p><div class="bars" id="chImprove"></div></section>
+        <section class="card"><h2>Dove ci hanno scoperto</h2><p class="card-note">Una risposta per questionario</p><div class="bars" id="chDiscovery"></div></section>
+        <section class="card"><h2>Dove hanno prenotato</h2><p class="card-note">Una risposta per questionario</p><div class="bars" id="chBooking"></div></section>
+        <section class="card"><h2>Perché ci hanno scelto</h2><p class="card-note">% dei questionari · più risposte possibili</p><div class="bars" id="chReasons"></div></section>
+        <section class="card"><h2>Dubbi prima di prenotare</h2><p class="card-note">% dei questionari · più risposte possibili</p><div class="bars" id="chHesitations"></div></section>
+        <section class="card card-wide">
+          <h2>Dalla scoperta alla prenotazione</h2>
+          <p class="card-note">Righe: dove ci hanno scoperto · Colonne: dove hanno prenotato · Valori: numero di questionari</p>
+          <p class="scroll-hint" aria-hidden="true">Scorri la tabella lateralmente →</p>
+          <div class="matrix-wrap" id="chMatrix"></div>
+          <ul class="insights" id="matrixInsights"></ul>
+        </section>
+        <section class="card"><h2>Lingua del questionario</h2><p class="card-note">Una risposta per questionario</p><div class="bars" id="chLanguage"></div></section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<main class="auth" id="viewConfig" hidden>
+  <div class="auth-card"><h1>Configurazione incompleta</h1><p class="auth-text">Inserisci la chiave pubblica di Supabase in <code>admin.js</code> (vedi la guida di configurazione).</p></div>
+</main>
+
+<noscript><p class="noscript">Per usare la dashboard attiva JavaScript.</p></noscript>
+
+<script src="vendor/supabase-js-2.117.0.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

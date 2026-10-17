@@ -1,0 +1,306 @@
+/* ============================================================================
+   CASA LOBELIE — QUESTIONARIO OSPITI — STILE
+   Basato su /self-check-in/style.css (a sua volta copia della Guest Guide
+   /guest/css/style.css): stessi token colore, font (Fraunces + Nunito Sans),
+   raggi, pulsanti, header e schermata di selezione lingua.
+   File autonomo: non dipende da altri CSS del sito.
+   ============================================================================ */
+
+:root{
+  --ink:#3a2a20;
+  --ink-soft:#6b5c4d;
+  --cream:#fbf3e6;
+  --cream-deep:#f3e6d2;
+  --line:#ecdcc4;
+  --terracotta:#0d4a78;       /* nome storico della variabile: è il blu del brand */
+  --terracotta-deep:#08395d;
+  --gold:#a37830;
+  --gold-text:#85601e;        /* oro leggermente più scuro per i testi piccoli (contrasto AA) */
+  --error:#a3321f;
+  --error-bg:#fbeae5;
+  --radius:18px;
+  --radius-sm:10px;
+  --radius-lg:24px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:'Fraunces',Georgia,serif;
+  font-optical-sizing:auto;
+  font-weight:500;
+  margin:0 0 .4em 0;
+  line-height:1.15;
+}
+a{color:inherit;}
+button{font-family:inherit;}
+img{max-width:100%;display:block;}
+[hidden]{display:none !important;}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+svg.icon{width:22px;height:22px;flex-shrink:0;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ---------------- HEADER (come Guest Guide / Self check-in) ---------------- */
+header.app-header{
+  position:sticky;top:0;z-index:60;
+  background:var(--cream);
+  border-bottom:1px solid var(--line);
+  padding-top:var(--safe-top);
+}
+.app-header-inner{
+  max-width:640px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.header-left{display:flex;align-items:center;gap:10px;min-width:0;}
+.back-btn{
+  display:none;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:var(--cream-deep);border:none;cursor:pointer;color:var(--terracotta-deep);
+}
+.back-btn svg{width:19px;height:19px;}
+.back-btn.visible{display:flex;}
+.logo-mark{display:flex;align-items:center;flex-shrink:0;}
+.logo-mark img{height:40px;width:auto;}
+
+.lang-switch{display:flex;border:1.5px solid var(--line);border-radius:30px;overflow:hidden;font-size:.72rem;font-weight:800;flex-shrink:0;background:#fff;}
+.lang-switch button{padding:8px 11px;min-height:36px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;font-weight:800;}
+.lang-switch button[aria-current="true"]{background:var(--terracotta);color:#fff;}
+
+/* ---------------- PULSANTI (come Guest Guide) ---------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 24px;border-radius:30px;font-weight:700;font-size:.9rem;
+  text-decoration:none;border:1.5px solid transparent;cursor:pointer;
+  transition:transform .15s ease, background .2s ease, opacity .2s ease;width:100%;
+}
+.btn:active{transform:scale(.97);}
+.btn svg{width:18px;height:18px;flex-shrink:0;}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -6px rgba(13,74,120,.5);}
+.btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
+.btn-ghost{background:var(--cream-deep);color:var(--terracotta-deep);}
+.btn-ghost:hover{background:var(--line);}
+
+/* ---------------- LANGUAGE GATE (identico alla Guest Guide) ---------------- */
+body.lang-gate-active header.app-header,
+body.lang-gate-active #survey,
+body.lang-gate-active #thanks{display:none !important;}
+body:not(.lang-gate-active) .lang-gate,
+.sc-direct body.lang-gate-active .lang-gate{display:none;}
+
+.lang-gate{
+  min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 24px calc(40px + var(--safe-bottom));
+  text-align:center;
+  animation:fadeIn .28s ease;
+}
+.lang-gate-logo{width:100%;max-width:170px;margin:0 auto 18px;}
+.lang-gate-logo img{width:100%;height:auto;display:block;}
+.lang-gate-title{font-size:1.9rem;color:var(--terracotta-deep);margin-bottom:4px;}
+.lang-gate-subtitle{color:var(--ink-soft);font-size:1rem;margin:0 0 36px;}
+.lang-gate-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:360px;}
+.lang-gate-btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;padding:18px 22px;border-radius:30px;
+  background:var(--terracotta);color:#fff;border:1.5px solid transparent;cursor:pointer;
+  font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-weight:700;font-size:1.05rem;
+  box-shadow:0 10px 24px -6px rgba(13,74,120,.5);
+  transition:transform .15s ease, background .2s ease;
+}
+.lang-gate-btn:active{transform:scale(.97);}
+@media (hover:hover){
+  .lang-gate-btn:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
+}
+.lang-gate-btn .flag{font-size:1.5rem;line-height:1;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+/* ---------------- INDICATORE DI AVANZAMENTO (discreto) ---------------- */
+.fb-progress{
+  max-width:640px;margin:0 auto;padding:0 20px 9px;
+  display:flex;align-items:center;gap:10px;
+}
+.fb-progress-track{flex:1;height:3px;border-radius:3px;background:var(--line);overflow:hidden;}
+.fb-progress-bar{height:100%;width:0;background:var(--terracotta);border-radius:3px;transition:width .35s ease;}
+.fb-progress-label{font-size:.7rem;font-weight:800;color:var(--ink-soft);letter-spacing:.04em;min-width:2.4em;text-align:right;font-variant-numeric:tabular-nums;}
+
+/* ---------------- INTRO ---------------- */
+main#survey{padding-bottom:calc(24px + var(--safe-bottom));}
+main#survey > .wrap{animation:fadeIn .28s ease;}
+
+.sc-intro{text-align:center;padding:22px 0 8px;}
+.home-logo-wrap{display:flex;justify-content:center;padding:4px 0 10px;}
+.home-logo{width:100%;max-width:150px;height:auto;}
+.sc-intro h1{font-size:1.7rem;color:var(--terracotta-deep);margin-bottom:6px;}
+.sc-subtitle{
+  margin:0 0 12px;font-size:.78rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--gold-text);
+}
+.sc-lead{color:var(--ink-soft);font-size:.98rem;margin:0 auto;max-width:44ch;}
+
+/* ---------------- SEZIONI E DOMANDE ---------------- */
+.fb-section{margin-top:30px;}
+.fb-section-kicker{
+  margin:0 0 2px;font-size:.72rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--gold-text);text-align:center;
+}
+.fb-section-title{font-size:1.45rem;color:var(--terracotta-deep);text-align:center;margin-bottom:16px;}
+
+.fb-q{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:20px 18px 18px;margin:0 0 16px;min-width:0;
+  transition:border-color .2s ease, box-shadow .2s ease;
+  scroll-margin-top:110px;
+}
+.fb-q.has-error{border-color:var(--error);box-shadow:0 0 0 3px var(--error-bg);}
+.fb-q legend{
+  padding:0;float:left;width:100%;
+  font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.14rem;line-height:1.3;
+  color:var(--terracotta-deep);
+}
+.fb-q legend + *{clear:both;}
+.fb-q-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;margin-right:8px;vertical-align:2px;
+  background:var(--cream-deep);color:var(--terracotta-deep);
+  font-family:'Nunito Sans',sans-serif;font-size:.75rem;font-weight:800;
+}
+.fb-hint{margin:6px 0 14px;font-size:.8rem;font-weight:700;color:var(--ink-soft);}
+.fb-error{
+  display:flex;align-items:center;gap:6px;
+  margin:12px 0 0;font-size:.85rem;font-weight:700;color:var(--error);
+}
+.fb-error::before{content:"!";display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--error);color:#fff;font-size:.7rem;flex-shrink:0;}
+
+.fb-options{display:grid;grid-template-columns:1fr;gap:10px;}
+.fb-opt{position:relative;display:block;cursor:pointer;}
+.fb-opt input{
+  position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none;
+}
+.fb-opt-ui{
+  display:flex;align-items:center;gap:12px;
+  min-height:54px;padding:12px 16px;
+  border:1.5px solid var(--line);border-radius:16px;background:var(--cream);
+  font-weight:700;font-size:.97rem;line-height:1.3;color:var(--ink);
+  transition:border-color .15s ease, background .15s ease, transform .1s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.fb-opt:active .fb-opt-ui{transform:scale(.985);}
+@media (hover:hover){ .fb-opt:hover .fb-opt-ui{border-color:#d8c3a2;} }
+.fb-mark{
+  flex-shrink:0;width:22px;height:22px;border:2px solid #cdb595;background:#fff;
+  display:flex;align-items:center;justify-content:center;transition:all .15s ease;
+}
+.fb-opt input[type="radio"] + .fb-opt-ui .fb-mark{border-radius:50%;}
+.fb-opt input[type="checkbox"] + .fb-opt-ui .fb-mark{border-radius:7px;}
+.fb-mark::after{content:"";opacity:0;transition:opacity .15s ease;}
+.fb-opt input[type="radio"] + .fb-opt-ui .fb-mark::after{width:10px;height:10px;border-radius:50%;background:#fff;}
+.fb-opt input[type="checkbox"] + .fb-opt-ui .fb-mark::after{
+  width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px);
+}
+.fb-opt input:checked + .fb-opt-ui{border-color:var(--terracotta);background:#eef3f8;color:var(--terracotta-deep);}
+.fb-opt input:checked + .fb-opt-ui .fb-mark{background:var(--terracotta);border-color:var(--terracotta);}
+.fb-opt input:checked + .fb-opt-ui .fb-mark::after{opacity:1;}
+.fb-opt input:focus-visible + .fb-opt-ui{outline:3px solid var(--gold);outline-offset:2px;}
+.fb-opt-text{flex:1;min-width:0;}
+.fb-stars{margin-left:auto;color:var(--gold);font-size:.85rem;letter-spacing:1px;white-space:nowrap;flex-shrink:0;}
+.fb-stars .off{color:#e2d3bb;}
+/* Opzione esclusiva ("Tutto perfetto così" / "Nessun dubbio"): separata visivamente */
+.fb-opt.is-exclusive .fb-opt-ui{border-style:dashed;}
+.fb-opt.is-exclusive input:checked + .fb-opt-ui{border-style:solid;}
+
+/* ---------------- INVIO ---------------- */
+.fb-submit-area{margin-top:26px;text-align:center;}
+.fb-turnstile{display:flex;justify-content:center;min-height:0;}
+.fb-turnstile:not(:empty){margin-bottom:10px;}
+.fb-ts-status{margin:0 auto 10px;font-size:.84rem;color:var(--ink-soft);max-width:44ch;min-height:1.3em;}
+.fb-ts-status.is-error{color:var(--error);font-weight:700;}
+.fb-ts-retry{width:auto;padding:10px 20px;font-size:.84rem;margin:0 auto 14px;}
+.fb-alert{
+  margin:0 auto 16px;padding:14px 16px;border-radius:var(--radius);
+  background:var(--error-bg);color:var(--error);font-weight:700;font-size:.92rem;text-align:left;
+  border:1px solid #f1cfc6;max-width:520px;
+}
+.fb-submit{max-width:420px;font-size:1rem;padding:17px 24px;}
+.fb-submit.is-incomplete{background:#4f7390;box-shadow:none;}
+.fb-submit[disabled]{cursor:progress;opacity:.8;transform:none;}
+.fb-spinner{display:none;width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;animation:spin .8s linear infinite;}
+.fb-submit[aria-busy="true"] .fb-spinner{display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.fb-privacy{margin:16px auto 0;font-size:.78rem;color:var(--ink-soft);max-width:46ch;line-height:1.5;}
+.fb-privacy a{font-weight:700;}
+
+.sc-change-lang{margin:22px 0 0;text-align:center;}
+.sc-change-lang .btn{width:auto;padding:12px 22px;font-size:.85rem;}
+
+/* ---------------- RINGRAZIAMENTO ---------------- */
+.fb-thanks{
+  min-height:100vh;min-height:100dvh;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 24px calc(40px + var(--safe-bottom));text-align:center;
+}
+.fb-thanks-inner{max-width:480px;animation:fadeIn .35s ease;}
+.fb-thanks h1{font-size:1.85rem;color:var(--terracotta-deep);margin-bottom:14px;outline:none;}
+.fb-thanks-text{color:var(--ink-soft);font-size:1.02rem;margin:0 auto 10px;max-width:40ch;}
+.fb-thanks-hope{color:var(--ink);font-weight:600;}
+.fb-thanks-link{width:auto;margin-top:22px;padding:12px 24px;font-size:.85rem;}
+
+/* ---------------- FOOTER ---------------- */
+.sc-footer{
+  margin-top:36px;padding:26px 20px calc(26px + var(--safe-bottom));
+  border-top:1px solid var(--line);text-align:center;color:var(--ink-soft);font-size:.82rem;
+}
+.sc-footer img{width:56px;height:56px;margin:0 auto 8px;border-radius:50%;}
+.sc-footer-name{margin:0 0 4px;font-family:'Fraunces',Georgia,serif;font-size:1rem;color:var(--terracotta-deep);}
+.sc-footer a{color:var(--ink-soft);font-weight:700;}
+
+.sc-noscript{text-align:center;padding:0 24px 40px;color:var(--ink-soft);}
+
+/* ---------------- TABLET / DESKTOP ---------------- */
+@media (min-width:560px){
+  .fb-options.is-multi{grid-template-columns:1fr 1fr;}
+  .fb-q{padding:24px 24px 22px;}
+}
+@media (min-width:720px){
+  .wrap,.app-header-inner,.fb-progress{max-width:760px;}
+  .lang-gate-logo{max-width:200px;}
+  .lang-gate-title{font-size:2.2rem;}
+  .sc-intro h1{font-size:2rem;}
+}
+
+/* ---------------- SMALL PHONES ---------------- */
+@media (max-width:360px){
+  .wrap{padding:0 14px;}
+  .app-header-inner{padding:10px 14px;}
+  .fb-progress{padding:0 14px 9px;}
+  .lang-switch button{padding:8px 8px;}
+  .logo-mark img{height:34px;}
+  .fb-q{padding:18px 14px 16px;}
+  .fb-opt-ui{padding:11px 12px;font-size:.93rem;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .lang-gate, main#survey > .wrap, .fb-thanks-inner{animation:none;}
+  .btn,.lang-gate-btn,.fb-opt-ui,.fb-progress-bar{transition:none;}
+  .fb-spinner{animation-duration:2s;}
+}
+@media (forced-colors:active){
+  .fb-opt input:checked + .fb-opt-ui{outline:3px solid Highlight;}
+  .fb-mark{forced-color-adjust:none;}
+}
+
+/* Il titolo riceve il focus via script dopo la scelta della lingua (lettori di schermo): nessun riquadro visivo */
+#fbTitle:focus{outline:none;}
