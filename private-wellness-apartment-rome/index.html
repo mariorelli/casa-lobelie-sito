@@ -393,7 +393,6 @@
   }, true);
 })();
 </script>
-<style id="clNavNarrow">@media (max-width:360px){.nav-right{gap:10px;}.lang-switch a{padding:8px 11px;}#menuToggle{margin-left:2px;padding:8px 4px;}}</style>
 </head>
 
 <style>
@@ -470,19 +469,6 @@
      row holds fewer, wider cards — exactly what happens on this page's
      photo section after removing one photo (3 cols → 2 cols). */
   .place-grid .place-card{min-width:0;}
-
-  /* Sezione foto veranda (unica .place-grid.cols-2 della pagina):
-     su smartphone una card per riga, foto a tutta larghezza.
-     Solo sotto i 600px: tablet e desktop invariati. */
-  @media (max-width:600px){
-    .place-grid.cols-2{grid-template-columns:1fr;gap:16px;}
-    .place-grid.cols-2 .place-card{padding:0 0 16px;overflow:hidden;}
-    .place-grid.cols-2 .place-photo{width:100%;max-width:none;height:auto;aspect-ratio:16/10;margin:0 0 14px;border-radius:0;}
-    .place-grid.cols-2 .place-card h3{font-size:1.05rem;line-height:1.3;margin:0;padding:0 18px;}
-  }
-  @media (max-width:360px){
-    .place-grid.cols-2 .place-card h3{font-size:.96rem;padding:0 14px;}
-  }
 </style>
 
 <body>
@@ -620,7 +606,7 @@
     <div class="place-grid cols-2">
       <div class="place-card no-photo" style="padding-top:0;">
         <img class="place-photo" src="/images/veranda-te.jpg" alt="The hot tub lit up in the evening">
-        <h3>Hot tub, in the evening</h3>
+        <h3>The hot tub, in the evening</h3>
       </div>
       <div class="place-card no-photo" style="padding-top:0;">
         <img class="place-photo" src="/images/veranda-relax.jpg" alt="Lounge and hot tub on the veranda">

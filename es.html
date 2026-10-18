@@ -319,8 +319,7 @@
     .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(150px,40vw,190px);gap:14px;}
     /* Mobile-only: show the people-free veranda photo first instead of whichever figure is first in the DOM; desktop is untouched. Content-addressed so it keeps working regardless of how many figures the gallery has. */
     .gallery figure:first-child{grid-column:span 1;grid-row:span 1;}
-    .gallery figure[onclick*="veranda-salottino-vasca.jpg"]{grid-column:span 2;grid-row:span 2;order:-1;}
-    .gallery figure:nth-child(11){order:10;}
+    .gallery figure[onclick*="home-veranda-naturale.jpg"]{grid-column:span 2;grid-row:span 2;order:-1;}
     .hero-content h1{font-size:2.6rem;}
     section{padding:56px 0;}
     .hero{height:auto;min-height:80vh;min-height:80dvh;padding-top:32px;}
@@ -559,7 +558,6 @@
   }, true);
 })();
 </script>
-<style id="clNavNarrow">@media (max-width:360px){.nav-right{gap:10px;}.lang-switch a{padding:8px 11px;}#menuToggle{margin-left:2px;padding:8px 4px;}}</style>
 </head>
 <body>
 <div id="clCookieBanner" class="cl-cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
@@ -749,6 +747,14 @@
       <p class="lead" style="margin:0 auto;">Un dormitorio luminoso, una cocina completa, un baño cuidado y la veranda que hace de Casa Lobelie un lugar especial en cada estación. <a href="/apartamento-bienestar-privado-roma/" style="color:var(--terracotta-deep);font-weight:700;text-decoration:underline;">Descubre nuestra área de bienestar privada</a>.</p>
     </div>
     <div class="gallery">
+      <figure onclick="openLightbox('images/home-veranda-naturale.jpg','Veranda privada con jacuzzi.')">
+        <img src="images/home-veranda-naturale.jpg" alt="Veranda privada de Casa Lobelie con jacuzzi y salón exterior.">
+        <figcaption>Veranda privada con jacuzzi.</figcaption>
+      </figure>
+      <figure class="tall" onclick="openLightbox('images/veranda-vasca-sera-v2.jpg','El jacuzzi, al final del día')">
+        <img src="images/veranda-vasca-sera-v2.jpg" alt="El jacuzzi iluminado, por la noche">
+        <figcaption>El jacuzzi, de noche</figcaption>
+      </figure>
       <figure onclick="openLightbox('images/camera-arancio-1.jpg','El dormitorio en configuración de matrimonio, luminoso y acogedor.')">
         <img src="images/camera-arancio-1.jpg" alt="Dormitorio en configuración de matrimonio con cabecero naranja">
         <figcaption>Dormitorio — matrimonio</figcaption>
@@ -757,61 +763,45 @@
         <img src="images/cucina-moderna-1.jpg" alt="Cocina moderna con muebles color crema">
         <figcaption>La cocina</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/camera-gemelle-1.jpg','La habitación en configuración con dos camas individuales.')">
-        <img src="images/camera-gemelle-1.jpg" alt="Dormitorio con dos camas individuales y colcha roja">
-        <figcaption>Dormitorio — camas individuales</figcaption>
-      </figure>
-      <figure class="tall" onclick="openLightbox('images/veranda-vasca-sera-v2.jpg','El jacuzzi, al final del día')">
-        <img src="images/veranda-vasca-sera-v2.jpg" alt="El jacuzzi iluminado, por la noche">
-        <figcaption>El jacuzzi, de noche</figcaption>
-      </figure>
       <figure onclick="openLightbox('images/bagno-legno-1.jpg','El baño con ducha y revestimiento efecto madera.')">
         <img src="images/bagno-legno-1.jpg" alt="Baño con ducha y revestimiento efecto madera">
         <figcaption>El baño, con ducha</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/cucina-pere-1.jpg','La cocina con zona de comedor, con vistas al jardín.')">
-        <img src="images/cucina-pere-1.jpg" alt="Cocina con zona de comedor y vistas al jardín">
-        <figcaption>Cocina y comedor</figcaption>
-      </figure>
-      <figure onclick="openLightbox('images/camera-arancio-2.jpg','Otra vista del dormitorio matrimonio.')">
-        <img src="images/camera-arancio-2.jpg" alt="Dormitorio matrimonio con armario y escritorio">
-        <figcaption>Dormitorio matrimonio, vista general</figcaption>
-      </figure>
-      <figure onclick="openLightbox('images/veranda-salottino-vasca.jpg','El salón y el jacuzzi en la veranda')">
-        <img src="images/veranda-salottino-vasca.jpg" alt="Veranda privada con jacuzzi y salón exterior">
-        <figcaption>Salón y jacuzzi</figcaption>
-      </figure>
-      <figure onclick="openLightbox('images/bagno-legno-2.jpg','Un detalle del baño, cuidado en cada detalle.')">
-        <img src="images/bagno-legno-2.jpg" alt="Baño con sanitarios y librería al fondo">
-        <figcaption>El baño, en detalle</figcaption>
-      </figure>
-      <figure onclick="openLightbox('images/cucina-moderna-2.jpg','Un detalle de la cocina, con placa y campana extractora.')">
-        <img src="images/cucina-moderna-2.jpg" alt="Detalle de la cocina con placa de cocina">
-        <figcaption>La cocina, en detalle</figcaption>
-      </figure>
-      <figure onclick="openLightbox('images/camera-gemelle-2.jpg','Otra vista del dormitorio con dos camas individuales.')">
-        <img src="images/camera-gemelle-2.jpg" alt="Dormitorio con dos camas individuales, vista desde la entrada">
-        <figcaption>Dormitorio dos camas, vista general</figcaption>
-      </figure>
-      <figure onclick="openLightbox('images/bagno-legno-3.jpg','El lavabo del baño, con espejo y secador de pelo.')">
-        <img src="images/bagno-legno-3.jpg" alt="Baño con lavabo, espejo y secador de pelo">
-        <figcaption>El baño, con lavabo</figcaption>
+      <figure onclick="openLightbox('images/camera-gemelle-1.jpg','La habitación en configuración con dos camas individuales.')">
+        <img src="images/camera-gemelle-1.jpg" alt="Dormitorio con dos camas individuales y colcha roja">
+        <figcaption>Dormitorio — camas individuales</figcaption>
       </figure>
       <figure onclick="openLightbox('images/cucina-soggiorno-1.jpg','Un rincón de cocina luminoso, con zona de comedor y cuadros en las paredes.')">
         <img src="images/cucina-soggiorno-1.jpg" alt="Cocina con zona de comedor y cuadros en las paredes">
         <figcaption>Cocina y comedor</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/cucina-pere-2.jpg','Otra vista de la zona de comedor, luminosa y acogedora.')">
-        <img src="images/cucina-pere-2.jpg" alt="Zona de comedor con mesa y vistas al jardín">
-        <figcaption>Zona de comedor, vista general</figcaption>
+      <figure onclick="openLightbox('images/bagno-legno-2.jpg','Un detalle del baño, cuidado en cada detalle.')">
+        <img src="images/bagno-legno-2.jpg" alt="Baño con sanitarios y librería al fondo">
+        <figcaption>El baño, en detalle</figcaption>
       </figure>
-      <figure onclick="openLightbox('images/home-veranda-naturale.jpg','Veranda privada con jacuzzi.')">
-        <img src="images/home-veranda-naturale.jpg" alt="Veranda privada de Casa Lobelie con jacuzzi y salón exterior.">
-        <figcaption>Veranda privada con jacuzzi.</figcaption>
+      <figure onclick="openLightbox('images/cucina-pere-1.jpg','La cocina con zona de comedor, con vistas al jardín.')">
+        <img src="images/cucina-pere-1.jpg" alt="Cocina con zona de comedor y vistas al jardín">
+        <figcaption>Cocina y comedor</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/cucina-moderna-2.jpg','Un detalle de la cocina, con placa y campana extractora.')">
+        <img src="images/cucina-moderna-2.jpg" alt="Detalle de la cocina con placa de cocina">
+        <figcaption>La cocina, en detalle</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/bagno-legno-3.jpg','El lavabo del baño, con espejo y secador de pelo.')">
+        <img src="images/bagno-legno-3.jpg" alt="Baño con lavabo, espejo y secador de pelo">
+        <figcaption>El baño, con lavabo</figcaption>
       </figure>
       <figure onclick="openLightbox('images/esterno-casa-lobelie.jpg','Exterior de Casa Lobelie')">
         <img src="images/esterno-casa-lobelie.jpg" alt="Exterior de Casa Lobelie en Roma">
         <figcaption>Exterior de Casa Lobelie</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/acquedotto-alessandrino.jpg','Un tramo del antiguo acueducto romano cerca de Casa Lobelie.')">
+        <img src="images/acquedotto-alessandrino.jpg" alt="Acquedotto Alessandrino cerca de Casa Lobelie, Roma">
+        <figcaption>Acquedotto Alessandrino</figcaption>
+      </figure>
+      <figure onclick="openLightbox('images/parco-dintorni.jpg','Una zona verde cercana, ideal para un paseo.')">
+        <img src="images/parco-dintorni.jpg" alt="Parque cerca de Casa Lobelie con zona verde y agua">
+        <figcaption>Parque</figcaption>
       </figure>
     </div>
   </div>
