@@ -283,10 +283,10 @@ window.GUEST_DATA = {
     ],
     // Avviso molto evidente, testo ufficiale — non modificare il significato.
     bigWarning: {
-      it: "Non svuotare, non spegnere e non modificare le impostazioni tecniche.",
-      en: "Do not drain, switch off or change the technical settings.",
-      es: "No vaciéis, no apaguéis ni modifiquéis los ajustes técnicos.",
-      fr: "Ne videz pas, n'éteignez pas et ne modifiez pas les réglages techniques."
+      it: "Non svuotare, non spegnere e non modificare le impostazioni tecniche. In caso di utilizzo improprio della vasca che renda necessari interventi straordinari di pulizia, sanificazione o ripristino, potranno essere addebitati agli ospiti i relativi costi documentati, nei limiti consentiti dalle condizioni di prenotazione e dalla normativa applicabile.",
+      en: "Do not drain, switch off or change the technical settings. If improper use of the hot tub requires additional cleaning, sanitisation or restoration, guests may be charged the associated documented costs, subject to the applicable booking terms and laws.",
+      es: "No vaciéis, no apaguéis ni modifiquéis los ajustes técnicos. En caso de uso indebido de la bañera de hidromasaje que requiera trabajos extraordinarios de limpieza, desinfección o puesta a punto, se podrán cobrar a los huéspedes los costes correspondientes debidamente documentados, dentro de los límites permitidos por las condiciones de reserva y la normativa aplicable.",
+      fr: "Ne videz pas, n'éteignez pas et ne modifiez pas les réglages techniques. En cas d'utilisation inappropriée du bain à remous nécessitant des interventions exceptionnelles de nettoyage, de désinfection ou de remise en état, les frais correspondants dûment justifiés pourront être facturés aux voyageurs, dans les limites autorisées par les conditions de réservation et la réglementation applicable."
     },
     // Messaggio WhatsApp precompilato per il pulsante "Problemi o dubbi?"
     whatsappProblemMessage: {
