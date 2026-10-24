@@ -155,6 +155,9 @@
   .hero-note{font-size:.88rem;color:#fff8f0;font-weight:600;margin:0;text-shadow:0 2px 8px rgba(0,0,0,.5);}
   .hero-link{font-size:.82rem;color:#fff8f0;font-weight:600;text-decoration:underline;text-underline-offset:3px;text-shadow:0 2px 8px rgba(0,0,0,.5);opacity:.82;margin:0;transition:opacity .2s;}
   .hero-link:hover{opacity:1;}
+  .hero-highlights{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;margin:0 0 36px;padding:0;list-style:none;}
+  .hero-highlights .hh-item{display:flex;align-items:center;gap:7px;font-weight:700;font-size:.85rem;color:var(--ink);white-space:nowrap;}
+  .hero-highlights .hh-item svg{width:15px;height:15px;stroke:var(--green);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 
   /* DIRECT BOOKING */
   .direct-book{background:var(--cream-deep);border-bottom:1px solid var(--line);padding:64px 0;}
@@ -356,6 +359,9 @@
   .hero-content{padding-bottom:22px;}
   .hero-content h1{font-size:2.05rem;}
   .hero-content p{font-size:1rem;margin-bottom:16px;}
+
+  .hero-highlights{justify-content:flex-start;gap:8px 18px;margin-bottom:28px;}
+  .hero-highlights .hh-item{font-size:.8rem;white-space:normal;}
 }
   .cta-row-single .hero-note{margin-bottom:0;}
 </style>
@@ -662,8 +668,8 @@
   <img src="images/home-veranda-naturale.jpg" alt="Véranda privée avec jacuzzi et salon extérieur">
   <div class="hero-content">
     <span class="eyebrow">Appartement — Rome</span>
-    <h1>Un havre de paix au cœur de l'est de Rome</h1>
-    <p>Quand Rome s'endort, votre véranda s'illumine : lumières tamisées, le jacuzzi rien que pour vous et le privilège de prendre votre temps.</p>
+    <h1>Votre évasion privée à Rome</h1>
+    <p>Jacuzzi privé, véranda à usage exclusif et une atmosphère pensée pour deux.</p>
     <div class="cta-row cta-row-single">
       <a class="btn btn-primary" href="/reserver/">Réserver</a>
       <p class="hero-note">Romantic Welcome ♡ inclus* avec la réservation directe.</p>
@@ -674,6 +680,11 @@
 
 <section class="direct-book">
   <div class="wrap">
+    <p class="hero-highlights">
+      <span class="hh-item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Jacuzzi privé</span>
+      <span class="hh-item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Véranda privée</span>
+      <span class="hh-item"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Idéal pour les couples</span>
+    </p>
     <div class="db-head">
       <h2>Réservez Directement avec Casa Lobelie</h2>
       <p class="db-subtitle">Réservez sur le site officiel et rendez votre séjour encore plus spécial.</p>
@@ -712,7 +723,7 @@
     <div>
       <span class="eyebrow">Bienvenue</span>
       <div class="rule"></div>
-      <h2>Un havre de paix, au cœur de l'est de Rome</h2>
+      <h2>Un refuge privé pour vraiment ralentir</h2>
       <p class="lead">
         Il y a des jours où Rome semble ne jamais finir : des rues à parcourir, des lieux à découvrir, des émotions à emporter avec soi.
       </p>
