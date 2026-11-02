@@ -35,7 +35,7 @@
 .ao-dash-head h2{margin:0;font-size:1.3rem;}
 .ao-logout{font-size:.82rem;font-weight:700;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;}
 .ao-res-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;margin-bottom:24px;}
-.ao-res-name{font-family:'Fraunces',serif;font-size:1.3rem;margin:0 0 4px;}
+.ao-res-name{font-family:var(--font-serif);font-size:1.3rem;margin:0 0 4px;}
 .ao-res-sub{color:var(--ink-soft);font-size:.88rem;margin:0 0 22px;}
 .ao-res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;list-style:none;margin:0;padding:0;}
 .ao-res-item dt{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin:0 0 4px;}
