@@ -205,6 +205,11 @@
   .hero-note{font-size:.88rem;color:var(--ink);font-weight:600;margin:0;}
   .hero-link{font-size:.82rem;color:var(--terracotta-deep);font-weight:600;text-decoration:underline;text-underline-offset:3px;opacity:.9;margin:0;transition:opacity .2s;}
   .hero-link:hover{opacity:1;}
+  /* Mobile-only dedicated Romantic Welcome block (see hero mobile reflow
+     below) - hidden by default, shown and styled only at <=600px. On
+     desktop/tablet the original inline note+link inside cta-row-single
+     remains the only copy, completely untouched. */
+  .hero-romantic-teaser{display:none;}
   .hero-highlights{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;margin:0 0 36px;padding:0;list-style:none;}
   .hero-highlights .hh-item{display:flex;align-items:center;gap:7px;font-weight:700;font-size:.85rem;color:var(--ink);white-space:nowrap;}
   .hero-highlights .hh-item svg{width:15px;height:15px;stroke:var(--green);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
@@ -467,10 +472,32 @@
   .stat-row{margin-top:22px;padding-top:18px;gap:16px 32px;}
   .welcome-grid{gap:36px;}
 
-  .hero{padding:28px 0 40px;}
-  .hero-text h1{font-size:2.15rem;}
-  .hero-text p{font-size:1rem;margin-bottom:16px;}
-  .hero-photo{aspect-ratio:4/3.6;border-radius:120px 120px 18px 18px;}
+  /* HERO MOBILE REFLOW (<=600px only; desktop/tablet hero is untouched
+     above this breakpoint). Visual order becomes: header, photo, eyebrow,
+     h1, subtitle, CTA button, then the Romantic Welcome teaser as its own
+     small block right below. Achieved purely by reordering the existing
+     hero-grid items (CSS `order`, same technique already used for the
+     mobile gallery reorder above) plus hiding/showing two already-existing
+     elements - no content duplication, no desktop-path changes. */
+  .hero{padding:18px 0 28px;}
+  .hero-photo{
+    order:-1;
+    width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    aspect-ratio:4/3.9;border-radius:120px 120px 0 0;
+  }
+  .hero-text .eyebrow{margin-bottom:6px;}
+  .hero-text h1{font-size:2.15rem;margin-bottom:.22em;}
+  .hero-text p{font-size:1rem;margin-bottom:12px;}
+  /* Hide the inline note+link in their original spot (still present,
+     untouched, for desktop/tablet) and show the dedicated block instead. */
+  .cta-row-single .hero-note,
+  .cta-row-single .hero-link{display:none;}
+  .hero-romantic-teaser{display:block;margin-top:20px;}
+  .hero-romantic-teaser__box{
+    background:var(--cream-deep);padding:14px 20px;border-radius:var(--radius-sm);
+  }
+  .hero-romantic-teaser .hero-note{display:block;margin-bottom:4px;}
+  .hero-romantic-teaser .hero-link{display:inline-block;}
 
   .hero-highlights{justify-content:flex-start;gap:8px 18px;margin-bottom:20px;}
   .hero-highlights .hh-item{font-size:.8rem;white-space:normal;}
@@ -834,6 +861,14 @@
     </div>
     <div class="hero-photo">
       <img src="images/home-veranda-naturale.jpg" alt="Veranda privata con vasca idromassaggio e salottino da esterno">
+    </div>
+  </div>
+  <div class="hero-romantic-teaser">
+    <div class="wrap">
+      <div class="hero-romantic-teaser__box">
+        <p class="hero-note">Romantic Welcome ♡ incluso* con prenotazione diretta.</p>
+        <a class="hero-link" href="servizi-extra.html#romantic-welcome">Scopri il Romantic Welcome</a>
+      </div>
     </div>
   </div>
 </section>
