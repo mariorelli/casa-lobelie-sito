@@ -195,7 +195,7 @@ main{padding-bottom:calc(96px + var(--safe-bottom));min-height:60vh;}
 }
 .btn:active{transform:scale(.97);}
 .btn svg{width:18px;height:18px;flex-shrink:0;}
-.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -6px rgba(33,27,23,.35);}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -6px rgba(13,74,120,.5);}
 .btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-2px);}
 .btn-ghost{background:var(--cream-deep);color:var(--terracotta-deep);}
 .btn-ghost:hover{background:var(--line);}
@@ -224,7 +224,7 @@ main{padding-bottom:calc(96px + var(--safe-bottom));min-height:60vh;}
   display:flex;align-items:flex-start;gap:14px;
   background:linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
   color:#fff;border-radius:var(--radius-lg);padding:20px 20px;margin:18px 0;
-  box-shadow:0 16px 32px -16px rgba(33,27,23,.35);
+  box-shadow:0 16px 32px -16px rgba(13,74,120,.5);
 }
 .relax-warning .icon-wrap{
   width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.18);flex-shrink:0;
@@ -291,8 +291,8 @@ details.accordion .accordion-body .btn{margin-top:2px;}
   background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:14px;
 }
 .place-card .badge{
-  display:inline-block;font-size:.68rem;font-weight:800;color:#fff;
-  background:var(--gold);padding:5px 11px;border-radius:20px;text-transform:uppercase;
+  display:inline-block;font-size:.68rem;font-weight:800;color:var(--terracotta-deep);
+  background:var(--cream-deep);padding:5px 11px;border-radius:20px;text-transform:uppercase;
   letter-spacing:.05em;margin-bottom:10px;
 }
 .place-card h3{font-size:1.05rem;margin-bottom:6px;}
@@ -321,8 +321,8 @@ details.accordion .accordion-body .btn{margin-top:2px;}
 }
 .rome-card .body{padding:18px;}
 .rome-card .badge{
-  display:inline-block;font-size:.68rem;font-weight:800;color:#fff;
-  background:var(--gold);padding:5px 11px;border-radius:20px;text-transform:uppercase;
+  display:inline-block;font-size:.68rem;font-weight:800;color:var(--terracotta-deep);
+  background:var(--cream-deep);padding:5px 11px;border-radius:20px;text-transform:uppercase;
   letter-spacing:.04em;margin-bottom:10px;
 }
 .rome-card h3{font-size:1.1rem;margin-bottom:6px;}
@@ -450,7 +450,7 @@ body.lang-gate-active main{min-height:0;padding-bottom:0;}
   background:var(--terracotta);color:#fff;border:1.5px solid transparent;cursor:pointer;
   font-family:var(--font-sans);
   font-weight:700;font-size:1.05rem;
-  box-shadow:0 10px 24px -6px rgba(33,27,23,.35);
+  box-shadow:0 10px 24px -6px rgba(13,74,120,.5);
   transition:transform .15s ease, background .2s ease;
 }
 .lang-gate-btn:active{transform:scale(.97);}
